@@ -1,16 +1,15 @@
 # Navigation and Template
+# Overview
 
-Overview
-========
 
 In traditional navigation, a user usually switches to different
 functions by visiting different pages of an application, a.k.a
 page-based navigation. In ZK, we can have another choice to design the
-navigation in AJAX-based where users don't need to visit different
+navigation in AJAX-based, and users don't need to visit different
 pages. In page-based navigation, users need to switch pages frequently,
 we should maintain a consistent page design throughout whole application
 to help users keep track of where they are. Luckily ZK provides
-**Templating** to keep multiple pages in the same style easily.
+**Template Injection** to keep multiple pages in the same style easily.
 
 In this chapter, the example application we are going to build looks as
 follows:
