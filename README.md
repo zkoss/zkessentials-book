@@ -8,8 +8,7 @@ page-based navigation. In ZK, we can have another choice to design the
 navigation in AJAX-based, and users don't need to visit different
 pages. In page-based navigation, users need to switch pages frequently,
 we should maintain a consistent page design throughout whole application
-to help users keep track of where they are. Luckily ZK provides
-**Template Injection** to keep multiple pages in the same style easily.
+to help users keep track of where they are. Luckily, since 8.0 ZK provides **Template Injection** to keep multiple pages in the same style easily.
 
 In this chapter, the example application we are going to build looks as
 follows:
