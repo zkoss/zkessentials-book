@@ -13,7 +13,7 @@ to help users keep track of where they are. Luckily, since 8.0 ZK provides **Tem
 In this chapter, the example application we are going to build looks as
 follows:
 
-![ ](images/ze-ch7-ajax-based.png  " center | 600px")
+![](images/ze-ch7-ajax-based.png)
 
 The sidebar is used for navigation control. The lower 4 menu items lead
 you to different functions and they only change the central area's
