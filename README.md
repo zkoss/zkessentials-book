@@ -89,14 +89,12 @@ that have similar contents but applying a template zul can reduce this problem.
 </div>
 
 <br/>
-To build a page-based navigation, first you should prepare corresponding pages for
-those items in the sidebar.
+To build a page-based navigation, first you should prepare corresponding pages for those items in the sidebar.
+
+From below image, you can see there are 4 zul pages which correspond
+to items in the sidebar under "chpater7\\pagebased" (index-profile-mvc.zul, index-profile-mvvm.zul, index-todolist-mvc.zul, index-todolist-mvvm.zul). Then we can link four items of the sidebar to these zul pages by redirecting a browser.
 
 ![](images/ze-ch7-pagebased.png)
-
-
-From above image, you can see there are four zul pages which correspond
-to items in the sidebar under "chpater7\\pagebased" (index-profile-mvc.zul, index-profile-mvvm.zul, index-todolist-mvc.zul, index-todolist-mvvm.zul). Then we can link four items of the sidebar to these zul pages by redirecting a browser.
 
 Next, we apply the template zul created before on those 4 pages. As you can see in previouse `template.zul`, in order to inject different content in the `<center>` area, we apply a template named `center` that is not declared in the `template.zul`. Therefore, We can decalre `center` template with different path to inject different content with the same layout.
 
@@ -147,7 +145,7 @@ public class SidebarPageConfigPagebasedImpl implements SidebarPageConfig{
 ```
 - Line 10\~17: Specify URL and related data for each menu item's configuration.
 
-The following codes show how to redirect a user to an independent page
+The following code shows how to redirect a user to an independent page
 when users click a menu item in the sidebar.
 
 **Controller for page-based navigation**
@@ -209,7 +207,7 @@ You will see the URL changes and whole page reloads each time you click
 a different menu item.
 
 
-# AJAX-based Navigation
+# AJAX-based Navigation - MVC approach
 
 When switching between different functions in paged-based navigation,
 you find that only central area's content is different among those pages
@@ -221,11 +219,10 @@ navigation way that only updates necessary part of a page instead of
 reloading the whole page.
 
 ![](images/ze-ch7-ajax-based-navigation.png)
-
 <div style="text-align:center">
 <strong>AJAX-based Navigation</strong>
-
 </div>
+
 The easiest way to implement AJAX-based navigation is to change `src`
 attribute of *Include* component. It can change only partial content of
 an page instead of redirecting to another page to achieve the navigation
@@ -234,17 +231,14 @@ group of components instead of whole page and therefore has faster
 response than page-based one. But it doesn't change a browser's URL when
 each time switching to a different function. However, if you want users
 can keep track of different functions with bookmark, please refer to [
-Browser History
-Management](ZK_Developer's_Reference/UI_Patterns/Browser_History_Management "wikilink").
+Browser History Management](ZK_Developer's_Reference/UI_Patterns/Browser_History_Management).
 
-We will use the same layout example to demonstrate AJAX-based
-navigation.
+We will demonstrate AJAX-based navigation with the same layout example.
 
 Below is the index page, its content is nearly the same as the index
-page of page based example except it replace `<include>` with `<apply>`.
+page of page based example except it replaces all `<include>` with `<apply>`.
 
 **chapter7/ajaxbased/index.zul**
-
 ```xml
 <?link rel="stylesheet" type="text/css" href="/style.css"?>
 <zk>
@@ -266,7 +260,19 @@ page of page based example except it replace `<include>` with `<apply>`.
 ```
 
 
-- Line : We give the component id for we can find it later with ZK selector.
+
+**Replace `<include>` with `<apply>`**
+
+As we don't need to dynamically change the path of those 3 areas (banner, side bar, footer), using `<apply>` is a better choice than `<include>`. Because `<apply>` create neither an extra `<div>` enclosin its content nor a id space. It's the main strength of using a shadow component that doesn't create a real component.
+
+
+**chapter7/ajaxbased/mainContent.zul**
+```xml
+<zk>
+	<include id="mainInclude"  src="/chapter7/ajaxbased/home.zul"/>
+</zk>
+```
+- Line 2: We give the component id for we can find it later with ZK selector.
 
 This navigation is mainly implemented by changing the `src` attribute of
 the *Include* component to switch between different zul pages so that it
@@ -275,7 +281,7 @@ still need to initialize sidebar configuration:
 
 **AJAX-based navigation's sidebar configuration**
 
-``` {.java}
+``` java
 public class SidebarPageConfigAjaxbasedImpl implements SidebarPageConfig{
 
     HashMap<String,SidebarPage> pageMap = new LinkedHashMap<String,SidebarPage>();
@@ -297,12 +303,12 @@ public class SidebarPageConfigAjaxbasedImpl implements SidebarPageConfig{
     header, sidebar, and footer, we can re-use those pages written in
     previous chapters.
 
-In the sidebar controller, we get the *Include* and change its `src`
+In the sidebar controller, we get the *Include* component and change its `src`
 according to the menu item's URL.
 
 **Controller for AJAX-based navigation**
 
-``` {.java}
+```java
 public class SidebarAjaxbasedController extends SelectorComposer<Component>{
 
     @Wire
@@ -373,12 +379,86 @@ public class SidebarAjaxbasedController extends SelectorComposer<Component>{
     the clicked menu item.
 
 Visit the
-<http://localhost:8080/essentials/chapter7/ajaxbased/index.zul> to see
+http://localhost:8080/essentials/chapter7/ajaxbased/index.zul to see
 the result.
 
-Source Code
-===========
 
+# AJAX-based Navigation - MVVM approach
+
+Surely we can also implement AJAX-based navigation in MVVM approach. Every page are quite similar with previous section. Just switch different pages with data binding.
+
+In this example, we modularize each page with an independent ViewModel. In order to communicate between sidebar and content area that are bound with different ViewModels, we need to use [global command binding](http://books.zkoss.org/zk-mvvm-book/8.0/data_binding/global_command_binding.html). You can treat it as a command binding mentioned in previous chapter, but it can invoke a command method declared in other ViewModels.
+
+The basic idea is: sidebar sends a global command when a user clicks an item then content area change *Include* component's `src` attribute to navigate pages.
+
+
+**chapter7/ajaxbased_mvvm/sidebar.zul**
+```xml
+    <rows>
+		<template name="model">
+			<row sclass="sidebar-fn" onClick="@global-command('onNavigate', page=each)">
+				<image src="@load(each.iconUri)"/>
+				<label value="@load(each.label)"/>
+			</row>
+		</template>
+	</rows>
+```
+- Line 3: Specify a global command binding and pass `SidebarPage` as a parameter
+
+
+**chapter7/ajaxbased_mvvm/mainContent.zul**
+```xml
+<zk>
+	<include id="mainInclude"
+		viewModel="@id('vm') @init('org.zkoss.essentials.chapter7.ajaxbased.mvvm.NavigationViewModel')"
+		src="@load(vm.includeSrc)" />
+</zk>
+```
+
+The code below demonstrate how to declare a global command method and receive a parameters.
+```java
+package org.zkoss.essentials.chapter7.ajaxbased.mvvm;
+
+import org.zkoss.bind.annotation.BindingParam;
+import org.zkoss.bind.annotation.GlobalCommand;
+import org.zkoss.bind.annotation.NotifyChange;
+import org.zkoss.essentials.services.SidebarPage;
+import org.zkoss.zk.ui.Executions;
+
+public class NavigationViewModel {
+
+	private String includeSrc = "/chapter7/ajaxbased/home.zul";
+
+	@GlobalCommand("onNavigate")
+	@NotifyChange("includeSrc")
+	public void onNavigate(@BindingParam("page") SidebarPage page) {
+		String locationUri = page.getUri();
+		String name = page.getName();
+
+		//redirect current url to new location
+		if(locationUri.startsWith("http")){
+			//open a new browser tab
+			Executions.getCurrent().sendRedirect(locationUri);
+		} else {
+			includeSrc = locationUri;
+
+			//advance bookmark control,
+			//bookmark with a prefix
+			if(name!=null){
+				Executions.getCurrent().getDesktop().setBookmark("p_"+name);
+			}
+		}
+	}
+
+	public String getIncludeSrc() {
+		return includeSrc;
+	}
+
+}
+```
+
+
+# Source Code
 -   [ZUL
     pages](https://github.com/zkoss/zkessentials/tree/master/src/main/webapp/chapter7)
 -   [Java](https://github.com/zkoss/zkessentials/tree/master/src/main/java/org/zkoss/essentials/chapter7)
