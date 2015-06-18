@@ -71,10 +71,11 @@ This tag will decalre a template named `layout` with its source zul path.
 
 ## 3. Apply the Template
 
-Then we can apply the template with `<apply>` and its name like:
+Then we can apply the template with `<apply>`, which is a *shadow component* introduced in ZK 8, and its name like:
 
 `<apply template="layout"/>`
 
+The shadow component which is like [shadow DOM](http://w3c.github.io/webcomponents/spec/shadow/) doesn't create a corresponding component on server side (and client side). It just injectc its components inside into current page.
 
 # Page-based Navigation
 
