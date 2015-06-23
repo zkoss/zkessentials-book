@@ -1,7 +1,14 @@
 # Summary
 
-* [Navigation and Template](README.md)
-   * [Navigation Menu](navigation_menu.md)
-* Intro
-   * pro
+* [Introduction](README.md)
+   * [Project Structure](project_structure.md)
+* [User Interface and Layout](user_interface_and_layout/README.md)
+* [Controlling Components](controlling_components/README.md)
+* [Handling User Input](handling_user_input/README.md)
+* [Implementing CRUD](implementing_crud/README.md)
+* [Shadow Components](navigation_menu.md)
+* [Navigation and Template](navigation_templating.md)
+* [Authentication](authentication/README.md)
+* [Spring Integration](spring_integration/README.md)
+* [JPA Integration](jpa_integration/README.md)
 
