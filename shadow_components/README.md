@@ -1,9 +1,10 @@
+# Shadow Components
 # Navigation Menu
 
-In addition to `<apply>`, there are other shadow components like `<if>`, `<choose>`, `<when>`, and `<forEach>`. Applying a layout template doesn't demonstrate actual power of shadow components. The most powerful part of shadow components is **making view snippet reusable**.
+ZK 8 introduce a new set of components: **shadow component**. The shadow component which is like [shadow DOM](http://w3c.github.io/webcomponents/spec/shadow/) doesn't create a corresponding component on server side (and client side). It just injectc its components inside into current page. Shadow components are `<if>`, `<choose>`, `<when>`, and `<forEach>`. Applying a layout template doesn't demonstrate actual power of shadow components. The most powerful part of shadow components is **making view snippet reusable**.
 
 We will demonstrate its power with a navigation menu example below:
-![](images/ze-ch7-menu.png)
+![](../images/ze-ch7-menu.png)
 
 The menu is made by templates contains shadow components, and it can render differents menu hierarchies without any change. You can switch 2 sets of menu hierarchy via radio group on the right hand side. This example demonstrates how to reuse a common view pattern.
 

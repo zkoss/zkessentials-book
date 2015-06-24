@@ -1,16 +1,12 @@
-Design the Layout
-=================
-
+# Design the Layout
 In the beginning, we will build the user interface which usually starts
 from designing the layout. ZK provides various components for different
 layout requirements, and you can even configure a component's attribute
 to adjust layout details.
 
-Layout Requirement
-------------------
+## Layout Requirement
 
-\
-![ center | 600px](Tutorial-ch3-page-layout.png  "fig: center | 600px")
+![](../images/ze-ch3-page-layout.png)
 
 The image above is the target layout we are going to create in this
 chapter and this kind of design is very common in web applications. The
@@ -26,15 +22,15 @@ Layout*[^2] fits the requirement most since it has 5 areas: north, west,
 center, east, and south. We can use the north as a banner, west as a
 sidebar, south as a footer, and the center as the main function display.
 
-![ center | 500px](Tutorial-ch3-borderlayout.png  " center | 500px")
+![](../images/ze-ch3-borderlayout.png)
 
 <div style="text-align:center">
 **Border Layout**
 
 </div>
-Build the View
-==============
 
+
+# Build the View
 Building the View in ZK is basically creating components and there are
 two ways to do it: **Java** (programatic) and **XML-based**
 (declarative) approach. You can even mix these two approaches.
@@ -214,7 +210,7 @@ aligned to the center.
 
 **chapter3/footer.zul**
 
-``` {.xml}
+```xml
 
 <div hflex="1" vflex="1" sclass="footer">
     <vbox hflex="1" vflex="1" align="center">
@@ -251,7 +247,7 @@ is visited. This usage is presented below:
 
 **chapter3/index.zul**
 
-``` {.xml}
+```xml
 
 <?link rel="stylesheet" type="text/css" href="/style.css"?>
 <zk>
@@ -284,21 +280,20 @@ see the result. Since we set welcome file to "index.zul" in web.xml,
 *<http://localhost:8080/essentials/chapter3/index.zul>* will be visited
 by default.
 
-Apply CSS
-=========
+# Apply CSS
 
 In addition to setting a component's attribute, we can also change a
 component's style by *CSS (Cascading Style Sheet)*. There are two
 attributes to apply CSS:
 
-1\. `style` attribute. Like style attribute on HTML element, you can
+1. `style` attribute. Like style attribute on HTML element, you can
 directly write CSS syntax as the attribute's value.
 
 ``` {.xml}
 <label value="Chapter 3" style="font-weight: bold;"/>
 ```
 
-2\. `sclass` attribute. You should specify a CSS class selector name as
+2. `sclass` attribute. You should specify a CSS class selector name as
 the attribute value.
 
 ``` {.xml}
@@ -308,7 +303,7 @@ the attribute value.
 To use a CSS class selector, you should define it first in a ZUL. There
 are 2 ways to define a CSS class selector.
 
-1\. `<style>` tag.
+1. `<style>` tag.
 
 ``` {.xml}
 
@@ -324,7 +319,7 @@ are 2 ways to define a CSS class selector.
 </zk>
 ```
 
-2\. `<?link ?>` directive. It can link to a external style sheet which
+2. `<?link ?>` directive. It can link to a external style sheet which
 can apply to many pages. We use this way in the example to define CSS.
 
 ``` {.xml}
@@ -334,23 +329,14 @@ can apply to many pages. We use this way in the example to define CSS.
     ...
 </zk>
 ```
+# Source Code
 
-References
-==========
-
-<references/>
-Source Code
-===========
 
 -   [ZUL
     pages](https://github.com/zkoss/zkessentials/tree/master/src/main/webapp/chapter3)
 
-[^1]: [ZK Demo Layout](http://www.zkoss.org/zkdemo/layout). ZK releases
-    multiple editions. Some layout components are only available in a
-    specific edition, please refer to [Feature &
-    Edition](http://www.zkoss.org/whyzk/features)
+[^1]: [ZK Demo Layout](http://www.zkoss.org/zkdemo/layout). ZK releases multiple editions. Some layout components are only available in a specific edition, please refer to [Feature & Edition](http://www.zkoss.org/whyzk/features)
 
-[^2]: [Border Layout
-    Demo](http://www.zkoss.org/zkdemo/layout/border_layout)
+[^2]: [Border Layout Demo](http://www.zkoss.org/zkdemo/layout/border_layout)
 
-[^3]: [ZK Component Reference](ZK Component Reference "wikilink")
+[^3]: [ZK Component Reference](ZK Component Reference)

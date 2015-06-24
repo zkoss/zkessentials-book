@@ -1,14 +1,9 @@
-\_\_TOC\_\_
+# Controlling Components
 
-ZK's components are not only for constructing the user interface, we
-even can control them. In this chapter, we continue to use the last
-chapter's example but we will remove the 3 items with hyper links in the
-sidebar and replace them with a redirecting action. To achieve this, we
-will write code in Java for each item to respond to a user's clicking
-and redirect the user to an external site.
+We can contruct the user interfacw with ZK components but also control them. In this chapter, we continue to use the previous chapter's example, but we will remove the 3 items with hyper links in the sidebar and replace them with a redirecting action. To achieve this, we will write code in Java for each item to respond to a user's clicking and redirect the user to an external site.
 
-In Zscript
-==========
+
+# In Zscript
 
 The simplest way to respond to a user's clicking is to write an event
 listener method and invoke it in the `onClick` attribute. We can define
@@ -22,7 +17,7 @@ environment, *we don't recommend to use it in production environment*.
 
 **Event listener redirect()**
 
-``` {.xml}
+```xml
 <grid hflex="1" vflex="1" sclass="sidebar">
     <zscript><![CDATA[
         //zscript code, it runs on server site, use it for fast prototyping
@@ -46,8 +41,7 @@ environment, *we don't recommend to use it in production environment*.
 -   Line 2: It's better to enclose your code with `<![CDATA[ ]]>`.
 -   Line 11: Define an event listener method like a normal Java method
     and it redirects a browser according to the passed variable.
--   Line 14: The [
-    execution](ZUML_Reference/EL_Expressions/Implicit_Objects/execution "wikilink")
+-   Line 14: The [execution](http://books.zkoss.org/wiki/ZUML%20Reference/EL%20Expressions/Implicit%20Objects%20(Predefined%20Variables)
     is a implicit variable which you can use it directly without
     declaration. It represents an execution of a client request that
     holds relevant information.
@@ -58,7 +52,7 @@ when clicking a *Row*.
 
 **Invoke event listeners at "onClick"**
 
-``` {.xml}
+```xml
 <grid>
     ...
     <rows>
@@ -82,31 +76,30 @@ This approach is very simple and fast, so it is especially suitable for
 building a prototype. However, if you need a better architecture for
 your application, you had better not use ZScript.
 
-In Controller
-=============
 
+#In Controller
 In this section, we will demonstrate how to redirect users to an
 external site with **event listeners** in a **Controller** when they
 click an item in the sidebar.
 
 The most commonly used architecture in web applications is *MVC
 (Model-View-Controller)* which separates an application into 3 parts.
-The Model is responsible for exposing data while performing business
-logic which is usually implemented by users, and the View is responsible
-for displaying data which is what ZUL does. The Controller can change
+The *Model* is responsible for exposing data while performing business
+logic which is usually implemented by users, and the *View* is responsible
+for displaying data which is what ZUL does. The *Controller* can change
 the View's presentation and handle events from the View. The benefit of
 designing an application in MVC architecture is that your application is
 more modularized.
 
-In ZK world, a <javadoc>org.zkoss.zk.ui.util.Composer</javadoc> plays
+In ZK world, a `org.zkoss.zk.ui.util.Composer` plays
 the same role as the Controller and you can assign it to a target
 component. Through the composer, you can listen events of the target
 component and manipulate target component's child components to change
 View's presentation according to your requirement. To create a
 Controller in ZK you simply create a class that inherits
-<javadoc>org.zkoss.zk.ui.select.SelectorComposer</javadoc>.
+`org.zkoss.zk.ui.select.SelectorComposer`.
 
-``` {.java}
+```java
 public class SidebarChapter4Controller extends SelectorComposer<Component>{
     //other codes...
 }
@@ -119,7 +112,7 @@ controller.
 
 **chapter4/sidebar.zul**
 
-``` {.xml}
+```xml
 <grid hflex="1" vflex="1" sclass="sidebar"
     id="fnList"
     apply="org.zkoss.essentials.chapter4.SidebarChapter4Controller">
@@ -138,18 +131,17 @@ controller.
     add an event listener programmatically on each *Row* in the
     composer.
 
-Wire Components
----------------
 
+## Wire Components
 To control a component, we must retrieve it first. In
-<javadoc>org.zkoss.zk.ui.select.SelectorComposer</javadoc>, when you
+`org.zkoss.zk.ui.select.SelectorComposer`, when you
 specify a `@Wire` annotation on a field or setter method, the
 SelectorComposer will automatically find the component and assign it to
 the field or pass it into the setter method. By default
 `SelectorComposer` will find the component whose id and type both equal
 to the variable name and type respectively.
 
-``` {.java}
+```java
 public class SidebarChapter4Controller extends SelectorComposer<Component>{
 
     //wire components
@@ -163,20 +155,19 @@ public class SidebarChapter4Controller extends SelectorComposer<Component>{
 -   Line 4,5 : SelectorComposer looks for a *Grid* whose id is "fnList"
     and assign it to the variable `fnList`.
 
-Initialize the View
--------------------
 
+## Initialize the View
 It is very common that we need to initialize components when a zul file
 is loaded. In our example, we need to create *Row*s of the *Grid* for
 the sidebar, therefore we should override a [ composer life-cycle
-method](ZK_Developer%27s_Reference/MVC/Controller/Composer#Lifecycle "wikilink")
+method](http://books.zkoss.org/wiki/ZK%20Developer's%20Reference/MVC/Controller/Composer#Lifecycle)
 `doAfterCompose(Component)`. The passed argument, `comp`, is the
 component that the composer applies to, which in our example is the
 *Grid*. This method will be called after all the child components under
 the component which has the composer applied to it are created, so we
 can change components' attributes or even create other components in it.
 
-``` {.java}
+``` java
 public class SidebarChapter4Controller extends SelectorComposer<Component>{
 
     //wire components
@@ -212,10 +203,9 @@ public class SidebarChapter4Controller extends SelectorComposer<Component>{
     *Row*s with event listeners and put them into *Grid*. We will
     discuss them in next section.
 
-Events & Event Listeners
-------------------------
+# Events & Event Listeners
 
-A ZK event (<javadoc>org.zkoss.zk.event.Event</javadoc>) is an
+A ZK event (`org.zkoss.zk.event.Event`) is an
 abstraction of an activity made by user, a notification made by an
 application, and an invocation of server push. For example, a user
 clicks a button on the browser, this will trigger `onClick` sent to the
@@ -224,8 +214,8 @@ server. If there is an event listener registered for the button's
 The event-listener mechanism allows us to handle all user interaction at
 server side.
 
-Create Components & Event Listeners Programmatically
-----------------------------------------------------
+
+## Create Components & Event Listeners Programmatically
 
 Manipulating components is the most powerful feature of ZK. You can
 change the user interface by creating, removing, or changing components
@@ -242,7 +232,7 @@ create a component:
 In `constructSidebarRow()` method, we create *Row*s and add an event
 listener to each of them.
 
-``` {.java}
+```java
 public class SidebarChapter4Controller extends SelectorComposer<Component>{
 
     //...
@@ -322,12 +312,10 @@ public class SidebarChapter4Controller extends SelectorComposer<Component>{
 In Line 28 \~ 36, those codes work equally to writing in a zul as
 follows:
 
-``` {.xml}
-
+```xml
 <row sclass="sidebar-fn">
     <image/><label/>
 </row>
-
 ```
 
 After completing above steps, when a user clicks a *Row* on the sidebar,
@@ -335,10 +323,8 @@ ZK will call a corresponding `actionListener ` then the browser will be
 redirected to a specified URL. You can see the result via
 *<http://localhost:8080/essentials/chapter4>*.
 
-Source Code
-===========
+# Source Code
 
--   [ZUL
-    pages](https://github.com/zkoss/zkessentials/tree/master/src/main/webapp/chapter4)
+-   [ZUL pages](https://github.com/zkoss/zkessentials/tree/master/src/main/webapp/chapter4)
 -   [Java](https://github.com/zkoss/zkessentials/tree/master/src/main/java/org/zkoss/essentials/chapter4)
 

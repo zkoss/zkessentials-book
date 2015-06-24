@@ -39,7 +39,7 @@ We don't create new examples in this chapter, but we re-organize some
 classes. You can see from the image below. We move all service class
 implementations to the package `org.zkoss.essentials.services.impl`.
 
-![ center | 350px](Tutorial-ch9-source.png  " center | 350px")
+![ center | 350px](../images/ze-ch9-source.png  " center | 350px")
 
 Configuration
 =============

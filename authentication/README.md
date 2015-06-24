@@ -5,12 +5,12 @@ In this chapter, we will demonstrate how to implement authentication and
 protect your pages from illegal access. We will create a login page
 without a sidebar as follows:
 
-![ center | 600px](Tutorial-ch8-login.png  " center | 600px")
+![ center | 600px](../images/ze-ch8-login.png  " center | 600px")
 
 After login, we redirect users to the index page and display the user
 name on the right side of the header.
 
-![ center | 600px](Tutorial-ch8-index.png  " center | 600px")
+![ center | 600px](../images/ze-ch8-index.png  " center | 600px")
 
 Authentication & Session
 ========================

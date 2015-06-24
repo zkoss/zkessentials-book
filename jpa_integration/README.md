@@ -56,7 +56,7 @@ different branch in the github: **chapter10**.
 We don't create new examples in this chapter, but we add 2 DAO classes
 written in JPA under the package `org.zkoss.essentials.services.impl`.
 
-![ center](Tutorial-ch10-source.png  " center")
+![ center](../images/ze-ch10-source.png  " center")
 
 Configuration
 =============
@@ -362,7 +362,7 @@ public class TodoListServiceImpl implements TodoListService {
 Completing the above steps, we have created a dependency relationship
 among the controller, service, and persistence classes as follows:
 
-![ center ](Tutorial-ch10-dependencies.png  " center ")
+![](../images/ze-ch10-dependencies.png  " center ")
 
 Each of these classes encapsulates cohesive functions and has decoupled
 relationships with others. You can easily expand the architecture by
