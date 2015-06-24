@@ -1,5 +1,4 @@
-ZK's Value and Strength
-=======================
+# ZK's Value and Strength
 
 ZK is a component-based UI framework that enables you to build Rich
 Internet Application (*RIA*) and mobile applications without having to
@@ -20,17 +19,11 @@ pattern, MVVM (Model-View-ViewModel) [^3] which gives the Controller and
 View more separation. These two approaches are mutually interchangeable,
 and you can choose one of them upon your architectural consideration.
 
-Architecture of ZK
-==================
 
-\
- ![ center |
-500px](tutorial-ch1-simple-architecture.png  "fig: center | 500px")
+# Architecture of ZK
 
-<div style="text-align:center">
-**Simple Architecture**
+ ![ ](images/ze-ch1-simple-architecture.png)
 
-</div>
 Above image is a simplified ZK architecture. When a browser visits a
 page of a ZK application, ZK creates components written in ZUL and
 renders them on the browser. You can manipulate components by your
@@ -44,8 +37,7 @@ like Spring or Hibernate. Moreover, ZK also supports client-centric
 development that allows you to customize visual effect, or handle user
 actions at client side.
 
-About This Book
-===============
+# About This Book
 
 This book presents key concepts and suggested usage of ZK from the
 perspective of building a web application. Each chapter has a main
@@ -98,11 +90,10 @@ icon and its title, and the footer at the bottom contains general
 information. The central area displays the current main function. You
 must login before you can access other functions.
 
-![ center | 600px](Tutorial-ch8-login.png  " center | 600px")
+![](images/ze-ch8-login.png)
 
 <div style="text-align:center">
-**Example application - login**
-
+<strong>Example application - login</strong>
 </div>
 After login, you can see the main page. The sidebar on the left is a
 navigation bar that allows you to switch between different functions.
@@ -110,7 +101,7 @@ The upper three items lead you to external sites. There are 2 main
 functions, profile and todo list management, which are implemented by
 both the MVC and MVVM approach.
 
-![ center | 600px](Tutorial-ch1-profile.png  " center | 600px")
+![](images/ze-ch1-profile.png)
 
 <div style="text-align:center">
 **Example application - profile form**
@@ -119,14 +110,13 @@ both the MVC and MVVM approach.
 The image below shows the Todo list management function, you can create,
 delete, and update a todo item.
 
-![ center | 600px](Tutorial-ch1-todo.png  " center | 600px")
+![](images/ze-ch1-todo.png)
 
 <div style="text-align:center">
-**Example application - todo list**
-
+<strong>Example application - todo list</strong>
 </div>
-References
-==========
+# References
+
 
 <references/>
 
