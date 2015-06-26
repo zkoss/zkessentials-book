@@ -25,7 +25,7 @@ sidebar, south as a footer, and the center as the main function display.
 ![](../images/ze-ch3-borderlayout.png)
 
 <div style="text-align:center">
-**Border Layout**
+<strong>Border Layout</strong>
 
 </div>
 
@@ -45,9 +45,8 @@ Markup Language (ZUML). Each XML element instructs ZK Loader to create a
 component. Each XML attribute describes what value to be assigned to the
 created component. We will use this approach mainly in our example.
 
-Write a ZUL
------------
 
+## Write a ZUL
 To create a component in ZK, we need to use a XML-based language named
 **ZUL** and all files written in ZUL should have the file extension
 "**.zul**". In zul files, one component can be represented as an XML
@@ -57,7 +56,7 @@ new text file with name *index.zul*, and type the following content:
 
 **Extracted from chapter3/index.zul**
 
-``` {.xml}
+```xml
 <zk>
     <borderlayout hflex="1" vflex="1">
         <north height="100px" border="none" >
@@ -102,10 +101,10 @@ new text file with name *index.zul*, and type the following content:
 
 Then, you can view the result from your browser as below:
 
-![ center | 500px](Tutorial-ch3-layout.png  " center | 500px")
+![ ](../images/ze-ch3-layout.png)
 
-Construct User Interface with Components
-========================================
+
+# Construct User Interface with Components
 
 Now we have a skeleton of the application, the next we need to do is to
 fill each area with components. We will create a separate zul file for
@@ -113,7 +112,7 @@ each area and then combine them together.
 
 **chapter3/main.zul**
 
-``` {.xml}
+```xml
             <vbox vflex="1" hflex="1" align="center"
                     pack="center" spacing="20px" >
                 <image src="/imgs/zklogo2.png" />
@@ -129,7 +128,7 @@ Let's see how to construct these elements with existing ZK components:
 
 **chapter3/banner.zul**
 
-``` {.xml}
+```xml
 <div hflex="1" vflex="1" sclass="banner">
     <hbox hflex="1" vflex="1" align="center">
         <a href="http://www.zkoss.org/">
@@ -170,7 +169,7 @@ suitable for arranging child components in a matrix layout.
 
 **chapter3/sidebar.zul**
 
-``` {.xml}
+```xml
 <grid hflex="1" vflex="1" sclass="sidebar">
     <columns>
         <column width="36px"/>
@@ -235,8 +234,7 @@ aligned to the center.
 Next, we will combine these separated zul pages into
 `chapter3/index.zul`.
 
-Include a Separate Page
-=======================
+## Include a Separate Page
 
 To complete the page, we need to put those individual pages into
 corresponding area of the *Border Layout*.
@@ -289,14 +287,14 @@ attributes to apply CSS:
 1. `style` attribute. Like style attribute on HTML element, you can
 directly write CSS syntax as the attribute's value.
 
-``` {.xml}
+```xml
 <label value="Chapter 3" style="font-weight: bold;"/>
 ```
 
 2. `sclass` attribute. You should specify a CSS class selector name as
 the attribute value.
 
-``` {.xml}
+```xml
 <div sclass="banner">
 ```
 
@@ -305,7 +303,7 @@ are 2 ways to define a CSS class selector.
 
 1. `<style>` tag.
 
-``` {.xml}
+```xml
 
 <zk>
     <style>
@@ -322,7 +320,7 @@ are 2 ways to define a CSS class selector.
 2. `<?link ?>` directive. It can link to a external style sheet which
 can apply to many pages. We use this way in the example to define CSS.
 
-``` {.xml}
+```xml
 
 <?link rel="stylesheet" type="text/css" href="/style.css"?>
 <zk>
