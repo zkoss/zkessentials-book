@@ -150,21 +150,19 @@ Let's see how to construct these elements with existing ZK components:
     which is a layout component can arrange its child components in a
     row horizontally. Its `align` attribute controls the vertical
     alignment.
--   Line 3: The [
-    `A`](ZK%20Component%20Reference/Essential%20Components/A "wikilink")
-    creates a hyperlink the same as an HTML <a> element.
--   Line 4: The [
-    *Image*](ZK%20Component%20Reference/Essential%20Components/Image "wikilink")
-    is similar to HTML <img> which can display an image.
+-   Line 3: The [`A`](ZK%20Component%20Reference/Essential%20Components/A)
+    creates a hyperlink the same as an HTML `<a>` element.
+-   Line 4: The [*image*](ZK%20Component%20Reference/Essential%20Components/Image)
+    is similar to HTML `<img>` which can display an image.
 -   Line 9: The `pack` controls the horizontal alignment. We specify
-    "end" on both `pack` and `align` to make the text "Anonymous"
+    `end` on both `pack` and `align` to make the text "Anonymous"
     display at the bottom right corner.
 -   Line 10: Here we still don't implement authentication yet, so we use
     static user name "Anonymous" here.
 
 For the sidebar, we want to arrange navigation items one by one
 vertically. There are more than one way to achieve this. Here, we use a
-[ *Grid*](ZK%20Component%20Reference/Data/Grid "wikilink") which is
+[ *Grid*](ZK%20Component%20Reference/Data/Grid) which is
 suitable for arranging child components in a matrix layout.
 
 **chapter3/sidebar.zul**
