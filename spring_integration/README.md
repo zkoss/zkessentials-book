@@ -1,5 +1,4 @@
-Overview
-========
+# Spring Integration
 
 The Spring Framework is a popular application development framework for
 enterprise Java. One key element is its infrastructural support: a
@@ -12,7 +11,7 @@ and calls B's method, we say that A depends on B. In examples of
 previous chapters, we create this dependency by instantiating B class in
 A class as follows:
 
-``` {.java}
+```java
 public class ProfileViewController extends SelectorComposer<Component>{
 
     AuthenticationService authService = new AuthenticationServiceChapter8Impl();
@@ -26,26 +25,25 @@ Spring can help us manage these dependencies without instantiating
 dependent classes manually. In this chapter, we won't create new example
 applications but will make previous examples integrate with Spring.
 
-Source Code
-===========
 
-As we mentioned in the Chapter 2, our source code has [ 3
-branches](Tutorial/Chapter_2:_Project_Structure#Source_Code "wikilink")
+# Source Code
+
+As we mentioned in the Introduction, our source code has [ 3
+branches](../project_structure.md)
 in github. The source code of this chapter's example belongs to the
-branch: **chapter9**. You can select the "chapter9" branch and click
+branch: **chapter8**. You can select the "chapter8" branch and click
 "zip" icon to download as a zip.
 
 We don't create new examples in this chapter, but we re-organize some
 classes. You can see from the image below. We move all service class
 implementations to the package `org.zkoss.essentials.services.impl`.
 
-![ center | 350px](../images/ze-ch9-source.png  " center | 350px")
+![](../images/ze-ch9-source.png  " center | 350px")
 
-Configuration
-=============
 
-Maven
------
+# Configuration
+
+## Maven
 
 In order to integrate our ZK application with Spring, we must add
 dependencies for Spring. The cglib is an optional dependency and we add
@@ -53,7 +51,7 @@ it because our application uses Spring's scoped-proxy that requires it.
 
 **Extracted from pom.xml**
 
-``` {.xml}
+```xml
 <properties>
     <zk.version>6.5.1</zk.version>
     <maven.build.timestamp.format>yyyy-MM-dd</maven.build.timestamp.format>
@@ -74,15 +72,15 @@ it because our application uses Spring's scoped-proxy that requires it.
     </dependency>
 ```
 
-Deployment Descriptor
----------------------
+
+## Deployment Descriptor
 
 The deployment descriptor (web.xml) also needs two more listeners from
 Spring.
 
 **Extracted from web.xml**
 
-``` {.xml}
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 
 <web-app version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee"
@@ -129,7 +127,7 @@ detect and register those class with annotation as beans automatically.
 
 **WEB-INF/applicationContext.xml**
 
-``` {.xml}
+```xml
 <beans xmlns="http://www.springframework.org/schema/beans"
     xmlns:context="http://www.springframework.org/schema/context"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -146,12 +144,12 @@ detect and register those class with annotation as beans automatically.
 
 -   Line 10: This configuration enables classpath scanning. Spring will
     automatically detect those classes with Spring bean annotations and
-    register them in bean definitions. For `base-package`, you should
-    specify a common parent package or a comma-separated list that
-    includes all candidate classes.
+    register them in bean definitions. You should
+    specify a common parent package or a comma-separated package list that
+    includes all candidate classes at `base-package` attribute.
 
-Register Spring Beans
-=====================
+
+# Register Spring Beans
 
 Starting from 2.0, Spring provides an option to detect beans by scanning
 the classpath. Developers can use annotations (e.g. `@Component`) to
@@ -175,7 +173,7 @@ Developer's Reference/Integration/Middleware
 Layer/Spring](ZK_Developer%27s_Reference/Integration/Middleware_Layer/Spring "wikilink")
 )
 
-``` {.java}
+```java
 @Service("authService")
 @Scope(value="singleton",proxyMode=ScopedProxyMode.TARGET_CLASS)
 public class AuthenticationServiceImpl implements AuthenticationService,Serializable{
@@ -212,7 +210,7 @@ Reference](ZK_Developer%27s_Reference/Integration/Middleware_Layer/Spring "wikil
 
 **Wire beans in a composer**
 
-``` {.java}
+```java
 @VariableResolver(org.zkoss.zkplus.spring.DelegatingVariableResolver.class)
 public class SidebarChapter4Controller extends SelectorComposer<Component>{
 
@@ -234,7 +232,7 @@ public class SidebarChapter4Controller extends SelectorComposer<Component>{
 
 **Wire beans in a ViewModel**
 
-``` {.java}
+```java
 @VariableResolver(org.zkoss.zkplus.spring.DelegatingVariableResolver.class)
 public class ProfileViewModel implements Serializable{
     private static final long serialVersionUID = 1L;
@@ -258,7 +256,7 @@ not wire Spring beans for you automatically. If you need to get a Spring
 bean, you can wire them manually. The example below wires a Spring bean
 in a page initiator:
 
-``` {.java}
+```java
 @VariableResolver(org.zkoss.zkplus.spring.DelegatingVariableResolver.class)
 public class AuthenticationInit implements Initiator {
 
