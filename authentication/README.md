@@ -1,19 +1,18 @@
-Target Application
-==================
+# Target Application
 
 In this chapter, we will demonstrate how to implement authentication and
 protect your pages from illegal access. We will create a login page
 without a sidebar as follows:
 
-![ center | 600px](../images/ze-ch8-login.png  " center | 600px")
+![](../images/ze-ch8-login.png)
 
 After login, we redirect users to the index page and display the user
 name on the right side of the header.
 
-![ center | 600px](../images/ze-ch8-index.png  " center | 600px")
+![](../images/ze-ch8-index.png)
 
-Authentication & Session
-========================
+
+# Authentication & Session
 
 Before proceeding to implement the authentication function, we have to
 understand a "session" first. A web application operates over HTTP
@@ -31,7 +30,7 @@ which session the request belongs to.
 
 In a Java EE environment, an application server creates a
 `javax.servlet.http.HttpSession` object to track client's session. ZK's
-<javadoc>org.zkoss.zk.ui.Session</javadoc> is a wrapper of
+`org.zkoss.zk.ui.Session` is a wrapper of
 `HttpSession`, you can use it to store user's data when you handle
 events. The usage:
 
@@ -51,23 +50,23 @@ by the request session. Additionally, we can't tell whether a request
 comes from an authenticated user by checking a user's credentials in the
 request's session.
 
-Secure Your Pages
-=================
+
+# Secure Your Pages
 
 Even if you have setup an authentication mechanism, a user still can
 access a page if he knows the page's URL. Therefore, we should protect a
 page from illegal access by checking user's credentials in his session
 when a page is requested by a user.
 
-Authentication Service
-----------------------
+
+##Authentication Service
 
 We can implement a service class that performs the authentication
 operations.
 
 **Get user credentials**
 
-``` {.java}
+```java
 public class AuthenticationServiceChapter5Impl implements AuthenticationService,Serializable{
 
 
@@ -89,7 +88,7 @@ public class AuthenticationServiceChapter5Impl implements AuthenticationService,
 
 **Log in/ log out**
 
-``` {.java}
+```java
 public class AuthenticationServiceChapter8Impl extends AuthenticationServiceChapter5Impl{
 
 
@@ -127,12 +126,12 @@ public class AuthenticationServiceChapter8Impl extends AuthenticationServiceChap
     future.
 -   Line 26: Remove the stored user credentials in the session.
 
-Page Initialization
--------------------
+
+## Page Initialization
 
 ZK allows you to [ initialize a zul
-page](ZK Developer%27s Reference/UI Patterns/Page Initialization "wikilink")
-by implementing an <javadoc>org.zkoss.zk.ui.util.Initiator</javadoc>.
+page](http://books.zkoss.org/wiki/ZK%20Developer's%20Reference/UI%20Patterns/Page%20Initialization)
+by implementing an `org.zkoss.zk.ui.util.Initiator`.
 When we apply an initiator to a zul, ZK will use it to perform
 initialization before creating components.
 
@@ -142,7 +141,7 @@ illegal request and redirect it back to login page.
 
 **Page initiator to check a user's credentials**
 
-``` {.java}
+```java
 public class AuthenticationInit implements Initiator {
 
     //services
@@ -160,7 +159,7 @@ public class AuthenticationInit implements Initiator {
 ```
 
 -   Line 1, 6: A page initiator class should implement
-    <javadoc>org.zkoss.zk.ui.util.Initiator</javadoc> and override
+    `org.zkoss.zk.ui.util.Initiator` and override
     `doInit()`.
 -   Line 8: Get a user's credentials from current session.
 -   Line 10: Redirect users back to login page.
@@ -170,37 +169,34 @@ from unauthenticated access.
 
 **chapter8/index.zul**
 
-``` {.xml}
+```xml
 <?link rel="stylesheet" type="text/css" href="/style.css"?>
 <!-- protect page by the authentication init  -->
 <?init class="org.zkoss.essentials.chapter8.AuthenticationInit"?>
 <!-- authentication init have to locate before composition -->
 <?init class="org.zkoss.zk.ui.util.Composition" arg0="/chapter8/layout/template.zul"?>
 
-<zk>
-    <include id="mainInclude" self="@define(content)" src="/chapter8/home.zul"/>
-</zk>
 ```
 
 -   Line 3: Because index.zul is the main page, we apply this page
     initiator on it.
 
 After above steps are complete, if you directly visit
-<http://localhost:8080/essentials/chapter8/index.zul> without successful
-authentication, you still see the login page.
+`http://localhost:8080/essentials/chapter8/index.zul` without successful
+authentication, you will be redirected to the login page.
 
-The "if" Attribute
-------------------
+
+## The "if" Attribute
 
 We can use an EL expression in the [ `if`
-attribute](ZUML_Reference/ZUML/Attributes/if "wikilink") to determine a
+attribute](http://books.zkoss.org/wiki/ZUML%20Reference/ZUML/Attributes/if) to determine a
 component's creation according to a user's credentials in the session.
-If the evaluation result of the EL expression is true, the component
+If the EL expression's evaluation result is true, the component
 will show otherwise the component will not be created.
 
 **chapter8/layout/template.zul**
 
-``` {.xml}
+```xml
 
 <zk>
     <!-- create only when the currentUser is not an anonymous  -->
@@ -214,24 +210,23 @@ will show otherwise the component will not be created.
 </zk>
 ```
 
--   Line 3,4,7: [
-    sessionScope](ZUML_Reference/EL_Expressions/Implicit_Objects/sessionScope "wikilink")
+-   Line 3,4,7: [`sessionScope`](http://books.zkoss.org/wiki/ZUML%20Reference/EL_Expressions/Implicit_Objects/sessionScope)
     is an implicit variable that allows you to access session's
-    attributes. The *Borderlayout* is only created when userCredential
+    attributes. The *Borderlayout* is only created when `userCredential`
     is not anonymous, otherwise it shows the *Div* for redirect.
 
-Login
-=====
+
+# Login
 
 It is a common way to request an account and a password for
 authentication. We create a login page to collect user's account and
-password and the login page also uses a template zul to keep a
+password, and the login page also uses a template zul to keep a
 consistent style with the index page. However, it has no sidebar because
 users, without logging in, should not be able to access main functions.
 
 **chapter8/layout/template-anonymous.zul**
 
-``` {.xml}
+```xml
 <zk>
     <!-- free to access template, without sidebar  -->
     <borderlayout hflex="1" vflex="1">
@@ -258,7 +253,7 @@ all users, so we don't have to apply `AuthenticationInit`.
 
 **chapter/8/login.zul**
 
-``` {.xml}
+```xml
 <?link rel="stylesheet" type="text/css" href="/style.css"?>
 <!-- it is a login page, no authentication protection and use anonymous template -->
 <?init class="org.zkoss.zk.ui.util.Composition"
@@ -311,7 +306,7 @@ session.
 
 **Controller used in chapter8/login.zul**
 
-``` {.java}
+```java
 
 public class LoginController extends SelectorComposer<Component> {
 
@@ -355,7 +350,7 @@ use EL to get a user's account from `UserCredential` in the session.
 
 **chapter8/layout/banner.zul**
 
-``` {.xml}
+```xml
 
 <div hflex="1" vflex="1" sclass="banner">
     <hbox hflex="1" vflex="1" align="center">
@@ -389,7 +384,7 @@ label in the banner can log you out.
 
 **chpater8/layout/banner.zul**
 
-``` {.xml}
+```xml
 <div hflex="1" vflex="1" sclass="banner" >
     <hbox hflex="1" vflex="1" align="center">
         <!-- other components -->
@@ -410,7 +405,7 @@ label in the banner can log you out.
 
 **LogoutController.java**
 
-``` {.java}
+```java
 
 public class LogoutController extends SelectorComposer<Component> {
 
@@ -429,10 +424,10 @@ public class LogoutController extends SelectorComposer<Component> {
 -   Line 9: Redirect users to login page.
 
 After completing the above steps, you can visit
-<http://localhost:8080/essentials/chapter8> to see the result.
+`http://localhost:8080/essentials/chapter8` to see the result.
 
-Source Code
-===========
+
+# Source Code
 
 -   [ZUL
     pages](https://github.com/zkoss/zkessentials/tree/master/src/main/webapp/chapter8)
