@@ -63,7 +63,9 @@ Creating a template zul is nothing different from creating a ordinary zul.
 
 After creating a template zul, we shoulde decalre a template by `<template>` before applying it like:
 
-`<template name="layout" src="/chapter7/pagebased/layout/template.zul"/>`
+```xml
+<template name="layout" src="/chapter7/pagebased/layout/template.zul"/>
+```
 
 This tag will decalre a template named `layout` with its source zul path.
 
@@ -71,7 +73,9 @@ This tag will decalre a template named `layout` with its source zul path.
 
 Then we can apply the template with `<apply>`, which is a *shadow component* introduced in ZK 8, and its name like:
 
-`<apply template="layout"/>`
+```xml
+<apply template="layout"/>
+```
 
 
 
