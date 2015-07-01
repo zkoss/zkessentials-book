@@ -1,16 +1,12 @@
 # Target Application
-In this chapter, we are going to build a todo list management
-application with 4 basic operations, Create, Read, Update, and Delete
-(CRUD). The application's user interface looks like the images below:
+In this chapter, we are going to build a "todo list" with 4 basic operations, create, read, update, and delete (CRUD). The application's user interface looks like the images below:
 
 ![](../images/ze-ch6-app.png  " center | 600px")
-
-Select an Item:
 
 ![](../images/ze-ch6-app-selected.png  " center | 600px")
 
 <div style="text-align:center">
-**Select a Todo Item**
+<strong>Select a Todo Item</strong>
 
 </div>
 It is a personal todo list management system and it has following
