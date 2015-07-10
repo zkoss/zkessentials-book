@@ -1,6 +1,6 @@
 # Shadow Components
 
-ZK 8 introduce a new set of components: **shadow component**. The shadow component which is like [shadow DOM](http://w3c.github.io/webcomponents/spec/shadow/) neither create a corresponding component on the server side nor a widget on the client side. It just injects its child components inside into current page. Shadow components are `<apply>`, `<if>`, `<choose>`, `<when>`, and `<forEach>`. If we use them with data binding, a page can dynamically changes upon data chagne. Since shadow components have flow control and iteration, you can implement your own rendering pattern with them. Hence, the most powerful part of shadow components is **making view reusable**.
+ZK 8 introduce a new set of components: **shadow component**. The shadow component which is like [shadow DOM](http://w3c.github.io/webcomponents/spec/shadow/) neither create a corresponding component on the server side nor a widget on the client side. It just injects its child components inside into current page. The Shadow component includes `<apply>`, `<if>`, `<choose>`, `<when>`, and `<forEach>`. If we use them with data binding, a page can dynamically changes upon data chagne. Since shadow components have flow control and iteration, you can implement your own rendering pattern with them. Hence, the most powerful part of shadow components is **making view reusable**.
 
 
 # Navigation Menu

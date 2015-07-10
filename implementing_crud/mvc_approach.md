@@ -6,7 +6,7 @@ layout first and ignore the details.
 
 **Layout in chapter6/todolist-mvc.zul**
 
-``` {.xml}
+```xml
 
 <?link rel="stylesheet" type="text/css" href="/style.css"?>
 <window apply="org.zkoss.essentials.chapter6.mvc.TodoListController"
@@ -37,15 +37,15 @@ layout first and ignore the details.
 -   Line 12, 13: The east area is a todo item detail editor which is
     invisible if no item selected.
 
-Read
-----
+## Read
+
 
 As we talked in previous chapters, we can use *Template* to define how
 to display a data model list with implicit variable `each`.
 
 **Display a ToDo List**
 
-``` {.xml}
+```xml
 ...
     <listbox id="todoListbox" vflex="1">
         <listhead>
@@ -89,7 +89,7 @@ to display a data model list with implicit variable `each`.
 
 In the controller, we should provide a data model for the *Listbox*.
 
-``` {.java}
+```java
 public class TodoListController extends SelectorComposer<Component>{
 
 
@@ -143,7 +143,7 @@ In our application, its priority labels come from an enumerating
 define how to create each *Radio* under a *Radiogroup*. The zul looks
 like as follows:
 
-``` {.xml}
+```xml
 ...
         <row>
             <cell sclass="row-title">Priority :</cell>
@@ -164,7 +164,7 @@ like as follows:
 We also need to provide a data model for the *Radiogroup* in the
 controller:
 
-``` {.java}
+```java
 public class TodoListController extends SelectorComposer<Component>{
 
 
@@ -205,8 +205,8 @@ public class TodoListController extends SelectorComposer<Component>{
 -   Line 31, 32: Create a `ListModelList` with `Priority` and set it as
     a model of `selectedTodoPriority`.
 
-Create
-------
+## Create
+
 
 After typing the todo item name, we can save the item by either clicking
 the button with the plus icon
@@ -215,7 +215,7 @@ the button with the plus icon
 `onOK`. For handling other key pressing events, please refer to
 [ZK\_Developer's\_Reference/UI\_Patterns/Keystroke\_Handling](ZK_Developer's_Reference/UI_Patterns/Keystroke_Handling "wikilink").
 
-``` {.java}
+```java
 public class TodoListController extends SelectorComposer<Component>{
 
     //wire components
@@ -273,14 +273,14 @@ public class TodoListController extends SelectorComposer<Component>{
     and it will automatically reflect to the corresponding widget's
     selection.
 
-Update
-------
+## Update
+
 
 To update a todo item, you should select an item first then detail
 editor will appear. The following codes demonstrate how to listen a
 "onSelect" event and display the item's detail.
 
-``` {.java}
+```java
 public class TodoListController extends SelectorComposer<Component>{
 
 
@@ -369,7 +369,7 @@ following codes demonstrate how to implement these functions:
 
 **Handle clicking "update" and "reload" button**
 
-``` {.java}
+```java
     //when user clicks the update button
     @Listen("onClick = #updateSelectedTodo")
     public void doUpdateClick(){
@@ -425,7 +425,7 @@ of *Checkbox*.
 
 **extracted from chapter6/todolist-mvc.zul**
 
-``` {.xml}
+```xml
 ...
     <listbox id="todoListbox" vflex="1">
 ...
@@ -452,7 +452,7 @@ of *Checkbox*.
 Next, we listen to the customized event `onTodoCheck` and mark the todo
 as finished.
 
-``` {.java}
+```java
 public class TodoListController extends SelectorComposer<Component>{
 ...
 
@@ -498,8 +498,8 @@ public class TodoListController extends SelectorComposer<Component>{
     `value` attribute that we assigned in the zul by
     `<listitem ... value="${each}"/>`
 
-Delete
-------
+
+##Delete
 
 Implement deletion feature is similar to completing a todo item. We also
 forward each delete button's
@@ -508,7 +508,7 @@ event to the *Listbox* that encloses those buttons.
 
 **Forward delete button's `onClick`**
 
-``` {.xml}
+```xml
     <listbox id="todoListbox" vflex="1">
 ...
         <template name="model">
@@ -535,7 +535,7 @@ event to the *Listbox* that encloses those buttons.
 
 Then we can listen to the forwarded event and perform deletion.
 
-``` {.java}
+```java
 
     //when user clicks the delete button of each todo on the list
     @Listen("onTodoDelete = #todoListbox")

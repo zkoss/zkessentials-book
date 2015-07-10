@@ -28,9 +28,9 @@ Click ![](../images/ze-ch6-cross.png) to delete an existing todo item.
 In this chapter, we will show how to implement the target application
 using both the MVC and MVVM approaches. If you are not familiar with
 these two approaches, we suggest you to read [ Get ZK Up and Running
-with MVC](ZK Getting Started/Get ZK Up_and_Running_with_MVC "wikilink")
+with MVC](http://books.zkoss.org/wiki/ZK Getting Started/Get ZK Up_and_Running_with_MVC )
 and [ Get ZK Up and Running with
-MVVM](ZK Getting Started/Get ZK Up_and_Running_with_MVVM "wikilink").
+MVVM](http://books.zkoss.org/wiki/ZK Getting Started/Get ZK Up_and_Running_with_MVVM ).
 These two approaches are mutually interchangeable. You can choose one of
 them depending on your situation.
 

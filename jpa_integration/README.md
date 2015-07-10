@@ -1,9 +1,9 @@
-Overview
-========
+# Overview
+
 
 In previous chapters, we mimic a database with a static list as follows:
 
-``` {.java}
+```java
 public class TodoListServiceChapter6Impl implements TodoListService {
 
     static int todoId = 0;
@@ -45,31 +45,31 @@ will be stored in the database with JPA annotations. To make the example
 close to a real application, we keep using the Spring framework and
 demonstrate how to integrate Spring with JPA.
 
-Source Code
-===========
+# Source Code
 
-As we mentioned in the Chapter 2, our source code has [ 3
-branches](Tutorial/Chapter_2:_Project_Structure#Source_Code "wikilink")
+
+As we mentioned in the Project Struecture, our source code has [ 3
+branches](../project_structure.md)
 in github. The source code of this chapter's example belongs to a
 different branch in the github: **chapter10**.
 
 We don't create new examples in this chapter, but we add 2 DAO classes
 written in JPA under the package `org.zkoss.essentials.services.impl`.
 
-![ center](../images/ze-ch10-source.png  " center")
+![ center](../images/ze-ch10-source.png)
 
-Configuration
-=============
+# Configuration
 
-Maven
------
+
+## Maven
+
 
 When using a database, JPA, and integration of JPA and Spring, we should
 add following dependencies based on chapter 9's configuration: (We add
 `spring-web` and `cblib` for Spring framework which is explained in
 chapter 9.)
 
-``` {.xml}
+```xml
 
     <properties>
         <zk.version>6.5.1</zk.version>
@@ -116,8 +116,8 @@ chapter 9.)
     we choose Hibernate's one which is the most popular.
 -   Line 32\~33: For using HSQL, we should add its JDBC driver.
 
-Persistence Unit Configuration
-------------------------------
+
+## Persistence Unit Configuration
 
 We should describe persistence unit configuration in an XML file called
 `persistence.xml` and we need to specify `name`, `transaction-type`, and
@@ -125,7 +125,7 @@ We should describe persistence unit configuration in an XML file called
 (Hibernate) to establish database connection and setup vendor specific
 configurations.
 
-``` {.xml}
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
     <persistence-unit name="myapp" transaction-type="RESOURCE_LOCAL">
@@ -149,19 +149,19 @@ configurations.
 -   Line 3: The persistence unit name `myapp` will be used later in
     Spring configuration.
 
-Deployment Descriptor
----------------------
+
+## Deployment Descriptor
 
 You aren't required to add any special configuration for JPA to work.
 Here we add a Spring provided `OpernEntityMangerInViewFilter` to resolve
 an issue caused by lazy-fetching in one-to-many mapping. Please refer to
 [ Developer's
-Reference](ZK Developer%27s Reference/Integration/Persistence Layer/JPA "wikilink")
+Reference](http://books.zkoss.org/wiki/ZK Developer%27s Reference/Integration/Persistence Layer/JPA "wikilink")
 for this issue in more detail.
 
 **Extracted from web.xml**
 
-``` {.xml}
+```xml
 ...
     <!-- Spring configuration -->
     <!-- Initialize spring context -->
@@ -191,8 +191,8 @@ for this issue in more detail.
 ...
 ```
 
-Entity Annotation
------------------
+## Entity Annotation
+
 
 Before storing objects into a database, we should specify OR
 (object-relation) mapping for Java classes with meta data. After JDK
@@ -208,7 +208,7 @@ annotations are optional and we use them to override default values.
 
 **Todo class used in todo-list management**
 
-``` {.java}
+```java
 @Entity
 @Table(name="apptodo")
 public class Todo implements Serializable, Cloneable {
@@ -237,15 +237,15 @@ public class Todo implements Serializable, Cloneable {
 }
 ```
 
-Spring Beans Configuration
---------------------------
+## Spring Beans Configuration
+
 
 Spring JPA , available under the `org.springframework.orm.jpa` package,
 offers integration support for Java Persistence API. According to Spring
 framework reference, there are three options for JPA setup. We choose
 the simplest one.
 
-``` {.xml}
+```xml
 <beans xmlns="http://www.springframework.org/schema/beans"
     xmlns:context="http://www.springframework.org/schema/context"
     xmlns:tx="http://www.springframework.org/schema/tx"
@@ -283,8 +283,8 @@ the simplest one.
     specified in `persistence.xml`.
 -   Line 21,26: Enable Spring's declarative transaction management.
 
-DAO Implementation
-==================
+
+# DAO Implementation
 
 The *Data Access Object (DAO)* pattern is a good practice to implement a
 persistence layer and it encapsulates data access codes from the
@@ -293,7 +293,7 @@ and performs persistence operation relating to a particular persistent
 entity. Now, we can implement persistence operations like CRUD in a DAO
 class with JPA and `EntityManager` injected by Spring.
 
-``` {.java}
+```java
 @Repository
 public class TodoDao {
 
@@ -343,7 +343,7 @@ public class TodoDao {
 After completing DAO classes, we can inject them to our service class
 with Spring's `@Autowired` because they are all Spring beans.
 
-``` {.java}
+```java
 @Service("todoListService")
 @Scope(value="singleton",proxyMode=ScopedProxyMode.TARGET_CLASS)
 public class TodoListServiceImpl implements TodoListService {
@@ -362,7 +362,7 @@ public class TodoListServiceImpl implements TodoListService {
 Completing the above steps, we have created a dependency relationship
 among the controller, service, and persistence classes as follows:
 
-![](../images/ze-ch10-dependencies.png  " center ")
+![](../images/ze-ch10-dependencies.png)
 
 Each of these classes encapsulates cohesive functions and has decoupled
 relationships with others. You can easily expand the architecture by
@@ -370,37 +370,30 @@ adding more classes or create dependencies between two layers.
 
 You can visit <http://localhost:8080/essentials> to see the result.
 
-Conclusion
-==========
+
+# Conclusion
 
 Our book ends here. But the adventure toward ZK just begins. This book
 opens you a door and introduces you some basic concepts and usages of
 ZK. You can start to deploy ZK to your server according to [ZK
-Installation Guide](ZK Installation Guide "wikilink") which contains
+Installation Guide](http://books.zkoss.org/wiki/ZK Installation Guide "wikilink") which contains
 information you will use in deploying to web servers. For further
-development help, the [ ZK\_Developer's
-Reference](ZK_Developer%27s_Reference "wikilink") contains complete
+development help, the [ ZK Developer's
+Reference](http://books.zkoss.org/wiki/ZK_Developer%27s_Reference "wikilink") contains complete
 references for various topics in developing ZK based applications (i.e.
 for this chapter: [ Middleware
-Layer](ZK%20Developer's%20Reference/Integration/Middleware%20Layer "wikilink")/[
-Spring](ZK%20Developer's%20Reference/Integration/Middleware%20Layer/Spring "wikilink")
+Layer](http://books.zkoss.org/wiki/ZK%20Developer's%20Reference/Integration/Middleware%20Layer "wikilink")/[
+Spring](http://books.zkoss.org/wiki/ZK%20Developer's%20Reference/Integration/Middleware%20Layer/Spring "wikilink")
 or [ Persistence
-Layer](ZK%20Developer's%20Reference/Integration/Persistence%20Layer "wikilink")/[
-JPA](ZK%20Developer's%20Reference/Integration/Persistence%20Layer/JPA "wikilink")).
-[ ZUML Reference ](ZUML Reference "wikilink") describes syntax and EL
+Layer](http://books.zkoss.org/wiki/ZK%20Developer's%20Reference/Integration/Persistence%20Layer "wikilink")/[
+JPA](http://books.zkoss.org/wiki/ZK%20Developer's%20Reference/Integration/Persistence%20Layer/JPA "wikilink")).
+[ ZUML Reference ](http://books.zkoss.org/wiki/ZUML Reference) describes syntax and EL
 expression used in a zul. If you want to know details of a component,
 please refer to the [ ZK Component
-Reference](ZK_Component_Reference "wikilink"). ZK also provides lots of
+Reference](http://books.zkoss.org/wiki/ZK_Component_Reference "wikilink"). ZK also provides lots of
 configuration, you can take a look at [ ZK Configuration
-Reference](ZK_Configuration_Reference "wikilink").
+Reference](http://books.zkoss.org/wiki/ZK_Configuration_Reference "wikilink").
 
 We hope you can make use of what you learn here to obtain an even
 greater knowledge of ZK.
-
-Source Code
-===========
-
--   [ZUL
-    pages](https://github.com/zkoss/zkessentials/tree/chapter10/src/main/webapp/)
--   [Java](https://github.com/zkoss/zkessentials/tree/chapter10/src/main/java/org/zkoss/essentials)
 

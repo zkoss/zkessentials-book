@@ -23,7 +23,7 @@ from the View to the action provided by the ViewModel. This mechanism,
 the kernel operator of the MVVM design pattern, is a data binding system
 called "ZK Bind" provided by the ZK framework. In this binding system,
 the [
-**binder**](ZK Developer's Reference/MVVM/DataBinding/Binder "wikilink")
+**binder**](http://books.zkoss.org/wiki/ZK Developer's Reference/MVVM/DataBinding/Binder)
 plays the key role to operate the whole mechanism. The binder is like a
 broker and responsible for communication between View and ViewModel.
 

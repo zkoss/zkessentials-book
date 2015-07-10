@@ -10,7 +10,7 @@ subject for creating a new todo item, todo item list for displaying all
 todos, selected todo item for keeping user selection, and todo's
 priority list for *Radiogroup* in detail editor.
 
-``` {.java}
+```java
 public class TodoListViewModel implements Serializable{
 
 
@@ -31,13 +31,12 @@ public class TodoListViewModel implements Serializable{
 -   A property is retrieved by a getter, so ViewModel doesn't have to
     declare a variable for a property.
 
-Read
-----
+## Read
 
 As we discussed in previous chapter, displaying a collection of data
 requires to prepare a data model in the ViewModel.
 
-``` {.java}
+```java
 public class TodoListViewModel implements Serializable{
 
 
@@ -67,7 +66,7 @@ public class TodoListViewModel implements Serializable{
 Then we can bind Listbox's `model` to prepared data model of the
 ViewModel with data binding expression.
 
-``` {.xml}
+```xml
 
     <listbox model="@bind(vm.todoListModel)"
         selectedItem="@bind(vm.selectedTodo)" vflex="1" >
@@ -104,8 +103,8 @@ ViewModel with data binding expression.
 -   Line 11, 12, 15: Use implicit variable `each` to access each `Todo`
     object in the data model.
 
-Create
-------
+## Create
+
 
 We can create a new todo item by either clicking the button with plus
 icon (![](Tutorial-ch6-plus.png "fig:Tutorial-ch6-plus.png")) or
@@ -114,7 +113,7 @@ same command method that adds a todo item.
 
 **Command method `addTodo`**
 
-``` {.java}
+```java
     @Command //@Command annotates a command method
     @NotifyChange({"selectedTodo","subject"}) //@NotifyChange annotates data changed notification after calling this method
     public void addTodo(){
@@ -144,7 +143,7 @@ affecting the ViewModel.
 
 **Binding to `addTodo`**
 
-``` {.xml}
+```xml
 
                 <hbox align="center" hflex="1" sclass="todo-box">
                     <textbox value="@bind(vm.subject)"
@@ -158,14 +157,14 @@ affecting the ViewModel.
 -   Line 2\~6: The `onOK` and `onClick` can invoke the same command
     method.
 
-Update
-------
+
+# Update
 
 How do we achieve the feature that selecting a todo item then detail
 editor becomes visible under MVVM? Simple, just determine editor's
 visibility upon selected todo item is null or not.
 
-``` {.xml}
+```xml
         <east visible="@bind(not empty vm.selectedTodo)" width="300px"
         border="none" collapsible="false" splittable="true"
         minsize="300" autoscroll="true">
@@ -183,7 +182,7 @@ corresponding `selectedTodo`'s properties.
 
 **Binding input components to selected item's properties**
 
-``` {.xml}
+```xml
 
     <vlayout
     form="@id('fx') @load(vm.selectedTodo)
@@ -245,7 +244,7 @@ After modifying item's detail, you can click the "Update" button to save
 the modification or "Reload" to revert back original data. These two
 functions are implemented in command methods:
 
-``` {.java}
+```java
 
     @Command
     @NotifyChange("selectedTodo")
@@ -270,7 +269,7 @@ functions are implemented in command methods:
 
 then we can invoke them by command binding:
 
-``` {.xml}
+```xml
         <hlayout>
             <button onClick="@command('updateTodo')" label="Update"/>
             <button onClick="@command('reloadTodo')" label="Reload"/>
@@ -288,7 +287,7 @@ validator to avoid empty value of todo's subject.
 
 **Define a validator in the ViewModel**
 
-``` {.java}
+```java
     //the validator is the class to validate data before set ui data back to todo
     public Validator getTodoValidator(){
         return new AbstractValidator() {
@@ -325,7 +324,7 @@ validator to avoid empty value of todo's subject.
 
 Then apply this validator with data binding expression.
 
-``` {.xml}
+```xml
 
     <vlayout
     form="@id('fx') @load(vm.selectedTodo)
@@ -341,7 +340,7 @@ Hence, if `vm.todoValidator` fails validation, ZK won't execute
 We want clicking a *Checkbox* in front of each todo item to complete a
 todo item. First, we implement business logic to complete a todo item.
 
-``` {.java}
+```java
 
     @Command
     //@NotifyChange("selectedTodo") //use postNotifyChange() to notify dynamically
@@ -370,7 +369,7 @@ todo item. First, we implement business logic to complete a todo item.
 
 Then we bind `onCheck` to the command `completeTodo`.
 
-``` {.xml}
+```xml
 
     <template name="model">
         <listitem sclass="@bind(each.complete?'complete-todo':'')">
@@ -386,13 +385,13 @@ Then we bind `onCheck` to the command `completeTodo`.
 -   Line 4,5: Command binding allows you to pass an arguments in
     key-value pairs. We pass `each` object with key `todo`.
 
-Delete
-------
+## Delete
+
 
 Implementing a delete function is very similar to "completing a todo",
 we perform business logic and notify change.
 
-``` {.java}
+```java
 
     @Command
     //@NotifyChange("selectedTodo") //use postNotifyChange() to notify dynamically
@@ -418,7 +417,7 @@ we perform business logic and notify change.
 Next, bind `onClick` to the command `deleteTodo` then we are done
 editing this function.
 
-``` {.xml}
+```xml
     <template name="model">
         <listitem sclass="@bind(each.complete?'complete-todo':'')">
             <listcell>
@@ -450,9 +449,4 @@ After completing above steps, please visit
 <http://localhost:8080/essentials/chapter6/todolist-mvvm.zul> to see the
 result.
 
-Source Code
-===========
 
--   [ZUL
-    pages](https://github.com/zkoss/zkessentials/tree/master/src/main/webapp/chapter6)
--   [Java](https://github.com/zkoss/zkessentials/tree/master/src/main/java/org/zkoss/essentials/chapter6)
