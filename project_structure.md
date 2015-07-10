@@ -4,15 +4,15 @@ All source codes used in this book are available on
 [github](https://github.com/zkoss/zkessentials). As our example
 application has 3 different configurations, our source code is divided
 into 3 branches:
-[**master**](https://github.com/zkoss/zkessentials/tree/master),
-[**chapter9**](https://github.com/zkoss/zkessentials/tree/chapter9), and
-[**chapter10**](https://github.com/zkoss/zkessentials/tree/chapter10).
+[**zk8**](https://github.com/zkoss/zkessentials/tree/zk8),
+[**chapter8-zk8**](https://github.com/zkoss/zkessentials/tree/chapter9-zk8), and
+[**chapter9-zk8**](https://github.com/zkoss/zkessentials/tree/chapter10-zk8).
 
 ![ center](images/ze-ch2-3branches.png  " center")
 
-The **master** branch contains examples from chapter 3 to chapter 8. The
-**chapter9** branch has examples integrated with Spring and the
-**chapter10** branch contains examples which integrate with Spring and
+The **zk8** branch contains examples from chapter 1 to chapter 7. The
+**chapter8-zk8** branch has examples integrated with Spring and the
+**chapter9-zk8** branch contains examples which integrate with Spring and
 use JPA to persist data into a database.
 
 ![ center](images/ze-ch2-download-zip.png  " center")
@@ -24,14 +24,14 @@ a zip file.
 # Run Example Application
 
 After you download the source code, you will find it is a Maven[^1]
-project with jetty plugin configured. Therefore, if you have Maven, you
-can run the example application with a simple command[^2] (The maven we
+project with jetty plugin configured. Therefore, if you have installed Maven, you
+can run the example application with a simple command below[^2] (The maven we
 use is **3.0.3**). Navigate to the root folder of your downloaded source
 code, say it's "zkessentials" and type the command:
 
 `mvn jetty:run`
 
-Then visit the URL *<http://localhost:8080/essentials/>*, and you should
+Then visit the URL `http://localhost:8080/essentials/`, and you should
 see the page below.
 
 ![](images/ze-ch2-index.png)

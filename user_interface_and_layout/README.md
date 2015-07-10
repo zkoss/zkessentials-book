@@ -26,7 +26,6 @@ sidebar, south as a footer, and the center as the main function display.
 
 <div style="text-align:center">
 <strong>Border Layout</strong>
-
 </div>
 
 
@@ -37,7 +36,7 @@ two ways to do it: **Java** (programatic) and **XML-based**
 
 ZK allows you to compose a user interface in Java programmatically which
 is a feature called [
-richlet](ZK_Developer%27s_Reference/UI_Composing/Richlet "wikilink"),
+richlet](http://books.zkoss.org/wiki/ZK%20Developer's%20Reference/UI%20Composing/Richlet),
 but we don't use this approach in this book.
 
 ZK also provides a XML-formatted language called ZK User Interface
@@ -78,14 +77,14 @@ new text file with name *index.zul*, and type the following content:
 
 -   Line 2: Each XML tag represents one component, and the tag name is
     equal to the component name. The attribute [ "hflex" and
-    "vflex"](ZK_Developer%27s_Reference/UI_Patterns/Hflex_and_Vflex "wikilink")
+    "vflex"](http://books.zkoss.org/wiki/ZK%20Developer's%20Reference/UI%20Patterns/Hflex%20and%20Vflex)
     controls the horizontal and vertical size flexibility of a
     component. We set them to "1" which means *Fit-the-Rest*
     flexibility. Hence, the *Border Layout* will stretch itself to fill
     all available space of whole page in width and height because it is
     a root component. Only one component is allowed inside *North* in
     addition to a [
-    *Caption*](ZK%20Component%20Reference/Containers/Caption "wikilink").
+    *Caption*](http://books.zkoss.org/wiki/ZK%20Component%20Reference/Containers/Caption).
 -   Line 3: *North* is a child component that can only be put inside a
     *Border Layout*. You can also fix a component's height by specifying
     a pixel value to avoid its height changing due to browser sizes.
@@ -146,13 +145,13 @@ Let's see how to construct these elements with existing ZK components:
 
 -   Line 1: The `sclass`, we can specify CSS class selector, and we will
     talk about it later.
--   Line 2: The [*Hbox*](ZK_Component_Reference/Layouts/Hbox "wikilink")
+-   Line 2: The [*Hbox*](http://books.zkoss.org/wiki/ZK%20Component%20Reference/Layouts/Hbox)
     which is a layout component can arrange its child components in a
     row horizontally. Its `align` attribute controls the vertical
     alignment.
--   Line 3: The [`A`](ZK%20Component%20Reference/Essential%20Components/A)
+-   Line 3: The [`A`](http://books.zkoss.org/wiki/ZK%20Component%20Reference/Essential%20Components/A)
     creates a hyperlink the same as an HTML `<a>` element.
--   Line 4: The [*image*](ZK%20Component%20Reference/Essential%20Components/Image)
+-   Line 4: The [*image*](http://books.zkoss.org/wiki/ZK%20Component%20Reference/Essential%20Components/Image)
     is similar to HTML `<img>` which can display an image.
 -   Line 9: The `pack` controls the horizontal alignment. We specify
     `end` on both `pack` and `align` to make the text "Anonymous"
@@ -162,7 +161,7 @@ Let's see how to construct these elements with existing ZK components:
 
 For the sidebar, we want to arrange navigation items one by one
 vertically. There are more than one way to achieve this. Here, we use a
-[ *Grid*](ZK%20Component%20Reference/Data/Grid) which is
+[ *Grid*](http://books.zkoss.org/wiki/ZK%20Component%20Reference/Data/Grid) which is
 suitable for arranging child components in a matrix layout.
 
 **chapter3/sidebar.zul**
@@ -196,7 +195,7 @@ suitable for arranging child components in a matrix layout.
     components and you should also notice hierarchical relations between
     child components, e.g. *Rows* can only contain *Row*. Please refer
     to
-    [ZK\_Component\_Reference/Data](ZK_Component_Reference/Data "wikilink")
+    [ZK Component Reference/Data](http://books.zkoss.org/wiki/ZK%20Component%20Reference/Data)
     for detail.
 -   Line 3: You can only put *Column* inside *Columns*.
 -   Line 8,9: Since we define two *Column*s, each *Row* can have two
@@ -218,7 +217,7 @@ aligned to the center.
 ```
 
 -   Line 2: The
-    [*Vbox*](ZK_Component_Reference/Layouts/Vbox "wikilink"), like
+    [*Vbox*](http://books.zkoss.org/wiki/ZK_Component_Reference/Layouts/Vbox), like
     *Hbox*, arranges child components vertically. We specify "center" at
     `align` to align those texts horizontally in the center.
 -   Line 3: You can use [ EL

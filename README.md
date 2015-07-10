@@ -46,8 +46,7 @@ chapter's topic. Each chapter's applications are built upon previous
 chapter's application to add more features. In the last chapter, the
 example application becomes close to a real application. The source code
 of the example applications can be downloaded through github, please
-refer to [ZK Essentials/Chapter 2: Project
-Structure](ZK Essentials/Chapter 2: Project Structure "wikilink").
+refer to [Project Structure](../project_structure.md).
 
 Chapter 1, we introduce the ZK itself including its strength, value, and
 architecture.
@@ -77,8 +76,8 @@ application.
 
 Chapter 10, we demonstrate how to use JPA in a ZK application.
 
-Example Application
-===================
+# Example Application
+
 
 The final result of this book is to build a small and rich application
 that has common features such as authentication, navigation, form input,
@@ -115,15 +114,11 @@ delete, and update a todo item.
 <div style="text-align:center">
 <strong>Example application - todo list</strong>
 </div>
+
 # References
-
-
-<references/>
 
 [^1]: Browse components at [ZK Demo](http://www.zkoss.org/zkdemo/)
 
-[^2]: [ ZK Developer's Reference MVC
-    ](ZK_Developer%27s_Reference/MVC "wikilink")
+[^2]: [ ZK Developer's Reference MVC](http://books.zkoss.org/wiki/ZK%20Developer's%20Reference/MVC)
 
-[^3]: [ ZK Developer's Reference MVVM
-    ](ZK_Developer%27s_Reference/MVVM "wikilink")
+[^3]: [ ZK Developer's Reference MVVM](http://books.zkoss.org/zk-mvvm-book/8.0/index.html)
