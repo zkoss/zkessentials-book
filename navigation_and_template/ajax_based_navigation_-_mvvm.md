@@ -71,9 +71,3 @@ public class NavigationViewModel {
 
 }
 ```
-
-
-# Source Code
--   [ZUL
-    pages](https://github.com/zkoss/zkessentials/tree/master/src/main/webapp/chapter7)
--   [Java](https://github.com/zkoss/zkessentials/tree/master/src/main/java/org/zkoss/essentials/chapter7)
