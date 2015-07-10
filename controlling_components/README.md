@@ -323,8 +323,3 @@ ZK will call a corresponding `actionListener ` then the browser will be
 redirected to a specified URL. You can see the result via
 *<http://localhost:8080/essentials/chapter4>*.
 
-# Source Code
-
--   [ZUL pages](https://github.com/zkoss/zkessentials/tree/master/src/main/webapp/chapter4)
--   [Java](https://github.com/zkoss/zkessentials/tree/master/src/main/java/org/zkoss/essentials/chapter4)
-

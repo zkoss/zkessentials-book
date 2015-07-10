@@ -324,11 +324,7 @@ can apply to many pages. We use this way in the example to define CSS.
     ...
 </zk>
 ```
-# Source Code
 
-
--   [ZUL
-    pages](https://github.com/zkoss/zkessentials/tree/master/src/main/webapp/chapter3)
 
 [^1]: [ZK Demo Layout](http://www.zkoss.org/zkdemo/layout). ZK releases multiple editions. Some layout components are only available in a specific edition, please refer to [Feature & Edition](http://www.zkoss.org/whyzk/features)
 

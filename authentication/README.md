@@ -425,11 +425,3 @@ public class LogoutController extends SelectorComposer<Component> {
 
 After completing the above steps, you can visit
 `http://localhost:8080/essentials/chapter8` to see the result.
-
-
-# Source Code
-
--   [ZUL
-    pages](https://github.com/zkoss/zkessentials/tree/master/src/main/webapp/chapter8)
--   [Java](https://github.com/zkoss/zkessentials/tree/master/src/main/java/org/zkoss/essentials/chapter8)
-

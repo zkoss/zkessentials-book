@@ -285,10 +285,3 @@ application's appearance doesn't change, but its infrastructure is now
 managed by Spring. You can visit <http://localhost:8080/essentials> to
 see the result.
 
-Source Code
-===========
-
--   [ZUL
-    pages](https://github.com/zkoss/zkessentials/tree/chapter9/src/main/webapp/)
--   [Java](https://github.com/zkoss/zkessentials/tree/chapter9/src/main/java/org/zkoss/essentials)
-
