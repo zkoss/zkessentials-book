@@ -1,5 +1,7 @@
-# ZK's Value and Strength
+{{ file.path }}
 {{ book.bookUrl }}
+# ZK's Value and Strength
+
 ZK is a component-based UI framework that enables you to build Rich
 Internet Application (*RIA*) and mobile applications without having to
 learn JavaScript or AJAX. You can build highly-interactive and
