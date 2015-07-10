@@ -1,4 +1,8 @@
 {
+    "gitbook": "2.0.2",
+    "plugins": [
+        "zkdocument"
+    ],
     "variables": {
         "bookUrl": "http://books.zkoss.org/wiki/"
     }
