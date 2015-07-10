@@ -299,9 +299,8 @@ data between components and the ViewModel for us automatically.
 ![ ](../images/ze-Mvvm-databinding-role.png  " center | 600px")
 
 Let's demonstrate how to make *Listbox* load a list of country name from
-the ViewModel. We have talked about the [ data model
-concept](Tutorial/Chapter5:Handling User_Input#Initialize_Profile_Form "wikilink")
-in MVC approach section, and we also need to prepare a model object that
+the ViewModel. We have talked about the data model
+concept in previous MVC approach section, and we also need to prepare a model object that
 are defined in one of our ViewModel's properties, `countryList`. You
 might find `getCountryList()` return a `List` instead of a
 `ListModelList`, but don't worry. ZK will convert it automatically. We
@@ -461,7 +460,7 @@ this.
 ![](../images/ze-ch5-unsaved.png  " center | 300px")
 
 <div style="text-align:center">
-**Unsaved Input Changes Data**
+<strong>Unsaved Input Changes Data</strong>
 
 </div>
 We are going to improve this part with **form binding** feature in this
@@ -476,21 +475,18 @@ Steps to use a form binding:
 
 1.  Give an id to middle object in `'''form'''` attribute with ` @id `.
 
-    :   Then you can reference the middle object in ZK bind expression
-        with its id, e.g. `@id('fx')`.
+    Then you can reference the middle object in ZK bind expression with its id, e.g. `@id('fx')`.
 
 2.  Specify ViewModel's property to be loaded with ` @load `
 3.  Specify ViewModel's property to save and before which Command with
     ` @save `
 
-    :   This means binder will save the middle object's properties to
-        ViewModel before a command execution.
+    This means binder will save the middle object's properties to ViewModel before a command execution.
 
 4.  Bind component's attribute to the middle object's properties like
     you do in property binding.
 
-    :   You should use middle object's id specified in ` @id ` to
-        reference its property, e.g. `@load(fx.account)`.
+    You should use middle object's id specified in ` @id ` to reference its property, e.g. `@load(fx.account)`.
 
 **extracted from chapter5/profile-mvvm.zul**
 
@@ -570,15 +566,10 @@ ViewModel's properties (`currentUser`).
 ![ ](../images/ze-ch5-form-binding.png  " center | 300px")
 
 <div style="text-align:center">
-**Unsaved Input Doesn't Change Data**
+<strong>Unsaved Input Doesn't Change Data</strong>
 
 </div>
 After completing above steps, visit
-<http://localhost:8080/essentials/chapter5/index-mvvm.zul> to see the
+http://localhost:8080/essentials/chapter5/index-mvvm.zul to see the
 result.
 
-
-# Source Code
--   [ZUL
-    pages](https://github.com/zkoss/zkessentials/tree/master/src/main/webapp/chapter5)
--   [Java](https://github.com/zkoss/zkessentials/tree/master/src/main/java/org/zkoss/essentials/chapter5)

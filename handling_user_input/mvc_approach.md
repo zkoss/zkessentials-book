@@ -1,15 +1,12 @@
 # MVC Approach
-
-
 Under this approach, we implement all event handling and presentation
 logic in a controller with no code present in the ZUL file. This
 approach makes the responsibility of each role (Model, View, and
 Controller) more cohesive and allows you to control components directly.
 It is very intuitive and very flexible.
 
+
 ## Construct a Form Style Page
-
-
 With the concept and technique we talked about in last chapter, it
 should be easy to construct a form style user interface as follows. It
 uses a two-column *Grid* to build the form style layout and different
@@ -19,7 +16,6 @@ zul file below is included in the *Center* of the *Border Layout*.
 **chapter5/profile-mvc.zul**
 
 ```xml
-
 <?link rel="stylesheet" type="text/css" href="/style.css"?>
 <window apply="org.zkoss.essentials.chapter5.mvc.ProfileViewController"
     border="normal" hflex="1" vflex="1" contentStyle="overflow:auto">
@@ -87,15 +83,15 @@ zul file below is included in the *Center* of the *Border Layout*.
 ```
 
 -   Line 4, 5:
-    [*Caption*](ZK%20Component%20Reference/Containers/Caption "wikilink")
+    [*Caption*](http://books.zkoss.org/wiki/ZK%20Component%20Reference/Containers/Caption "wikilink")
     can be used to build compound header with an image for a [
-    *Window*](ZK%20Component%20Reference/Containers/Window "wikilink").
+    *Window*](http://books.zkoss.org/wiki/ZK%20Component%20Reference/Containers/Window ).
 -   Line 6: [
-    *Vlayout*](ZK%20Component%20Reference/Layouts/Vlayout "wikilink") is
+    *Vlayout*](http://books.zkoss.org/wiki/ZK%20Component%20Reference/Layouts/Vlayout "wikilink") is
     a light-weight layout component which arranges child components
     vertically without splitter, align, and pack support.
 -   Line 14: [
-    *Cell*](ZK_Component_Reference/Supplementary/Cell "wikilink") is
+    *Cell*](http://books.zkoss.org/wiki/ZK_Component_Reference/Supplementary/Cell "wikilink") is
     used inside *Row*, *Hbox*, or *Vbox* for fully controlling style and
     layout.
 -   Line 21, 22, 29, 30, 37: Specify `constraint` attribute of an input
@@ -114,7 +110,7 @@ zul file below is included in the *Center* of the *Border Layout*.
     property with dot notation. In our example, we just set it at a
     *Listitem*'s label.
 -   Line 59: [
-    *Hlayout*](ZK%20Component%20Reference/Layouts/Hlayout "wikilink"),
+    *Hlayout*](http://books.zkoss.org/wiki/ZK%20Component%20Reference/Layouts/Hlayout "wikilink"),
     like *Vlayout*, but arranges child components horizontally.
 
 
@@ -122,7 +118,7 @@ zul file below is included in the *Center* of the *Border Layout*.
 
 We can specify the `constraint` attribute of an input component with [
 constraint
-rule](ZK Component Reference/Base Components/InputElement#Validation "wikilink")
+rule](http://books.zkoss.org/wiki/ZK Component Reference/Base Components/InputElement#Validation "wikilink")
 to activate its input validation feature and the feature can work
 without writing any code in a controller. For example:
 
@@ -156,9 +152,8 @@ input value violates a specified constraint rule.
 
 ![ ](../images/ze-ch5-email-constraint.png  " center | 500px")
 
-Initialize Profile Form
------------------------
 
+# Initialize Profile Form
 We want to create a drop-down list that contains a list of countries for
 selection. When a user visit the page, the data in drop-down list should
 be ready. To achieve this, we have to initialize a drop-down list in the
@@ -167,9 +162,9 @@ controller.
 ![ ](../images/ze-ch5-collection.png  " center | 300px")
 
 <div style="text-align:center">
-**Country List**
-
+<strong>Country List</strong>
 </div>
+
 This is made using a *Listbox* in "select" mold. The *Listbox*'s data is
 a list of country name strings provided by the controller. In ZK, all
 data components are designed to accept a separate data model that
@@ -179,12 +174,11 @@ and a data component will render the information as specified in the
 the data from a component's implementation.
 
 For a *Listbox*, we can provide a
-<javadoc>org.zkoss.zul.ListModelList</javadoc> object.
+`org.zkoss.zul.ListModelList` object.
 
 '''Initialize data model for a *Listbox* '''
 
 ``` java
-
 public class ProfileViewController extends SelectorComposer<Component>{
     ...
     @Wire
@@ -305,7 +299,7 @@ value. Then ZK will "wire" the method to the specified components for
 specified events. ZK provides various wiring selectors to specify in the
 annotation, please refer to [ZK Developer%27s
 Reference/MVC/Controller/Wire Event
-Listeners](ZK Developer%27s Reference/MVC/Controller/Wire Event Listeners "wikilink").
+Listeners](http://books.zkoss.org/wiki/ZK Developer%27s Reference/MVC/Controller/Wire Event Listeners "wikilink").
 
 **Listen "Save" button's clicking**
 
