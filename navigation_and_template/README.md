@@ -16,14 +16,14 @@ In this chapter, the example application we are going to build looks as follows:
 The sidebar is used for navigation control. There are 7 menu items on the sidebar, and the lower 4 items lead you to different functions. They only change the central area's content. All other areas are unchanged to maintain a consistent layout style during the navigation.
 
 
-# Template
+## Layout Template
 
-In our example application, we want to keep the header, the sidebar, and
-the footer unchanged regardless of which function a user chooses. Only the central area changes its content according to the function chosen by users.
+In our example application, we want to keep a consistent layout for all functions. In this layout, the header, the sidebar, and
+the footer keep unchanged regardless of which function a user chooses. Only the central area changes its content according to the function chosen by users.
 
-In page-based navigation, each function is put into a separated page, and we need to keep a consistent layout style. One way is to copy the unchanged part from one zul to another, but it is hard to maintain. Fortunately, ZK provides a [Template Injection]() technique that lets you define a zul as a template and apply (inject) it to multiple zul pages afterwards. All zul pages that apply the same template zul have the same layout, so changing the template zul can change the layout of all pages once.
+In page-based navigation, each function is put into a separated page, and we need to keep a consistent layout style. One way is to copy the unchanged part from one zul to another, but it is hard to maintain. Fortunately, ZK provides a *Template Injection* that lets you define a zul as a template and apply (inject) it to multiple zul pages afterwards. All zul pages that apply the same template  have the same layout, so changing the template zul can change the layout of all pages once.
 
-The steps to use a template are:
+The steps to use a layout template are:
 
 1. Create a zul as a template
 2. Declare a template with a name in the target zul
@@ -71,7 +71,7 @@ This tag will decalre a template named `layout` with its source zul path.
 
 ## 3. Apply the Template
 
-Then we can apply the template with `<apply>`, which is a *shadow component* introduced in ZK 8, and its name like:
+Then we can apply the template with `<apply>`, which is a *shadow component* introduced in ZK 8, and specify a template's name like:
 
 ```xml
 <apply template="layout"/>
