@@ -1,6 +1,4 @@
-# Overview
-
-
+# JPA Integration
 In previous chapters, we mimic a database with a static list as follows:
 
 ```java

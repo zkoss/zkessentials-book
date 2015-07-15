@@ -1,4 +1,4 @@
-# Target Application
+# Authentication
 
 In this chapter, we will demonstrate how to implement authentication and
 protect your pages from illegal access. We will create a login page
