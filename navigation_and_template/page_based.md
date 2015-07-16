@@ -20,13 +20,13 @@ to items in the sidebar under "chpater7\\pagebased" (index-profile-mvc.zul, inde
 
 Next, we apply the template zul created before on those 4 pages. As you can see in previouse `template.zul`, in order to inject different content in the `<center>` area, we apply a template named `center` that is not declared in the `template.zul`. Therefore, We can decalre `center` template with different path to inject different content with the same layout.
 
-**/chapter7/pagebased/index-profile-mvc.zul**
+**/chapter6/pagebased/index-profile-mvc.zul**
 
 ```xml
 <?link rel="stylesheet" type="text/css" href="/style.css"?>
 <zk>
 <div height="100%">
-	<template name="layout" src="/chapter7/pagebased/layout/template.zul"/>
+	<template name="layout" src="/chapter6/pagebased/layout/template.zul"/>
 	<apply template="layout"/>
 	<template name="center" src="/chapter5/profile-mvc.zul"/>
 </div>
@@ -52,13 +52,13 @@ public class SidebarPageConfigPagebasedImpl implements SidebarPageConfig{
                 ,"http://books.zkoss.org/wiki/ZK_Developer's_Reference"));
 
         pageMap.put("fn1",new SidebarPage("fn1","Profile (MVC)","/imgs/fn.png"
-                ,"/chapter7/pagebased/index-profile-mvc.zul"));
+                ,"/chapter6/pagebased/index-profile-mvc.zul"));
         pageMap.put("fn2",new SidebarPage("fn2","Profile (MVVM)","/imgs/fn.png"
-                ,"/chapter7/pagebased/index-profile-mvvm.zul"));
+                ,"/chapter6/pagebased/index-profile-mvvm.zul"));
         pageMap.put("fn3",new SidebarPage("fn3","Todo List (MVC)","/imgs/fn.png"
-                ,"/chapter7/pagebased/index-todolist-mvc.zul"));
+                ,"/chapter6/pagebased/index-todolist-mvc.zul"));
         pageMap.put("fn4",new SidebarPage("fn4","Todo List (MVVM)","/imgs/fn.png"
-                ,"/chapter7/pagebased/index-todolist-mvvm.zul"));
+                ,"/chapter6/pagebased/index-todolist-mvvm.zul"));
     }
 
     ...
@@ -124,6 +124,6 @@ public class SidebarPagebasedController extends SelectorComposer<Component>{
 - Line 15: Create menu items in the sidebar upon configurations with *Row*s.
 - Line 39: Add an event listener to redirect a browser to the URL specified in the menu item a user clicks.
 
-Visit <http://localhost:8080/essentials/chapter7/pagebased/index.zul>.
+Visit <http://localhost:8080/essentials/chapter6/pagebased/index.zul>.
 You will see the URL changes and whole page reloads each time you click
 a different menu item.

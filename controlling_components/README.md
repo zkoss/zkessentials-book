@@ -100,7 +100,7 @@ Controller in ZK you simply create a class that inherits
 `org.zkoss.zk.ui.select.SelectorComposer`.
 
 ```java
-public class SidebarChapter4Controller extends SelectorComposer<Component>{
+public class SidebarChapter2Controller extends SelectorComposer<Component>{
     //other codes...
 }
 ```
@@ -110,12 +110,12 @@ fully qualified class name in `apply` attribute. After that the
 component and all its child components are under the control of the
 controller.
 
-**chapter4/sidebar.zul**
+**chapter2/sidebar.zul**
 
 ```xml
 <grid hflex="1" vflex="1" sclass="sidebar"
     id="fnList"
-    apply="org.zkoss.essentials.chapter4.SidebarChapter4Controller">
+    apply="org.zkoss.essentials.chapter2.SidebarChapter2Controller">
     <columns>
         <column width="36px"/>
         <column/>
@@ -142,7 +142,7 @@ the field or pass it into the setter method. By default
 to the variable name and type respectively.
 
 ```java
-public class SidebarChapter4Controller extends SelectorComposer<Component>{
+public class SidebarChapter2Controller extends SelectorComposer<Component>{
 
     //wire components
     @Wire
@@ -168,14 +168,14 @@ the component which has the composer applied to it are created, so we
 can change components' attributes or even create other components in it.
 
 ``` java
-public class SidebarChapter4Controller extends SelectorComposer<Component>{
+public class SidebarChapter2Controller extends SelectorComposer<Component>{
 
     //wire components
     @Wire
     Grid fnList;
 
     //services
-    SidebarPageConfig pageConfig = new SidebarPageConfigChapter4Impl();
+    SidebarPageConfig pageConfig = new SidebarPageConfigChapter2Impl();
 
     @Override
     public void doAfterCompose(Component comp) throws Exception{
@@ -233,7 +233,7 @@ In `constructSidebarRow()` method, we create *Row*s and add an event
 listener to each of them.
 
 ```java
-public class SidebarChapter4Controller extends SelectorComposer<Component>{
+public class SidebarChapter2Controller extends SelectorComposer<Component>{
 
     //...
 
@@ -242,7 +242,7 @@ public class SidebarChapter4Controller extends SelectorComposer<Component>{
     Grid fnList;
 
     //services
-    SidebarPageConfig pageConfig = new SidebarPageConfigChapter4Impl();
+    SidebarPageConfig pageConfig = new SidebarPageConfigChapter2Impl();
 
     @Override
     public void doAfterCompose(Component comp) throws Exception{
@@ -321,5 +321,5 @@ follows:
 After completing above steps, when a user clicks a *Row* on the sidebar,
 ZK will call a corresponding `actionListener ` then the browser will be
 redirected to a specified URL. You can see the result via
-*<http://localhost:8080/essentials/chapter4>*.
+*<http://localhost:8080/essentials/chapter2>*.
 

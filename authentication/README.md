@@ -67,9 +67,7 @@ operations.
 **Get user credentials**
 
 ```java
-public class AuthenticationServiceChapter5Impl implements AuthenticationService,Serializable{
-
-
+public class AuthenticationServiceChapter3Impl implements AuthenticationService,Serializable{
     public UserCredential getUserCredential(){
         Session sess = Sessions.getCurrent();
         UserCredential cre = (UserCredential)sess.getAttribute("userCredential");
@@ -83,16 +81,16 @@ public class AuthenticationServiceChapter5Impl implements AuthenticationService,
 }
 ```
 
--   Line 5, 6: As we mentioned, we can get current session and check
+-   Line 3, 4: As we mentioned, we can get current session and check
     user's credentials to verify its authentication status.
 
 **Log in/ log out**
 
 ```java
-public class AuthenticationServiceChapter8Impl extends AuthenticationServiceChapter5Impl{
+public class AuthenticationServiceChapter7Impl extends AuthenticationServiceChapter5Impl{
 
 
-    UserInfoService userInfoService = new UserInfoServiceChapter5Impl();
+    UserInfoService userInfoService = new UserInfoServiceChapter3Impl();
 
     @Override
     public boolean login(String nm, String pd) {
@@ -145,13 +143,13 @@ illegal request and redirect it back to login page.
 public class AuthenticationInit implements Initiator {
 
     //services
-    AuthenticationService authService = new AuthenticationServiceChapter8Impl();
+    AuthenticationService authService = new AuthenticationServiceChapter7Impl();
 
     public void doInit(Page page, Map<String, Object> args) throws Exception {
 
         UserCredential cre = authService.getUserCredential();
         if(cre==null || cre.isAnonymous()){
-            Executions.sendRedirect("/chapter8/login.zul");
+            Executions.sendRedirect("/chapter7/login.zul");
             return;
         }
     }
@@ -167,14 +165,14 @@ public class AuthenticationInit implements Initiator {
 Then we can apply this page initiator to those pages we want to protect
 from unauthenticated access.
 
-**chapter8/index.zul**
+**chapter7/index.zul**
 
 ```xml
 <?link rel="stylesheet" type="text/css" href="/style.css"?>
 <!-- protect page by the authentication init  -->
-<?init class="org.zkoss.essentials.chapter8.AuthenticationInit"?>
+<?init class="org.zkoss.essentials.chapter7.AuthenticationInit"?>
 <!-- authentication init have to locate before composition -->
-<?init class="org.zkoss.zk.ui.util.Composition" arg0="/chapter8/layout/template.zul"?>
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="/chapter7/layout/template.zul"?>
 
 ```
 
@@ -182,7 +180,7 @@ from unauthenticated access.
     initiator on it.
 
 After above steps are complete, if you directly visit
-`http://localhost:8080/essentials/chapter8/index.zul` without successful
+`http://localhost:8080/essentials/chapter7/index.zul` without successful
 authentication, you will be redirected to the login page.
 
 
@@ -194,7 +192,7 @@ component's creation according to a user's credentials in the session.
 If the EL expression's evaluation result is true, the component
 will show otherwise the component will not be created.
 
-**chapter8/layout/template.zul**
+**chapter7/layout/template.zul**
 
 ```xml
 
@@ -224,14 +222,14 @@ password, and the login page also uses a template zul to keep a
 consistent style with the index page. However, it has no sidebar because
 users, without logging in, should not be able to access main functions.
 
-**chapter8/layout/template-anonymous.zul**
+**chapter7/layout/template-anonymous.zul**
 
 ```xml
 <zk>
     <!-- free to access template, without sidebar  -->
     <borderlayout hflex="1" vflex="1">
         <north height="100px" border="none" >
-            <include src="/chapter8/layout/banner.zul"/>
+            <include src="/chapter7/layout/banner.zul"/>
         </north>
         <center id="mainContent" autoscroll="true"
                 border="none" self="@insert(content)">
@@ -257,13 +255,13 @@ all users, so we don't have to apply `AuthenticationInit`.
 <?link rel="stylesheet" type="text/css" href="/style.css"?>
 <!-- it is a login page, no authentication protection and use anonymous template -->
 <?init class="org.zkoss.zk.ui.util.Composition"
-    arg0="/chapter8/layout/template-anonymous.zul"?>
+    arg0="/chapter7/layout/template-anonymous.zul"?>
 <zk>
     <hbox self="@define(content)" vflex="1" hflex="1" align="center"
         pack="center" spacing="20px">
         <vlayout>
             <window id="loginWin"
-                apply="org.zkoss.essentials.chapter8.LoginController"
+                apply="org.zkoss.essentials.chapter7.LoginController"
                 title="Login with you name" border="normal" hflex="min">
                 <vbox hflex="min" align="center">
                     <grid hflex="min">
@@ -304,7 +302,7 @@ them with an authentication service class. If the password is correct,
 the authentication service class saves user's credentials into the
 session.
 
-**Controller used in chapter8/login.zul**
+**Controller used in chapter7/login.zul**
 
 ```java
 
@@ -319,7 +317,7 @@ public class LoginController extends SelectorComposer<Component> {
     Label message;
 
     //services
-    AuthenticationService authService = new AuthenticationServiceChapter8Impl();
+    AuthenticationService authService = new AuthenticationServiceChapter7Impl();
 
 
     @Listen("onClick=#login; onOK=#loginWin")
@@ -335,7 +333,7 @@ public class LoginController extends SelectorComposer<Component> {
         message.setValue("Welcome, "+cre.getName());
         message.setSclass("");
 
-        Executions.sendRedirect("/chapter8/");
+        Executions.sendRedirect("/chapter7/");
 
     }
 }
@@ -348,7 +346,7 @@ public class LoginController extends SelectorComposer<Component> {
 After login, we want to display a user's account in the banner. We can
 use EL to get a user's account from `UserCredential` in the session.
 
-**chapter8/layout/banner.zul**
+**chapter7/layout/banner.zul**
 
 ```xml
 
@@ -356,7 +354,7 @@ use EL to get a user's account from `UserCredential` in the session.
     <hbox hflex="1" vflex="1" align="center">
         <!-- other components -->
 
-        <hbox apply="org.zkoss.essentials.chapter8.LogoutController"
+        <hbox apply="org.zkoss.essentials.chapter7.LogoutController"
             hflex="1" vflex="1" pack="end" align="end" >
             <label value="${sessionScope.userCredential.name}"
                 if="${not sessionScope.userCredential.anonymous}"/>
@@ -389,7 +387,7 @@ label in the banner can log you out.
     <hbox hflex="1" vflex="1" align="center">
         <!-- other components -->
 
-        <hbox apply="org.zkoss.essentials.chapter8.LogoutController"
+        <hbox apply="org.zkoss.essentials.chapter7.LogoutController"
             hflex="1" vflex="1" pack="end" align="end" >
             <label value="${sessionScope.userCredential.name}"
                 if="${not sessionScope.userCredential.anonymous}"/>
@@ -410,12 +408,12 @@ label in the banner can log you out.
 public class LogoutController extends SelectorComposer<Component> {
 
     //services
-    AuthenticationService authService = new AuthenticationServiceChapter8Impl();
+    AuthenticationService authService = new AuthenticationServiceChapter7Impl();
 
     @Listen("onClick=#logout")
     public void doLogout(){
         authService.logout();
-        Executions.sendRedirect("/chapter8/");
+        Executions.sendRedirect("/chapter7/");
     }
 }
 ```
@@ -424,4 +422,4 @@ public class LogoutController extends SelectorComposer<Component> {
 -   Line 9: Redirect users to login page.
 
 After completing the above steps, you can visit
-`http://localhost:8080/essentials/chapter8` to see the result.
+`http://localhost:8080/essentials/chapter7` to see the result.

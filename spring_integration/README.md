@@ -194,7 +194,7 @@ Wire Spring Beans
 After registering beans for service classes, we can "wire" them in our
 controllers with ZK's variable resolver. To wire a Spring bean in a
 composer, we need to apply a
-<javadoc>org.zkoss.zkplus.spring.DelegatingVariableResolver</javadoc>.
+`org.zkoss.zkplus.spring.DelegatingVariableResolver`.
 Then, we can apply annotation `@WireVariable` on a variable which we
 want to wire a Spring bean with. ZK will then wire the corresponding
 Spring bean with **the variable whose name is the same as the bean's

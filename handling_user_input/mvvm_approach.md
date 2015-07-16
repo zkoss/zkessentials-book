@@ -38,7 +38,7 @@ application under MVVM approach.
 Building a user interface using the MVVM approach is not different from
 the MVC approach.
 
-**Extracted from chapter5/profile-mvvm-property.zul**
+**Extracted from chapter3/profile-mvvm-property.zul**
 
 ``` xml
 <?link rel="stylesheet" type="text/css" href="/style.css"?>
@@ -131,8 +131,8 @@ displays 2 kinds of data: the user's profile and country list in the
 public class ProfileViewModel implements Serializable{
 
     //services
-    AuthenticationService authService = new AuthenticationServiceChapter5Impl();
-    UserInfoService userInfoService = new UserInfoServiceChapter5Impl();
+    AuthenticationService authService = new AuthenticationServiceChapter3Impl();
+    UserInfoService userInfoService = new UserInfoServiceChapter3Impl();
 
     //data for the view
     User currentUser;
@@ -277,7 +277,7 @@ ViewModel.
 ``` xml
 
 <window apply="org.zkoss.bind.BindComposer"
-    viewModel="@id('vm') @init('org.zkoss.essentials.chapter5.mvvm.ProfileViewModel')"
+    viewModel="@id('vm') @init('org.zkoss.essentials.chapter3.mvvm.ProfileViewModel')"
     border="normal" hflex="1" vflex="1" contentStyle="overflow:auto">
 ...
 </window>
@@ -488,7 +488,7 @@ Steps to use a form binding:
 
     You should use middle object's id specified in ` @id ` to reference its property, e.g. `@load(fx.account)`.
 
-**extracted from chapter5/profile-mvvm.zul**
+**extracted from chapter3/profile-mvvm.zul**
 
 ``` xml
 ...
@@ -570,6 +570,6 @@ ViewModel's properties (`currentUser`).
 
 </div>
 After completing above steps, visit
-http://localhost:8080/essentials/chapter5/index-mvvm.zul to see the
+http://localhost:8080/essentials/chapter3/index-mvvm.zul to see the
 result.
 

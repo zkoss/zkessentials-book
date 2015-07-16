@@ -5,15 +5,15 @@ All source codes used in this book are available on
 application has 3 different configurations, our source code is divided
 into 3 branches:
 [**zk8**](https://github.com/zkoss/zkessentials/tree/zk8),
-[**chapter8-zk8**](https://github.com/zkoss/zkessentials/tree/chapter9-zk8), and
-[**chapter9-zk8**](https://github.com/zkoss/zkessentials/tree/chapter10-zk8).
+[**zk8-spring**](https://github.com/zkoss/zkessentials/tree/zk8-spring), and
+[**zk8-jpa**](https://github.com/zkoss/zkessentials/tree/zk8-jpa).
 
 ![ center](images/ze-ch2-3branches.png  " center")
 
 The **zk8** branch contains examples from chapter 1 to chapter 7. The
-**chapter8-zk8** branch has examples integrated with Spring and the
-**chapter9-zk8** branch contains examples which integrate with Spring and
-use JPA to persist data into a database.
+**zk8-spring** branch has examples integrated with Spring and the
+**zk8-jpa** branch contains examples which integrate with Spring and
+persiste data into a database with JPA.
 
 ![ center](images/ze-ch2-download-zip.png  " center")
 

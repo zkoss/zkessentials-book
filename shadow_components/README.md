@@ -11,17 +11,21 @@ It usually involves 2 steps to use shadow components.
 2. Apply a template
 
 ### Define a template
-Since ZK 8, you can put a `<template>` on any place of a zul. Define a template will not create any component until you apply it. You can define a template like:
+Since ZK 8, you can put a `<template>` inside any component. Define a template will not create any component until you apply it. You can define a template like:
 
 ```xml
-<template name="layout">
-<!-- UI components or shadow components -->
-</template>
+<div>
+    <template name="layout">
+    <!-- UI components or shadow components -->
+    </template>
+</div>
 ```
 
 or a path of a zul
 ```xml
-<template name="layout" src="/mytemplate.zul"/>
+<div>
+    <template name="layout" src="/mytemplate.zul"/>
+</div>
 ```
 The usage is the same as we mentioned in previous chapters. But We can also use the following tags to describe a component creation logic based on certain conditions.
 
@@ -51,7 +55,7 @@ The menu is made by templates contains shadow components, and it can render diff
 We store a menu hierarchical structure in a linked list, and each node in the list might have sub-menu or not.
 
 ```java
-package org.zkoss.essentials.chapter7.template;
+package org.zkoss.essentials.chapter5.template;
 
 import java.util.*;
 import org.zkoss.bind.annotation.*;
@@ -67,7 +71,7 @@ public class MenuViewModel {
 
 
 ```java
-package org.zkoss.essentials.chapter7.template;
+package org.zkoss.essentials.chapter5.template;
 
 import java.util.List;
 
@@ -84,7 +88,7 @@ public class MenuNode {
 Starting from the basic, we can just render the list of menu node with `<forEach>` (notice the captalized 'E') and `<navitem>`. The `<forEach>` can iterate over a collection of objects. Specifying the collection by the `items` attribute and access the current item through a variable named `each`. Or you can define the current item variable by the `var` attribute e.g. if you write `<forEach items="@load(menuItems)" var="menu">` then you should use `menu` in a data binding expression like `<navitem label="@load(menu.label)">`.
 
 
-**chapter7/template/menu.zul**
+**chapter5/template/menu.zul**
 ```xml
 <navbar id="navbar" orient="horizontal" collapsed="false">
     <apply template="iterate" menuItems="@ref(vm.menuHierarchy)"/>

@@ -13,11 +13,11 @@ uses a two-column *Grid* to build the form style layout and different
 input components to receive user's profile like name and birthday. The
 zul file below is included in the *Center* of the *Border Layout*.
 
-**chapter5/profile-mvc.zul**
+**chapter3/profile-mvc.zul**
 
 ```xml
 <?link rel="stylesheet" type="text/css" href="/style.css"?>
-<window apply="org.zkoss.essentials.chapter5.mvc.ProfileViewController"
+<window apply="org.zkoss.essentials.chapter3.mvc.ProfileViewController"
     border="normal" hflex="1" vflex="1" contentStyle="overflow:auto">
     <caption src="/imgs/profile.png" sclass="fn-caption"
         label="Profile (MVC)"/>
@@ -227,8 +227,8 @@ public class ProfileViewController extends SelectorComposer<Component>{
     Textbox bio;
 
     //services
-    AuthenticationService authService = new AuthenticationServiceChapter5Impl();
-    UserInfoService userInfoService = new UserInfoServiceChapter5Impl();
+    AuthenticationService authService = new AuthenticationServiceChapter3Impl();
+    UserInfoService userInfoService = new UserInfoServiceChapter3Impl();
 
     @Override
     public void doAfterCompose(Component comp) throws Exception{
@@ -402,4 +402,4 @@ public class ProfileViewController extends SelectorComposer<Component>{
 
 After the above steps, we have finished all functions of the target
 application. Quite simple, right? You can see the result at
-http://localhost:8080/essentials/chapter5/index.zul
+http://localhost:8080/essentials/chapter3/index.zul

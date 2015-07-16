@@ -29,19 +29,19 @@ We will demonstrate AJAX-based navigation with the same layout example.
 Below is the index page, its content is nearly the same as the index
 page of page based example except it replaces all `<include>` with `<apply>`.
 
-**chapter7/ajaxbased/index.zul**
+**chapter6/ajaxbased/index.zul**
 ```xml
 <?link rel="stylesheet" type="text/css" href="/style.css"?>
 <zk>
-	<borderlayout hflex="1" vflex="1" apply="org.zkoss.essentials.chapter7.ajaxbased.BookmarkChangeController">
+	<borderlayout hflex="1" vflex="1" apply="org.zkoss.essentials.chapter6.ajaxbased.BookmarkChangeController">
 		<north height="100px" border="none" >
 			<apply templateURI="/chapter3/banner.zul"/>
 		</north>
 		<west width="260px" border="none" collapsible="true" splittable="true" minsize="300">
-			<apply templateURI="/chapter7/ajaxbased/sidebar.zul"/>
+			<apply templateURI="/chapter6/ajaxbased/sidebar.zul"/>
 		</west>
 		<center id="mainContent" autoscroll="true" border="none" self="@insert(content)">
-			<apply templateURI="/chapter7/ajaxbased/mainContent.zul"/>
+			<apply templateURI="/chapter6/ajaxbased/mainContent.zul"/>
 		</center>
 		<south height="50px" border="none">
 			<apply templateURI="/chapter3/footer.zul"/>
@@ -57,10 +57,10 @@ page of page based example except it replaces all `<include>` with `<apply>`.
 As we don't need to dynamically change the path of those 3 areas (banner, side bar, footer), using `<apply>` is a better choice than `<include>`. Because `<apply>` create neither an extra `<div>` enclosin its content nor a id space. It's the main strength of using a shadow component that doesn't create a real component.
 
 
-**chapter7/ajaxbased/mainContent.zul**
+**chapter6/ajaxbased/mainContent.zul**
 ```xml
 <zk>
-	<include id="mainInclude"  src="/chapter7/ajaxbased/home.zul"/>
+	<include id="mainInclude"  src="/chapter6/ajaxbased/home.zul"/>
 </zk>
 ```
 - Line 2: We give the component id for we can find it later with ZK selector.
@@ -170,7 +170,7 @@ public class SidebarAjaxbasedController extends SelectorComposer<Component>{
     the clicked menu item.
 
 Visit the
-http://localhost:8080/essentials/chapter7/ajaxbased/index.zul to see
+http://localhost:8080/essentials/chapter6/ajaxbased/index.zul to see
 the result.
 
 

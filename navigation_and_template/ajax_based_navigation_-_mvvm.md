@@ -7,7 +7,7 @@ In this example, we modularize each page with an independent ViewModel. In order
 The basic idea is: sidebar sends a global command when a user clicks an item then content area change *Include* component's `src` attribute to navigate pages.
 
 
-**chapter7/ajaxbased_mvvm/sidebar.zul**
+**chapter6/ajaxbased_mvvm/sidebar.zul**
 ```xml
     <rows>
 		<template name="model">
@@ -21,18 +21,18 @@ The basic idea is: sidebar sends a global command when a user clicks an item the
 - Line 3: Specify a global command binding and pass `SidebarPage` as a parameter
 
 
-**chapter7/ajaxbased_mvvm/mainContent.zul**
+**chapter6/ajaxbased_mvvm/mainContent.zul**
 ```xml
 <zk>
 	<include id="mainInclude"
-		viewModel="@id('vm') @init('org.zkoss.essentials.chapter7.ajaxbased.mvvm.NavigationViewModel')"
+		viewModel="@id('vm') @init('org.zkoss.essentials.chapter6.ajaxbased.mvvm.NavigationViewModel')"
 		src="@load(vm.includeSrc)" />
 </zk>
 ```
 
 The code below demonstrate how to declare a global command method and receive a parameters.
 ```java
-package org.zkoss.essentials.chapter7.ajaxbased.mvvm;
+package org.zkoss.essentials.chapter6.ajaxbased.mvvm;
 
 import org.zkoss.bind.annotation.BindingParam;
 import org.zkoss.bind.annotation.GlobalCommand;
@@ -42,7 +42,7 @@ import org.zkoss.zk.ui.Executions;
 
 public class NavigationViewModel {
 
-	private String includeSrc = "/chapter7/ajaxbased/home.zul";
+	private String includeSrc = "/chapter6/ajaxbased/home.zul";
 
 	@GlobalCommand("onNavigate")
 	@NotifyChange("includeSrc")

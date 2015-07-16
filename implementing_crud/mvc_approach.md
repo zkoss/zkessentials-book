@@ -4,12 +4,12 @@ If you have read previous chapters, constructing the user interface for
 the example application should not be a big problem. Let's look at the
 layout first and ignore the details.
 
-**Layout in chapter6/todolist-mvc.zul**
+**Layout in chapter4/todolist-mvc.zul**
 
 ```xml
 
 <?link rel="stylesheet" type="text/css" href="/style.css"?>
-<window apply="org.zkoss.essentials.chapter6.mvc.TodoListController"
+<window apply="org.zkoss.essentials.chapter4.mvc.TodoListController"
     border="normal" hflex="1" vflex="1" contentStyle="overflow:auto">
     <caption src="/imgs/todo.png" sclass="fn-caption" label="Todo List (MVC)"/>
     <borderlayout>
@@ -101,7 +101,7 @@ public class TodoListController extends SelectorComposer<Component>{
     ...
 
     //services
-    TodoListService todoListService = new TodoListServiceChapter6Impl();
+    TodoListService todoListService = new TodoListServiceChapter4Impl();
 
     //data for the view
     ListModelList<Todo> todoListModel;
@@ -179,7 +179,7 @@ public class TodoListController extends SelectorComposer<Component>{
     ...
 
     //services
-    TodoListService todoListService = new TodoListServiceChapter6Impl();
+    TodoListService todoListService = new TodoListServiceChapter4Impl();
 
     //data for the view
     ListModelList<Todo> todoListModel;
@@ -223,7 +223,7 @@ public class TodoListController extends SelectorComposer<Component>{
     Textbox todoSubject;
 
     //services
-    TodoListService todoListService = new TodoListServiceChapter6Impl();
+    TodoListService todoListService = new TodoListServiceChapter4Impl();
 
     //data for the view
     ListModelList<Todo> todoListModel;
@@ -423,7 +423,7 @@ event from a component to another component, so we can forward an
 then we can just listen to the *Listbox*'s events instead of all events
 of *Checkbox*.
 
-**extracted from chapter6/todolist-mvc.zul**
+**extracted from chapter4/todolist-mvc.zul**
 
 ```xml
 ...
@@ -564,5 +564,5 @@ Then we can listen to the forwarded event and perform deletion.
 -   Line 7: Since we have set each `Todo` object to each `Listitem`'s
     `value` in the zul, we can get it by `getValue()`
 
-After completing the above steps, vist http://localhost:8080/essentials/chapter6/todolist-mvc.zul to see the
+After completing the above steps, vist http://localhost:8080/essentials/chapter4/todolist-mvc.zul to see the
 result.

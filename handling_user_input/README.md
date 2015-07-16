@@ -19,7 +19,7 @@ Get ZK Up and Running with
 MVVM](http://books.zkoss.org/wiki/ZK Getting Started/Get ZK Up_and_Running_with_MVVM "wikilink").
 These two approaches are mutually interchangeable. You can choose one of
 them depending on your situation. Please refer to [ Approach
-Comparison](http://books.zkoss.org/wiki/ZK_Getting_Started/Get_ZK_Up_and_Running_with_MVVM#Approach_Comparison "wikilink").
+Comparison](http://books.zkoss.org/wiki/ZK_Getting_Started/Get_ZK_Up_and_Running_with_MVVM#Approach_Comparison).
 
 
 

@@ -35,7 +35,7 @@ Then when you visit the target zul page, ZK will insert the template to the posi
 
 Creating a template zul is nothing different from creating a ordinary zul.
 
-**chapter7/pagebased/layout/template.zul**
+**chapter6/pagebased/layout/template.zul**
 
 ```xml
 <zk>
@@ -44,7 +44,7 @@ Creating a template zul is nothing different from creating a ordinary zul.
 			<include src="/chapter3/banner.zul"/>
 		</north>
 		<west width="260px" border="none" collapsible="true" splittable="true" minsize="300">
-			<include src="/chapter7/pagebased/layout/sidebar.zul"/>
+			<include src="/chapter6/pagebased/layout/sidebar.zul"/>
 		</west>
 		<center id="mainContent" autoscroll="true" border="none" >
 			<apply template="center"/>
@@ -64,7 +64,7 @@ Creating a template zul is nothing different from creating a ordinary zul.
 After creating a template zul, we shoulde decalre a template by `<template>` before applying it like:
 
 ```xml
-<template name="layout" src="/chapter7/pagebased/layout/template.zul"/>
+<template name="layout" src="/chapter6/pagebased/layout/template.zul"/>
 ```
 
 This tag will decalre a template named `layout` with its source zul path.

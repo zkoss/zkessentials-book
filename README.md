@@ -48,37 +48,32 @@ example application becomes close to a real application. The source code
 of the example applications can be downloaded through github, please
 refer to [Project Structure](../project_structure.md).
 
-Chapter 1, we introduce the ZK itself including its strength, value, and
-architecture.
-
-Chapter 2, we reveal the information of example application's source
-code and project structure.
-
-Chapter 3, we introduce how to build a common layout which contains
+Chapter 1, we introduce how to build a common layout which contains
 header, footer, and sidebar.
 
-Chapter 4, we tell you how to control components programmatically.
+Chapter 2, we tell you how to control components programmatically.
 
-Chapter 5, it describes how to collect, validate user input and
+Chapter 3, it describes how to collect, validate user input and
 response.
 
-Chapter 6, we demonstrate how to implement common CRUD operations with a
+Chapter 4, we demonstrate how to implement common CRUD operations with a
 To-Do list application.
 
-Chapter 7, we introduce 2 navigation ways in ZK, page-based and
+Chapter 5, it mentions about shadow components, a new component set introduced since ZK 8.
+
+Chapter 6, we introduce 2 navigation ways in ZK, page-based and
 AJAX-based.
 
-Chapter 8, it demonstrates a simple implementation to authenticate
+Chapter 7, it demonstrates a simple implementation to authenticate
 users.
 
-Chapter 9, we describe how to integrate Spring framework into a ZK
+Chapter 8, we describe how to integrate Spring framework into a ZK
 application.
 
-Chapter 10, we demonstrate how to use JPA in a ZK application.
+Chapter 9, we demonstrate how to use JPA in a ZK application.
+
 
 # Example Application
-
-
 The final result of this book is to build a small and rich application
 that has common features such as authentication, navigation, form input,
 and personal Todo list management. It manages its infrastructure with

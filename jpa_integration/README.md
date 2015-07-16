@@ -49,7 +49,7 @@ demonstrate how to integrate Spring with JPA.
 As we mentioned in the Project Struecture, our source code has [ 3
 branches](../project_structure.md)
 in github. The source code of this chapter's example belongs to a
-different branch in the github: **chapter10**.
+different branch in the github: **zk8-jpa**.
 
 We don't create new examples in this chapter, but we add 2 DAO classes
 written in JPA under the package `org.zkoss.essentials.services.impl`.
@@ -65,7 +65,7 @@ written in JPA under the package `org.zkoss.essentials.services.impl`.
 When using a database, JPA, and integration of JPA and Spring, we should
 add following dependencies based on chapter 9's configuration: (We add
 `spring-web` and `cblib` for Spring framework which is explained in
-chapter 9.)
+previous chapter.)
 
 ```xml
 

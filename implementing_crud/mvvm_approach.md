@@ -41,7 +41,7 @@ public class TodoListViewModel implements Serializable{
 
 
     //services
-    TodoListService todoListService = new TodoListServiceChapter6Impl();
+    TodoListService todoListService = new TodoListServiceChapter4Impl();
 
     //data for the view
     String subject;
@@ -446,7 +446,7 @@ is relatively decoupling and only established by data binding
 expressions.
 
 After completing above steps, please visit
-<http://localhost:8080/essentials/chapter6/todolist-mvvm.zul> to see the
+<http://localhost:8080/essentials/chapter4/todolist-mvvm.zul> to see the
 result.
 
 

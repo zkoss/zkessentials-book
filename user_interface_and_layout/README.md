@@ -53,7 +53,7 @@ element (tag) and you can configure each component's style, behavior,
 and function by setting the element's attributes.[^3] First, create a
 new text file with name *index.zul*, and type the following content:
 
-**Extracted from chapter3/index.zul**
+**Extracted from chapter1/index.zul**
 
 ```xml
 <zk>
@@ -109,7 +109,7 @@ Now we have a skeleton of the application, the next we need to do is to
 fill each area with components. We will create a separate zul file for
 each area and then combine them together.
 
-**chapter3/main.zul**
+**chapter1/main.zul**
 
 ```xml
             <vbox vflex="1" hflex="1" align="center"
@@ -125,7 +125,7 @@ each area and then combine them together.
 In the banner, there's an image with a hyperlink, title, and user name.
 Let's see how to construct these elements with existing ZK components:
 
-**chapter3/banner.zul**
+**chapter1/banner.zul**
 
 ```xml
 <div hflex="1" vflex="1" sclass="banner">
@@ -164,7 +164,7 @@ vertically. There are more than one way to achieve this. Here, we use a
 [ *Grid*](http://books.zkoss.org/wiki/ZK%20Component%20Reference/Data/Grid) which is
 suitable for arranging child components in a matrix layout.
 
-**chapter3/sidebar.zul**
+**chapter1/sidebar.zul**
 
 ```xml
 <grid hflex="1" vflex="1" sclass="sidebar">
@@ -204,7 +204,7 @@ suitable for arranging child components in a matrix layout.
 We usually put some contact information in the footer and make it
 aligned to the center.
 
-**chapter3/footer.zul**
+**chapter1/footer.zul**
 
 ```xml
 
@@ -229,7 +229,7 @@ aligned to the center.
     available properties.
 
 Next, we will combine these separated zul pages into
-`chapter3/index.zul`.
+`chapter1/index.zul`.
 
 ## Include a Separate Page
 
@@ -240,7 +240,7 @@ For all areas, we use *Include* component to combine separated pages.
 This component can combine a separated zul for you when the parent zul
 is visited. This usage is presented below:
 
-**chapter3/index.zul**
+**chapter1/index.zul**
 
 ```xml
 
@@ -248,17 +248,17 @@ is visited. This usage is presented below:
 <zk>
     <borderlayout hflex="1" vflex="1">
         <north height="100px" border="none" >
-            <include src="/chapter3/banner.zul"/>
+            <include src="/chapter1/banner.zul"/>
         </north>
         <west width="260px" border="none" collapsible="true"
                 splittable="true" minsize="300">
-            <include src="/chapter3/sidebar.zul"/>
+            <include src="/chapter1/sidebar.zul"/>
         </west>
         <center id="mainContent" autoscroll="true">
-            <include src="/chapter3/main.zul"/>
+            <include src="/chapter1/main.zul"/>
         </center>
         <south height="50px" border="none">
-            <include src="/chapter3/footer.zul"/>
+            <include src="/chapter1/footer.zul"/>
         </south>
     </borderlayout>
 </zk>
@@ -270,9 +270,9 @@ is visited. This usage is presented below:
     include a page into current page.
 
 After including 4 separated zul pages, we complete the example of this
-chapter. You can visit *<http://localhost:8080/essentials/chapter3>* to
+chapter. You can visit *<http://localhost:8080/essentials/chapter1>* to
 see the result. Since we set welcome file to "index.zul" in web.xml,
-*<http://localhost:8080/essentials/chapter3/index.zul>* will be visited
+*<http://localhost:8080/essentials/chapter1/index.zul>* will be visited
 by default.
 
 # Apply CSS
