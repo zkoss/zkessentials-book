@@ -36,7 +36,7 @@ consistent style with the index page. However, there should be no sidebar becaus
 The login form is built with *Grid*. This page should be accessible for
 all users, so we don't have to apply `AuthenticationInit`.
 
-**chapter/8/login.zul**
+**chapter7/login.zul**
 
 ```xml
 <?link rel="stylesheet" type="text/css" href="/style.css"?>

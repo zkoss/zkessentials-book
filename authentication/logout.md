@@ -4,7 +4,7 @@ When a user logs out, we usually clear his credentials from the session
 and redirect him to the login page. In our example, clicking "Logout"
 label in the banner can log you out.
 
-**chpater8/layout/banner.zul**
+**chpater7/layout/banner.zul**
 
 ```xml
 <div hflex="1" vflex="1" sclass="banner" >
