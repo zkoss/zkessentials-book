@@ -1,6 +1,6 @@
 # Secure Your Pages
 
-Even if you have setup an authentication mechanism, a user still can
+Even if you have implemented an authentication mechanism, a user still can
 access a page if he knows the page's URL. Therefore, we should protect a
 page from illegal access by checking user's credentials in his session
 when a page is requested by a user.
@@ -123,34 +123,3 @@ from unauthenticated access.
 
 After above steps are complete, if you directly visit
 http://localhost:8080/essentials/chapter7/index.zul without authentication, you will be redirected to the login page.
-
-
-## The "if" Attribute
-
-We can use an EL expression in the [ `if`
-attribute](http://books.zkoss.org/wiki/ZUML%20Reference/ZUML/Attributes/if) to determine a
-component's creation according to a user's credentials in the session.
-If the EL expression's evaluation result is true, the component
-will show otherwise the component will not be created.
-
-**chapter7/layout/template.zul**
-
-```xml
-
-<zk>
-    <!-- create only when the currentUser is not an anonymous  -->
-    <borderlayout hflex="1" vflex="1"
-        if="${not sessionScope.userCredential.anonymous}">
-        ...
-    </borderlayout>
-    <div if="${sessionScope.userCredential.anonymous}">
-        Redirect to login page.....
-    </div>
-</zk>
-```
-
--   Line 3,4,7: [`sessionScope`](http://books.zkoss.org/wiki/ZUML%20Reference/EL_Expressions/Implicit_Objects/sessionScope)
-    is an implicit variable that allows you to access session's
-    attributes. The *Borderlayout* is only created when `userCredential`
-    is not anonymous, otherwise it shows the *Div* for redirect.
-
