@@ -122,7 +122,7 @@ from unauthenticated access.
     initiator on it.
 
 After above steps are complete, if you directly visit
-`http://localhost:8080/essentials/chapter7/index.zul` without authentication, you will be redirected to the login page.
+http://localhost:8080/essentials/chapter7/index.zul without authentication, you will be redirected to the login page.
 
 
 ## The "if" Attribute

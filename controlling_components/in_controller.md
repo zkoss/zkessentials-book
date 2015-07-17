@@ -242,4 +242,4 @@ follows:
 After completing above steps, when a user clicks a *Row* on the sidebar,
 ZK will call a corresponding `actionListener ` then the browser will be
 redirected to a specified URL. You can see the result via
-*<http://localhost:8080/essentials/chapter2>*.
+http://localhost:8080/essentials/chapter2.

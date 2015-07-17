@@ -89,5 +89,5 @@ public class AuthenticationInit implements Initiator {
 
 After completing above steps, integration of Spring is done. The
 application's appearance doesn't change, but its infrastructure is now
-managed by Spring. You can visit <http://localhost:8080/essentials> to
+managed by Spring. You can visit http://localhost:8080/essentials to
 see the result.

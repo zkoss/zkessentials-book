@@ -124,6 +124,6 @@ public class SidebarPagebasedController extends SelectorComposer<Component>{
 - Line 15: Create menu items in the sidebar upon configurations with *Row*s.
 - Line 39: Add an event listener to redirect a browser to the URL specified in the menu item a user clicks.
 
-Visit <http://localhost:8080/essentials/chapter6/pagebased/index.zul>.
+Visit http://localhost:8080/essentials/chapter6/pagebased/index.zul.
 You will see the URL changes and whole page reloads each time you click
 a different menu item.

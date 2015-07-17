@@ -31,7 +31,7 @@ code, say it's "zkessentials" and type the command:
 
 `mvn jetty:run`
 
-Then visit the URL `http://localhost:8080/essentials/`, and you should
+Then visit the URL http://localhost:8080/essentials/, and you should
 see the page below.
 
 ![](images/ze-ch2-index.png)

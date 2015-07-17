@@ -37,7 +37,7 @@ is visited. This usage is presented below:
     include a page into current page.
 
 After including 4 separated zul pages, we complete the example of this
-chapter. You can visit *<http://localhost:8080/essentials/chapter1>* to
+chapter. You can visit http://localhost:8080/essentials/chapter1 to
 see the result. Since we set welcome file to "index.zul" in web.xml,
-*<http://localhost:8080/essentials/chapter1/index.zul>* will be visited
+http://localhost:8080/essentials/chapter1/index.zul will be visited
 by default.
