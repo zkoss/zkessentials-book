@@ -19,7 +19,7 @@ consistent style with the index page. However, there should be no sidebar becaus
 			<apply templateURI="/chapter6/ajaxbased/sidebar.zul"/>
 		</west>
 		</if>
-		<center id="mainContent" autoscroll="true" border="none" self="@insert(content)">
+		<center id="mainContent" autoscroll="true" border="none">
 			<!-- the main content will be insert to here -->
 			<apply template="center"/>
 		</center>

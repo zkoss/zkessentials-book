@@ -40,7 +40,7 @@ page of page based example except it replaces all `<include>` with `<apply>`.
 		<west width="260px" border="none" collapsible="true" splittable="true" minsize="300">
 			<apply templateURI="/chapter6/ajaxbased/sidebar.zul"/>
 		</west>
-		<center id="mainContent" autoscroll="true" border="none" self="@insert(content)">
+		<center id="mainContent" autoscroll="true" border="none">
 			<apply templateURI="/chapter6/ajaxbased/mainContent.zul"/>
 		</center>
 		<south height="50px" border="none">
