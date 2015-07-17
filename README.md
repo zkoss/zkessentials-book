@@ -89,6 +89,7 @@ must login before you can access other functions.
 <div style="text-align:center">
 <strong>Example application - login</strong>
 </div>
+
 After login, you can see the main page. The sidebar on the left is a
 navigation bar that allows you to switch between different functions.
 The upper three items lead you to external sites. There are 2 main
@@ -99,8 +100,8 @@ both the MVC and MVVM approach.
 
 <div style="text-align:center">
 <strong>Example application - profile form</strong>
-
 </div>
+
 The image below shows the Todo list management function, you can create,
 delete, and update a todo item.
 
