@@ -43,24 +43,18 @@ will be stored in the database with JPA annotations. To make the example
 close to a real application, we keep using the Spring framework and
 demonstrate how to integrate Spring with JPA.
 
+
 # Source Code
 
-
-As we mentioned in the Project Struecture, our source code has [ 3
-branches](../project_structure.md)
-in github. The source code of this chapter's example belongs to a
-different branch in the github: **zk8-jpa**.
+As we mentioned in the [Project Struecture](../project_structure.md), our source code has 3 branches in github. The source code of this chapter's example belongs to the branch: **zk8-jpa**.
 
 We don't create new examples in this chapter, but we add 2 DAO classes
-written in JPA under the package `org.zkoss.essentials.services.impl`.
+implemented in JPA under the package `org.zkoss.essentials.services.impl`.
 
-![ center](../images/ze-ch10-source.png)
 
 # Configuration
 
-
 ## Maven
-
 
 When using a database, JPA, and integration of JPA and Spring, we should
 add following dependencies based on chapter 9's configuration: (We add
@@ -70,7 +64,7 @@ previous chapter.)
 ```xml
 
     <properties>
-        <zk.version>6.5.1</zk.version>
+        <zk.version>8.0.0-Eval</zk.version>
         <maven.build.timestamp.format>yyyy-MM-dd</maven.build.timestamp.format>
         <packname>-${project.version}-FL-${maven.build.timestamp}</packname>
         <spring.version>3.1.2.RELEASE</spring.version>

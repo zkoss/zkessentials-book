@@ -39,27 +39,12 @@ see the page below.
 
 # Project Structure
 
-The 2 images below show the project structure of the example
-application. It's Maven default project structure, and all main source
-codes are under `src/main`. The left image shows the Java source code is
-under `src/main/java` and the right one shows the web application
-content is under `src/main/webapp`.
-
-<div style="width:630px;margin-left:auto;margin-right:auto;">
-<image src="images/ze-ch2-project-structure-java.png"/>
-<image src="images/ze-ch2-project-structure-webapp.png"/>
-</div>
-
-<div style="text-align:center;">
-<strong>Project Structure: Java(left) and Webapp(right)</strong>
-</div>
-
-We name the source code packages according to each chapter and each
+The example project is a Maven project and it's folder structure follow Mavne's default convention. We name the source code packages according to each chapter and each
 package contains the classes used in the example of that chapter. Some
 common classes are separated to an independent package as they are used
-in multiple chapters. The classes under `org.zkoss.essentials.entity.*`
-are entity class. We also define some business interfaces under
-`org.zkoss.essentials.service.*` and different chapters have different
+in multiple chapters, e.g. the classes under `org.zkoss.essentials.entity.*`
+are entity class. We also define some service layer interfaces under
+`org.zkoss.essentials.service.*`, and different chapters have different
 implementations.
 
 For ZUL pages, we put them in an independent folder for each chapter

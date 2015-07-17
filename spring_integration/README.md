@@ -53,7 +53,7 @@ it because our application uses Spring's scoped-proxy that requires it.
 
 ```xml
 <properties>
-    <zk.version>6.5.1</zk.version>
+    <zk.version>8.0.0-Eval</zk.version>
     <maven.build.timestamp.format>yyyy-MM-dd</maven.build.timestamp.format>
     <packname>-${project.version}-FL-${maven.build.timestamp}</packname>
     <spring.version>3.1.2.RELEASE</spring.version>
@@ -118,8 +118,8 @@ Spring.
 -   Line 21,22: Use `RequestContextListener` to support web-scoped beans
     (`request`, `session`, `global session`).
 
-Spring Configuration File
--------------------------
+## Spring Configuration File
+
 
 Create Spring configuration file with default name
 (`applicationContext.xml`). We enable Spring's classpath scanning to
@@ -188,9 +188,8 @@ public class AuthenticationServiceImpl implements AuthenticationService,Serializ
     those beans used in composers, you should use scoped-proxy to ensure
     every time you get the latest bean.
 
-Wire Spring Beans
-=================
 
+# Wire Spring Beans
 After registering beans for service classes, we can "wire" them in our
 controllers with ZK's variable resolver. To wire a Spring bean in a
 composer, we need to apply a
@@ -248,9 +247,8 @@ public class ProfileViewModel implements Serializable{
 
 -   Line 6: Wire a Spring bean whose bean name is `authService`.
 
-Wire Manually
--------------
 
+## Wire Manually
 When using `@WireVariable` out of a composer (or a ViewModel), ZK will
 not wire Spring beans for you automatically. If you need to get a Spring
 bean, you can wire them manually. The example below wires a Spring bean
