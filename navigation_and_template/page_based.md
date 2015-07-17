@@ -14,7 +14,7 @@ that have similar contents but applying a template zul can reduce this problem.
 To build a page-based navigation, first you should prepare corresponding pages for those items in the sidebar.
 
 From below image, you can see there are 4 zul pages which correspond
-to items in the sidebar under "chpater7\\pagebased" (index-profile-mvc.zul, index-profile-mvvm.zul, index-todolist-mvc.zul, index-todolist-mvvm.zul). Then we can link four items of the sidebar to these zul pages by redirecting a browser.
+to items in the sidebar under "pagebased" folder (index-profile-mvc.zul, index-profile-mvvm.zul, index-todolist-mvc.zul, index-todolist-mvvm.zul). Then we can link four items of the sidebar to these zul pages by redirecting a browser.
 
 ![](../images/ze-ch7-pagebased.png)
 
