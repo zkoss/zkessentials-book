@@ -98,7 +98,7 @@ both the MVC and MVVM approach.
 ![](images/ze-ch1-profile.png)
 
 <div style="text-align:center">
-**Example application - profile form**
+<strong>Example application - profile form</strong>
 
 </div>
 The image below shows the Todo list management function, you can create,
