@@ -89,20 +89,6 @@ icon and its title, and the footer at the bottom contains general
 information. The central area displays the current main function. You
 must login before you can access other functions.
 
-![](images/ze-ch8-login.png)
-
-<div style="text-align:center">
-<strong>Example application - login</strong>
-</div>
-After login, you can see the main page. The sidebar on the left is a
-navigation bar that allows you to switch between different functions.
-The upper three items lead you to external sites. There are 2 main
-functions, profile and todo list management, which are implemented by
-both the MVC and MVVM approach.
-
-![](images/ze-ch1-profile.png)
-
-
 
 # References
 
