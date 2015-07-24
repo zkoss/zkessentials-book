@@ -1,5 +1,3 @@
-{{ file.path }}
-{{ book.bookUrl }}
 # ZK's Value and Strength
 
 ZK is a component-based UI framework that enables you to build Rich
