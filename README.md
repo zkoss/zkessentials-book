@@ -22,7 +22,7 @@ and you can choose one of them upon your architectural consideration.
 
 # Architecture of ZK
 
- ![ ](images/ze-ch1-simple-architecture.png)
+ ![ ](/images/ze-ch1-simple-architecture.png)
 
 Above image is a simplified ZK architecture. When a browser visits a
 page of a ZK application, ZK creates components written in ZUL and
@@ -111,9 +111,7 @@ delete, and update a todo item.
 
 ![](images/ze-ch1-todo.png)
 
-<div style="text-align:center">
-<strong>Example application - todo list</strong>
-</div>
+
 
 # References
 
