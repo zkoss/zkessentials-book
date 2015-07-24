@@ -102,15 +102,6 @@ both the MVC and MVVM approach.
 
 ![](images/ze-ch1-profile.png)
 
-<div style="text-align:center">
-**Example application - profile form**
-
-</div>
-The image below shows the Todo list management function, you can create,
-delete, and update a todo item.
-
-![](images/ze-ch1-todo.png)
-
 
 
 # References
