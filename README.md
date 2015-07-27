@@ -89,6 +89,8 @@ icon and its title, and the footer at the bottom contains general
 information. The central area displays the current main function. You
 must login before you can access other functions.
 
+![](images/ze-ch8-login.png)
+
 
 # References
 
