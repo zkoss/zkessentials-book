@@ -10,7 +10,7 @@ These shadow components are:
 * `<choose>`/`<when>`/`<otherwise>`: they are used for logic and flow control like Java's `switch`/`case`/`default` statement.
 
 
-We can use shashow components on anywhere of a zul. For example, create a component upon a condition:
+We can use shadow components on anywhere of a zul. For example, create a component upon a condition:
 ```xml
 <if test="@load(vm.readonly)">
     <button label="Edit"/>
