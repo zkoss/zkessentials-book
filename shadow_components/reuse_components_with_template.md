@@ -1,5 +1,5 @@
 # Reuse Components with a Template
-In ZK 8, `<template>` is our recommended form to reuse a view pattern composed by a group of components. Puting components into `<template>` can make them reusable easily by `<apply>`. It usually involves 2 steps:
+In ZK 8, `<template>` is our recommended form to reuse a view pattern composed by a group of components. Putting components into `<template>` can make them reusable easily by `<apply>`. It usually involves 2 steps:
 1. Define a template
 2. Apply a template
 
@@ -24,7 +24,7 @@ The usage is the same as we mentioned in previous chapters. But We can also use 
 
 
 ## Apply a Template
-When we apply a template, ZK will create the components inside the template upon its logic and insert those components into the position of `<apply>` tag. Therefore, we also call it *Tempalte Injection*.
+When we apply a template, ZK will create the components inside the template upon its logic and insert those components into the position of `<apply>` tag. Therefore, we also call it *Template Injection*.
 
 We usually apply a template with its name like:
 
@@ -59,7 +59,7 @@ To reuse the `<forEach>`, we turn it into a template named `iterate` first.
 - Line 2: We pass a parameter by `menuItems="@ref(vm.menuHierarchy)"`. Therefore, we can access the menu list in `<forEach>` by `items="@load(menuItems)"`.
 
 
-In this simple case (just 2 choices), we can re-write it in a simpler way by creating 2 templates for `nav` and `navitem` repectively.
+In this simple case (just 2 choices), we can re-write it in a simpler way by creating 2 templates for `menu` and `menuitem` respectively.
 
 ```xml
 <template name="menu">
@@ -102,4 +102,4 @@ Everything is fine so far except those sub-menu are not rendered. That's because
 	<navitem label="@load(menuItem.label)" />
 </template>
 ```
-- Line 3: Apply the previous tempalte `iterate` here to traverse each menu node and render them.
+- Line 3: Apply the previous template `iterate` here to traverse each menu node and render them.

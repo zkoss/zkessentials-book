@@ -1,6 +1,6 @@
 # Shadow Components
 
-ZK 8 introduces a new set of components: **shadow component**. The shadow component which is like [shadow DOM](http://w3c.github.io/webcomponents/spec/shadow/) neither creates a corresponding component on the server side nor a widget on the client side. It just injects its child components inside into current page. If we use them with data binding, a page can dynamically changes upon a ViewModel's data. Since shadow components have flow control and iteration function, if you identify a repeating view pattern appearing in your application. You can implement that view pattern with shadow components to modulize your view. Hence, its most powerful usage is **making the view reusable**.
+ZK 8 introduces a new set of components: **shadow component**. The shadow component which is like [shadow DOM](http://w3c.github.io/webcomponents/spec/shadow/) neither creates a corresponding component on the server side nor a widget on the client side. It just injects its child components inside into the current page. If we use them with data binding, a page can dynamically changes upon a ViewModel's data. Since shadow components have flow control and iteration function, if you identify a repeating view pattern appearing in your application. You can implement that view pattern with shadow components to modulize your view. Hence, its most powerful usage is **making the view reusable**.
 
 These shadow components are:
 
