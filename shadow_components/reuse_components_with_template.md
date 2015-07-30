@@ -84,7 +84,7 @@ Then replace `<choose>`/`<when>`/`<otherwise>` with ternary operator `?` like:
 
 
 ## Applying a Template inside a Template
-Everything is fine so far except for the fact those sub-menus are not rendered. That's because in template `menu`, we only render a menu node itself to a `<nav>` and don't render its sub-menu. A node in a sub-menu is also a menu node, and it can also have a sub-menu. We still need to render a sub-menu node like what we do for a menu node, by using a control structure. The best thing is: we don't need to repeat ourselves in template `menu` . We can just apply the template `iterate` to iterate a collection of menu nodes recursively.
+Everything is fine so far except for the fact those sub-menus are not rendered. That's because in template `menu`, we only render the menu node itself to a `<nav>` and don't render its sub-menu. A node in a sub-menu is also a menu node, and it can also have a sub-menu. We still need to render a sub-menu node like what we do for a menu node, by using a control structure. The best thing is: we don't need to repeat ourselves in template `menu`. We can just apply the template `iterate` to iterate a collection of menu nodes recursively.
 
 **All 3 templates are used in this example**
 ```xml
