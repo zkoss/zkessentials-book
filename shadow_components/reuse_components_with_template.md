@@ -1,10 +1,10 @@
 # Reusing Components with a Template
-In ZK 8, `<template>` is our recommended form to reuse a view pattern composed by a group of components. Putting components into `<template>` can make them reusable easily by `<apply>`. It usually involves 2 steps:
+In ZK 8, `<template>` is our recommended form for reusing a view pattern composed by a group of components. Putting components into `<template>` can make them reusable easily by `<apply>`. It usually involves 2 steps:
 1. Define a template
 2. Apply a template
 
 ## Defining a template
-Through ZK 8, you can put a `<template>` inside any component. Defining a template will not create any component until you apply it. You can define a template like:
+With ZK 8, you can put a `<template>` inside any component. Defining a template will not create any component until you apply it. You can define a template like:
 
 ```xml
 <div>
