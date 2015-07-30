@@ -4,7 +4,7 @@ In ZK 8, `<template>` is our recommended form for reusing a view pattern compose
 2. Apply a template
 
 ## Defining a template
-With ZK 8, you can put a `<template>` inside any component. Defining a template will not create any component until you apply it. You can define a template like:
+With ZK 8, you can put a `<template>` inside any component. Defining a template will not create any component until you apply it. You can define a template like this:
 
 ```xml
 <div>
@@ -31,7 +31,7 @@ We usually apply a template with its name like:
 ```xml
 <apply template="layout"/>
 ```
-Or applying with a path of a zul:
+Or apply with a path of a zul like:
 ```xml
 <apply templateURI="/chapter1/banner.zul"/>
 ```
@@ -83,7 +83,7 @@ Then replace `<choose>`/`<when>`/`<otherwise>` with ternary operator `?` like:
 ```
 
 
-## Applying a Template inside a Template
+## Applying a Template Inside a Template
 Everything is fine so far except for the fact those sub-menus are not rendered. That's because in template `menu`, we only render the menu node itself to a `<nav>` and don't render its sub-menu. A node in a sub-menu is also a menu node, and it can also have a sub-menu. We still need to render a sub-menu node like what we do for a menu node, by using a control structure. The best thing is: we don't need to repeat ourselves in template `menu`. We can just apply the template `iterate` to iterate a collection of menu nodes recursively.
 
 **All 3 templates are used in this example**
