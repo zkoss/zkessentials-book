@@ -1,10 +1,10 @@
-# Reuse Components with a Template
+# Reusing Components with a Template
 In ZK 8, `<template>` is our recommended form to reuse a view pattern composed by a group of components. Putting components into `<template>` can make them reusable easily by `<apply>`. It usually involves 2 steps:
 1. Define a template
 2. Apply a template
 
-## Define a template
-Since ZK 8, you can put a `<template>` inside any component. Define a template will not create any component until you apply it. You can define a template like:
+## Defining a template
+Through ZK 8, you can put a `<template>` inside any component. Defining a template will not create any component until you apply it. You can define a template like:
 
 ```xml
 <div>
@@ -20,10 +20,10 @@ or a path of a zul
     <template name="layout" src="/mytemplate.zul"/>
 </div>
 ```
-The usage is the same as we mentioned in previous chapters. But We can also use the following tags to describe a component creation logic based on certain conditions.
+The usage is the same as what we mentioned in previous chapters. But we can also use the following tags to describe a component creation logic based on certain conditions.
 
 
-## Apply a Template
+## Applying a Template
 When we apply a template, ZK will create the components inside the template upon its logic and insert those components into the position of `<apply>` tag. Therefore, we also call it *Template Injection*.
 
 We usually apply a template with its name like:
@@ -31,12 +31,12 @@ We usually apply a template with its name like:
 ```xml
 <apply template="layout"/>
 ```
-Or apply with a path of a zul:
+Or applying with a path of a zul:
 ```xml
 <apply templateURI="/chapter1/banner.zul"/>
 ```
 
-## Turn into Templates
+## Turning Components into Templates
 To reuse the `<forEach>`, we turn it into a template named `iterate` first.
 
 ```xml
@@ -83,10 +83,10 @@ Then replace `<choose>`/`<when>`/`<otherwise>` with ternary operator `?` like:
 ```
 
 
-## Apply a Template inside a Template
-Everything is fine so far except those sub-menu are not rendered. That's because in template `menu`, we just render a menu node itself as a `<nav>` and doesn't render its sub-menu. A node in a sub-menu is also a menu node, and it could also have sub-menu. We still need to render a sub-menu node like we do for a menu node, using a control structure. The best thing is: we don't need to repeat ourselves in template `menu` again. We can just apply the template `iterate` to iterate a collection of menu nodes recursively.
+## Applying a Template inside a Template
+Everything is fine so far except for the fact those sub-menus are not rendered. That's because in template `menu`, we only render a menu node itself to a `<nav>` and don't render its sub-menu. A node in a sub-menu is also a menu node, and it can also have a sub-menu. We still need to render a sub-menu node like what we do for a menu node, by using a control structure. The best thing is: we don't need to repeat ourselves in template `menu` . We can just apply the template `iterate` to iterate a collection of menu nodes recursively.
 
-**All 3 templates used in this example**
+**All 3 templates are used in this example**
 ```xml
 <template name="menu">
     <nav label="@load(menuItem.label)" iconSclass="@load(menuItem.iconSclass)">
