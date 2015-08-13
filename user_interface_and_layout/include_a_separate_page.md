@@ -33,7 +33,7 @@ is visited. This usage is presented below:
 
 -   Line 1: This directive links a external style sheet under root
     folder.
--   Line 5, 8,11, 14: Specify a separated zul path at `src` attribute to
+-   Line 5, 9, 12, 15: Specify a separated zul path at `src` attribute to
     include a page into current page.
 
 After including 4 separated zul pages, we complete the example of this
