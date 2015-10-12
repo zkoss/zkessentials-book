@@ -27,7 +27,7 @@ After you download the source code, you will find it is a Maven[^1]
 project with jetty plugin configured. Therefore, if you have installed Maven, you
 can run the example application with a simple command below[^2] (The maven we
 use is **3.0.3**). Navigate to the root folder of your downloaded source
-code, say it's "zkessentials" and type the command:
+code, e.g. it's "zkessentials" and type the command:
 
 `mvn jetty:run`
 
