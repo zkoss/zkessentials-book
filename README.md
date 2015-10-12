@@ -31,11 +31,11 @@ application's Controller to implement UI presentation logic. All changes
 you made on components will automatically reflect on users' browser and
 ZK handles underlying communication for you.
 
-ZK application developed in server-centric way can easily access Java EE
+ZK application developed in a server-centric way can easily access Java EE
 technology stack and integrate many great third party Java frameworks
 like Spring or Hibernate. Moreover, ZK also supports client-centric
-development that allows you to customize visual effect, or handle user
-actions at client side.
+development that allows you to customize visual effect or handle user
+actions at the client side.
 
 # About This Book
 
@@ -48,8 +48,8 @@ example application becomes close to a real application. The source code
 of the example applications can be downloaded through github, please
 refer to [Project Structure](../project_structure.md).
 
-Chapter 1, we introduce how to build a common layout which contains
-header, footer, and sidebar.
+Chapter 1, we introduce how to build a common layout which contains a
+header, a footer, and a sidebar.
 
 Chapter 2, we tell you how to control components programmatically.
 
@@ -74,10 +74,9 @@ Chapter 9, we demonstrate how to use JPA in a ZK application.
 
 
 # Example Application
-The final result of this book is to build a small and rich application
+This book will guide you to build a small and rich application
 that has common features such as authentication, navigation, form input,
-and personal Todo list management. It manages its infrastructure with
-Spring and persists data into a database with JPA.
+and personal to-do list management as a final result. It manages its infrastructure with Spring and persists data into a database with JPA.
 
 This application has a common layout. The header above has application's
 icon and its title, and the footer at the bottom contains general
