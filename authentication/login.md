@@ -3,7 +3,7 @@
 It is a common way to request an account and a password for
 authentication. We create a login page to collect user's account and
 password, and the login page also uses a template zul to keep a
-consistent style with the index page. However, there should be no sidebar because users without logging in should not be able to access main functions. So we need to change our template to create the sidebar according to user crendential in the session with a shadow component, `<if>`.
+consistent style with the index page. However, there should be no sidebar because users without logging in should not be able to access main functions. So we need to change our template to create the sidebar according to user credential in the session with a shadow component, `<if>`.
 
 **chapter7/layout/template.zul**
 
@@ -153,8 +153,7 @@ use EL to get a user's account from `UserCredential` in the session.
 </div>
 ```
 
--   Line 7: The [
-    sessionScope](ZUML_Reference/EL_Expressions/Implicit_Objects/sessionScope "wikilink")
+-   Line 7: The [sessionScope](http://books.zkoss.org/wiki/ZUML%20Reference/EL%20Expressions/Implicit%20Objects%20(Predefined%20Variables)/sessionScope)
     is an implicit object that you can use within EL to access session's
     attribute. It works as the same as `getAttribute()`. You can use it
     to get session's attribute with dot notation, e.g.
