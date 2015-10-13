@@ -190,9 +190,9 @@ aligned to the center.
     *Hbox*, arranges child components vertically. We specify "center" at
     `align` to align those texts horizontally in the center.
 -   Line 3: You can use [ EL
-    expressions](ZUML_Reference/EL_Expressions "wikilink") in the tag
+    expressions](http://books.zkoss.org/wiki/ZUML%20Reference/EL%20Expressions) in the tag
     element's body or an attribute. There are also many [ implicit
-    objects](ZUML_Reference/EL_Expressions/Implicit_Objects "wikilink"),
+    objects](http://books.zkoss.org/wiki/ZUML%20Reference/EL%20Expressions/Implicit%20Objects%20(Predefined%20Variables)),
     and `desktop` is one of them. Refer to
     <javadoc>org.zkoss.zk.ui.Desktop</javadoc>'s Javadoc to find out
     available properties.
