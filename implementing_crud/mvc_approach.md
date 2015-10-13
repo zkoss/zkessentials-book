@@ -415,8 +415,7 @@ implement this feature, the first problem is: how do we know which
 *Checkbox* is checked as there are many of them. We cannot listen to a
 *Checkbox* event as they are created in template using
 `@Listen("onCheck = #todoListbox checkbox")`,thus are created
-dynamically. Therefore, we introduce the [ "Event
-Forwarding"](ZK%20Developer's%20Reference/Event%20Handling/Event%20Forwarding "wikilink")
+dynamically. Therefore, we introduce the [ "Event Forwarding"](http://books.zkoss.org/wiki/ZK%20Developer's%20Reference/Event%20Handling/Event%20Forwarding)
 feature to demonstrate ZK's flexibility. This feature can forward an
 event from a component to another component, so we can forward an
 `onCheck` event from each *Checkbox* to the *Listbox* that encloses it,
