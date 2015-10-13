@@ -9,7 +9,7 @@ to adjust layout details.
 ![](../images/ze-ch3-page-layout.png)
 
 The image above is the target layout we are going to create in this
-chapter and this kind of design is very common in web applications. The
+chapter, and this kind of design is very common in web applications. The
 banner at the top contains application icon, title, and user's name at
 the right most corner. The footer at the bottom contains general
 information. The sidebar on the left contains 3 links that direct you to
