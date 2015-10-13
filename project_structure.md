@@ -39,7 +39,7 @@ see the page below.
 
 # Project Structure
 
-The example project is a Maven project, and it's folder structure follow Mavne's default convention. We name the source code packages according to each chapter, and each
+The example project is a Maven project, and it's folder structure follows Maven's default convention. We name the source code packages according to each chapter, and each
 package contains the classes used in the example of that chapter. Some
 common classes are separated to an independent package as they are used
 in multiple chapters, e.g. the classes under `org.zkoss.essentials.entity.*`
