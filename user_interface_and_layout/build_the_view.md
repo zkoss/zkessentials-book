@@ -1,6 +1,6 @@
 # Build the View
-Building the View in ZK is basically creating components and there are
-two ways to do it: **Java** (programatic) and **XML-based**
+Building the View in ZK is basically creating components, and there are
+two ways to do it: **Java** (programmatic) and **XML-based**
 (declarative) approach. You can even mix these two approaches.
 
 ZK allows you to compose a user interface in Java programmatically which
@@ -8,17 +8,17 @@ is a feature called [
 richlet](http://books.zkoss.org/wiki/ZK%20Developer's%20Reference/UI%20Composing/Richlet),
 but we don't use this approach in this book.
 
-ZK also provides a XML-formatted language called ZK User Interface
-Markup Language (ZUML). Each XML element instructs ZK Loader to create a
+ZK also provides a XML-formatted language called **ZK User Interface
+Markup Language (ZUML)**. Each XML element instructs ZK Loader to create a
 component. Each XML attribute describes what value to be assigned to the
 created component. We will use this approach mainly in our example.
 
 
 ## Write a ZUL
 To create a component in ZK, we need to use a XML-based language named
-**ZUL** and all files written in ZUL should have the file extension
+**ZUL**, and all files written in ZUL should have the file extension
 "**.zul**". In zul files, one component can be represented as an XML
-element (tag) and you can configure each component's style, behavior,
+element (tag), and you can configure each component's style, behavior,
 and function by setting the element's attributes.[^1] First, create a
 new text file with name *index.zul*, and type the following content:
 
@@ -202,4 +202,4 @@ Next, we will combine these separated zul pages into
 
 
 
-[^1]: [ZK Component Reference](ZK Component Reference)
+[^1]: [ZK Component Reference](http://books.zkoss.org/wiki/ZK_Component_Reference)
