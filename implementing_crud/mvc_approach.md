@@ -213,7 +213,7 @@ the button with the plus icon
 (![](../images/ze-ch6-plus.png)) or pressing
 "Enter" key. Therefore, we have to listen to 2 events: `onClick` and
 `onOK`. For handling other key pressing events, please refer to
-[ZK\_Developer's\_Reference/UI\_Patterns/Keystroke\_Handling](ZK_Developer's_Reference/UI_Patterns/Keystroke_Handling "wikilink").
+[ZK\_Developer's\_Reference/UI\_Patterns/Keystroke\_Handling](http://books.zkoss.org/wiki/ZK%20Developer's%20Reference/UI%20Patterns/Keystroke%20Handling).
 
 ```java
 public class TodoListController extends SelectorComposer<Component>{
