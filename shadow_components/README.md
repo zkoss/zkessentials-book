@@ -24,6 +24,17 @@ Or create a collection of components:
 </forEach>
 ```
 
+# Setup
+Before using shadow elements, make sure you include the required jar - `zuti.jar`. With maven, you should add the dependency below:
+```xml
+    <dependency>
+        <groupId>org.zkoss.zk</groupId>
+        <artifactId>zuti</artifactId>
+        <version>${zk.version}</version>
+    </dependency>
+ ```
+ 
+
 ## Navigation Menu Example
 In this chapter, we will demonstrate the power of shadow components with a navigation menu example shown below:
 ![](../images/ze-ch7-menu.png)
