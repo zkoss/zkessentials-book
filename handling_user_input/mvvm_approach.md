@@ -570,6 +570,6 @@ ViewModel's properties (`currentUser`).
 
 </div>
 After completing above steps, visit
-http://localhost:8080/essentials/chapter3/index-mvvm.zul to see the
+http://localhost:8080/zkessentials/chapter3/index-mvvm.zul to see the
 result.
 

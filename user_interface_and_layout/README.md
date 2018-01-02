@@ -1,5 +1,4 @@
 # Design the Layout
-In the beginning, we will build the user interface which usually starts
 from designing the layout. ZK provides various layout components for different
 layout requirements, and you can even configure a component's attribute
 to adjust layout details.

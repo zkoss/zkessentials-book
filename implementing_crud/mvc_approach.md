@@ -563,5 +563,5 @@ Then we can listen to the forwarded event and perform deletion.
 -   Line 7: Since we have set each `Todo` object to each `Listitem`'s
     `value` in the zul, we can get it by `getValue()`
 
-After completing the above steps, vist http://localhost:8080/essentials/chapter4/todolist-mvc.zul to see the
+After completing the above steps, vist http://localhost:8080/zkessentials/chapter4/todolist-mvc.zul to see the
 result.

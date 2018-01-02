@@ -402,4 +402,4 @@ public class ProfileViewController extends SelectorComposer<Component>{
 
 After the above steps, we have finished all functions of the target
 application. Quite simple, right? You can see the result at
-http://localhost:8080/essentials/chapter3/index.zul
+http://localhost:8080/zkessentials/chapter3/index.zul

@@ -82,4 +82,4 @@ Each of these classes encapsulates cohesive functions and has decoupled
 relationships with others. You can easily expand the architecture by
 adding more classes or create dependencies between two layers.
 
-You can visit http://localhost:8080/essentials to see the result.
+You can visit http://localhost:8080/zkessentials to see the result.

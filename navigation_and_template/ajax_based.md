@@ -169,7 +169,7 @@ public class SidebarAjaxbasedController extends SelectorComposer<Component>{
     the clicked menu item.
 
 Visit the
-http://localhost:8080/essentials/chapter6/ajaxbased/index.zul to see
+http://localhost:8080/zkessentials/chapter6/ajaxbased/index.zul to see
 the result.
 
 

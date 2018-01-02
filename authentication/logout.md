@@ -46,4 +46,4 @@ public class LogoutController extends SelectorComposer<Component> {
 -   Line 9: Redirect users to login page.
 
 After completing the above steps, you can visit
-http://localhost:8080/essentials/chapter7 to see the result.
+http://localhost:8080/zkessentials/chapter7 to see the result.

@@ -446,7 +446,7 @@ is relatively decoupling and only established by data binding
 expressions.
 
 After completing above steps, please visit
-http://localhost:8080/essentials/chapter4/todolist-mvvm.zul to see the
+http://localhost:8080/zkessentials/chapter4/todolist-mvvm.zul to see the
 result.
 
 
