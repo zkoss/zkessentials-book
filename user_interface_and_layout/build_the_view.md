@@ -1,7 +1,10 @@
 # Build the View
 Building the View in ZK is basically creating components, and there are
-two ways to do it: **Java** (programmatic) and **XML-based**
-(declarative) approach. You can even mix these two approaches.
+two ways to do it: 
+* **ZUL** (XML-based, declarative) approach. 
+* **Java** (programmatic)
+
+You can even mix these two approaches.
 
 ZK allows you to compose a user interface in Java programmatically which
 is a feature called [
