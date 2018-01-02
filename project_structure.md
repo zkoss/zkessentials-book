@@ -23,8 +23,15 @@ a zip file.
 After you download the source code, you will find it is a [Apache Maven](http://maven.apache.org/) project with jetty plugin configured. Therefore, you can start the example application on Jetty without deploying.
 
 ## No Maven Installed
+Even you don't install Maven, you can start the project with [maven wrapper](https://github.com/takari/maven-wrapper) by the command below (it will automatically download required maven):
 
-## Maven Installed
+### Linux/Mac
+`./mvnw jetty:run`
+
+### Windows
+`mvnw jetty:run`
+
+## With Maven
 Navigate to the root folder of the example project, e.g. it's "zkessentials" and type the command:
 
 `mvn jetty:run`
@@ -34,6 +41,12 @@ see the page below.
 
 ![](images/ze-ch2-index.png)
 
+## With Gradle
+You have 2 options:
+* Start with the gradle plugin [gretty](https://github.com/akhikhl/gretty)
+`gradle appRun`
+*  Start with embedded [jetty-runner](https://www.eclipse.org/jetty/documentation/9.4.x/runner.html) that we configured in build.gradle
+`gradle startJettyRunner`
 
 # Project Structure
 
