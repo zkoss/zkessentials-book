@@ -67,7 +67,7 @@ public class SidebarChapter2Controller extends SelectorComposer<Component>{
 
     //wire components
     @Wire
-    Grid fnList;
+    Grid sidebar;
 
     ...
 }
@@ -93,7 +93,7 @@ public class SidebarChapter2Controller extends SelectorComposer<Component>{
 
     //wire components
     @Wire
-    Grid fnList;
+    Grid sidebar;
 
     //services
     SidebarPageConfig pageConfig = new SidebarPageConfigChapter2Impl();
@@ -103,7 +103,7 @@ public class SidebarChapter2Controller extends SelectorComposer<Component>{
         super.doAfterCompose(comp);
 
         //initialize view after view construction.
-        Rows rows = fnList.getRows();
+        Rows rows = sidebar.getRows();
 
         for(SidebarPage page:pageConfig.getPages()){
             Row row = constructSidebarRow(page.getLabel(),page.getIconUri(),page.getUri());
@@ -160,7 +160,7 @@ public class SidebarChapter2Controller extends SelectorComposer<Component>{
 
     //wire components
     @Wire
-    Grid fnList;
+    Grid sidebar;
 
     //services
     SidebarPageConfig pageConfig = new SidebarPageConfigChapter2Impl();
@@ -170,7 +170,7 @@ public class SidebarChapter2Controller extends SelectorComposer<Component>{
         super.doAfterCompose(comp);
 
         //initialize view after view construction.
-        Rows rows = fnList.getRows();
+        Rows rows = sidebar.getRows();
 
         for(SidebarPage page:pageConfig.getPages()){
             Row row = constructSidebarRow(page.getLabel(),page.getIconUri(),page.getUri());
@@ -220,11 +220,11 @@ public class SidebarChapter2Controller extends SelectorComposer<Component>{
 -   Line 39: We create an `EventListener` anonymous class for
     convenience. Under a clustering environment, your event listener
     class should implement
-    <javadoc>org.zkoss.zk.ui.event.SerializableEventListener</javadoc>.
+    `org.zkoss.zk.ui.event.SerializableEventListener`.
 -   Line 44: Implement the business logic in`onEvent()` method, and this
     method will be called if the listened event is sent to the server.
     Here we get current execution by
-    <javadoc>org.zkoss.zk.ui.Executions</javadoc> and redirect a client
+    `org.zkoss.zk.ui.Executions` and redirect a client
     to a new URL.
 -   Line 48: Apply the event listener to a *Row* for listening
     `Events.ON_CLICK` event which is triggered by a mouse clicking
