@@ -20,11 +20,12 @@ a zip file.
 
 # Run Example Application
 
-After you download the source code, you will find it is a Maven[^1]
-project with jetty plugin configured. Therefore, if you have installed Maven, you
-can run the example application with a simple command below[^2] (The maven we
-use is **3.0.3**). Navigate to the root folder of your downloaded source
-code, e.g. it's "zkessentials" and type the command:
+After you download the source code, you will find it is a [Apache Maven](http://maven.apache.org/) project with jetty plugin configured. Therefore, you can start the example application on Jetty without deploying.
+
+## No Maven Installed
+
+## Maven Installed
+Navigate to the root folder of the example project, e.g. it's "zkessentials" and type the command:
 
 `mvn jetty:run`
 
@@ -56,8 +57,3 @@ Reference/zk.xml](http://books.zkoss.org/wiki/ZK%20Configuration%20Reference/zk.
 detail.
 
 
-# References
-
-[^1]: [Apache Maven](http://maven.apache.org/)
-
-[^2]: [Start jetty in Maven](http://docs.codehaus.org/display/JETTY/Maven+Jetty+Plugin)
