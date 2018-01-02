@@ -35,7 +35,7 @@ controller.
 
 ```xml
 <grid hflex="1" vflex="1" sclass="sidebar"
-    id="fnList"
+    id="sidebar"
     apply="org.zkoss.essentials.chapter2.SidebarChapter2Controller">
     <columns>
         <column width="36px"/>
