@@ -1,29 +1,20 @@
-# Build the View
+#Build the View
 Building the View in ZK is basically creating components, and there are
-two ways to do it: 
-* **ZUL** (XML-based, declarative) approach. 
+two ways to do it:
+* **ZUL** (XML-based, declarative) approach.
 * **Java** (programmatic)
 
-You can even mix these two approaches.
+We encourage you to build UI with the XML-formatted language called **ZK User Interface Markup Language (ZUML)**. Each XML element instructs ZK to create a component, and each XML attribute controls the component's function and looking. We will demonstrate this approach mainly in our example.
 
-ZK allows you to compose a user interface in Java programmatically which
-is a feature called [
-richlet](http://books.zkoss.org/wiki/ZK%20Developer's%20Reference/UI%20Composing/Richlet),
-but we don't use this approach in this book.
+You can even mix these two approaches. First, create a simple page with zul, then add components dynamically in Java within a ZK controller.
 
-ZK also provides a XML-formatted language called **ZK User Interface
-Markup Language (ZUML)**. Each XML element instructs ZK Loader to create a
-component. Each XML attribute describes what value to be assigned to the
-created component. We will use this approach mainly in our example.
+ZK also allows you to compose the whole page in Java programmatically which is a feature called [richlet](http://books.zkoss.org/wiki/ZK%20Developer's%20Reference/UI%20Composing/Richlet).
 
 
 ## Write a ZUL
-To create a component in ZK, we need to use a XML-based language named
-**ZUL**, and all files written in ZUL should have the file extension
-"**.zul**". In zul files, one component can be represented as an XML
-element (tag), and you can configure each component's style, behavior,
-and function by setting the element's attributes.[^1] First, create a
-new text file with name *index.zul*, and type the following content:
+To create a component in ZK, we encourage you using a XML-based language named **ZUL**, and all files written in ZUL should have the file extension "**.zul**". In zul files, an XML element(tag) represent one component, and you can configure each component's style, behavior, and function by setting the element's attributes. Please refer to [ZK Component Reference](http://books.zkoss.org/wiki/ZK_Component_Reference) and [Javadoc](http://zkoss.org/javadoc/latest/zk/) for complete component attributes. [ZK Studio](https://www.zkoss.org/product/zkstudio) also supports content assist and word completion to help you write a zul.
+
+First, create a new text file with name *index.zul*, and type the following content:
 
 **Extracted from chapter1/index.zul**
 
