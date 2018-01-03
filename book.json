@@ -1,5 +1,8 @@
 {
     "variables": {
         "bookUrl": "http://books.zkoss.org/wiki/"
-    }
+    },
+    "plugins": [
+                "zkdocument"
+    ]
 }
