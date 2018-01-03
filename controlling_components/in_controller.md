@@ -1,24 +1,22 @@
-#In Controller
+# In Controller
 In this section, we will demonstrate how to redirect users to an
 external site with **event listeners** in a **Controller** when they
 click an item in the sidebar.
 
 The most commonly used architecture in web applications is *MVC
-(Model-View-Controller)* which separates an application into 3 parts.
-The *Model* is responsible for exposing data while performing business
-logic which is usually implemented by users, and the *View* is responsible
-for displaying data which is what ZUL does. The *Controller* can change
-the View's presentation and handle events from the View. The benefit of
-designing an application in MVC architecture is that your application is
-more modularized.
+(Model-View-Controller)* which separates an application into 3 parts:
+
+* **Model** is responsible for exposing data while performing business
+logic which is usually implemented by users.
+* **View** is responsible for displaying data which is what ZUL does.
+* **Controller** can change the View's presentation and handle events sent from the View.
+
+Such architecture follows [SRP (Single Responsibility Principle)](https://en.wikipedia.org/wiki/Single_responsibility_principle), and its benefit is that your application is more modularized. Therefore, modifying one part doesn't have to modify another part.
 
 In ZK world, a `org.zkoss.zk.ui.util.Composer` plays
-the same role as the Controller and you can assign it to a target
-component. Through the composer, you can listen events of the target
-component and manipulate target component's child components to change
-View's presentation according to your requirement. To create a
-Controller in ZK you simply create a class that inherits
-`org.zkoss.zk.ui.select.SelectorComposer`.
+the same role as the **Controller**, and you can apply it to a target
+component. Through the composer, you can handle events of the target
+component (and its children) to change View's presentation according to your requirement. To create a Controller in ZK you simply create a class that inherits `org.zkoss.zk.ui.select.SelectorComposer`.
 
 ```java
 public class SidebarChapter2Controller extends SelectorComposer<Component>{
@@ -26,10 +24,8 @@ public class SidebarChapter2Controller extends SelectorComposer<Component>{
 }
 ```
 
-Then "connect" the controller with a component in the zul by specifying
-fully qualified class name in `apply` attribute. After that the
-component and all its child components are under the control of the
-controller.
+Then "associate" the controller with a component in the zul by specifying fully qualified class name in `apply` attribute. After that the component and all its child components are under the
+controller's control.
 
 **chapter2/sidebar.zul**
 
@@ -45,58 +41,53 @@ controller.
 </grid>
 ```
 
--   Line 2: A component id can be used to retrieve the component in a
-    composer, please see the next section.
+-   Line 2: You need to specify a component's ID to manipulate it in a controller, please see the next section.
 -   Line 3: Apply a controller to a component.
--   Line 8: Here we don't create 3 *Row*s in the zul because we need to
-    add an event listener programmatically on each *Row* in the
-    composer.
+-   Line 8: Here we don't write 3 `<row>`s in the zul because we need to
+    add an event listener programmatically on each `<row>` in the
+    controller.
 
 
 ## Wire Components
-To control a component, we must retrieve it first. In
+To control a component, we must get its object reference. In
 `org.zkoss.zk.ui.select.SelectorComposer`, when you
 specify a `@Wire` annotation on a field or setter method, the
-SelectorComposer will automatically find the component and assign it to
-the field or pass it into the setter method. By default
-`SelectorComposer` will find the component whose id and type both equal
-to the variable name and type respectively.
+`SelectorComposer` will automatically find the component and assign it to the field or pass it into the setter method. By default
+`SelectorComposer` will locate the component whose ID and type both match the variable name and type respectively in the zul.
 
 ```java
 public class SidebarChapter2Controller extends SelectorComposer<Component>{
 
     //wire components
     @Wire
-    Grid sidebar;
+    private Grid sidebar;
 
     ...
 }
 ```
 
--   Line 4,5 : SelectorComposer looks for a *Grid* whose id is "fnList"
-    and assign it to the variable `fnList`.
+-   Line 4,5 : SelectorComposer looks for a *Grid* whose id is "sidebar"
+    and assign it to the variable `sidebar`.
 
 
 ## Initialize the View
 It is very common that we need to initialize components when a zul file
-is loaded. In our example, we need to create *Row*s of the *Grid* for
+is loaded. In our example, we need to create `<row>` in `<grid>` for
 the sidebar, therefore we should override a [ composer life-cycle
 method](http://books.zkoss.org/wiki/ZK%20Developer's%20Reference/MVC/Controller/Composer#Lifecycle)
 `doAfterCompose(Component)`. The passed argument, `comp`, is the
-component that the composer applies to, which in our example is the
-*Grid*. This method will be called after all the child components under
-the component which has the composer applied to it are created, so we
-can change components' attributes or even create other components in it.
+component that the controller applies to, which in our example is the
+`Grid`. ZK will call this method after the applied component, `<grid>` , and its all child components are created, so we can change components' attributes or even create other components in it.
 
 ``` java
 public class SidebarChapter2Controller extends SelectorComposer<Component>{
 
     //wire components
     @Wire
-    Grid sidebar;
+    private Grid sidebar;
 
     //services
-    SidebarPageConfig pageConfig = new SidebarPageConfigChapter2Impl();
+    private SidebarPageConfig pageConfig = new SidebarPageConfigChapter2Impl();
 
     @Override
     public void doAfterCompose(Component comp) throws Exception{
@@ -121,8 +112,8 @@ public class SidebarChapter2Controller extends SelectorComposer<Component>{
     because it performs initialization like wiring components for you.
 -   Line 15 - 20: These codes involve the concept that we have not
     talked about yet. All you have to know for now is these codes create
-    *Row*s with event listeners and put them into *Grid*. We will
-    discuss them in next section.
+    `<row>`s with event listeners and put them into *Grid*. We will
+    show you the source in the next section.
 
 # Events & Event Listeners
 
@@ -140,7 +131,7 @@ server side.
 
 Manipulating components is the most powerful feature of ZK. You can
 change the user interface by creating, removing, or changing components
-and all changes you made will reflect to clients.
+and all changes you made will reflect to browsers.
 
 Now we are going to explain how to create components and add an event
 listener to respond to users' clicking. Basically, there are 3 steps to
@@ -150,33 +141,13 @@ create a component:
 2.  Setup the component's attributes.
 3.  Append to the target parent component.
 
-In `constructSidebarRow()` method, we create *Row*s and add an event
+In `constructSidebarRow()` method, we create `Row`s and add an event
 listener to each of them.
 
 ```java
 public class SidebarChapter2Controller extends SelectorComposer<Component>{
 
     //...
-
-    //wire components
-    @Wire
-    Grid sidebar;
-
-    //services
-    SidebarPageConfig pageConfig = new SidebarPageConfigChapter2Impl();
-
-    @Override
-    public void doAfterCompose(Component comp) throws Exception{
-        super.doAfterCompose(comp);
-
-        //initialize view after view construction.
-        Rows rows = sidebar.getRows();
-
-        for(SidebarPage page:pageConfig.getPages()){
-            Row row = constructSidebarRow(page.getLabel(),page.getIconUri(),page.getUri());
-            rows.appendChild(row);
-        }
-    }
 
     private Row constructSidebarRow(String name,String label, String imageSrc, final String locationUri) {
 
@@ -209,28 +180,22 @@ public class SidebarChapter2Controller extends SelectorComposer<Component>{
 }
 ```
 
--   Line 21: Append a newly-created *Row* will make it become a child
-    component of *Rows*.
--   Line 28: The first step to create a component is instantiating its
+-   Line 8: The first step to create a component is instantiating its
     class.
--   Line 32: Append a component to establish the parent-child
+-   Line 12: Append a component to establish the parent-child
     relationship.
--   Line 36: You can change a component's attributes by various setter
+-   Line 16: You can change a component's attributes by various setter
     methods and their method names correspond to tag's attribute name.
--   Line 39: We create an `EventListener` anonymous class for
+-   Line 19: We create an `EventListener` anonymous class for
     convenience. Under a clustering environment, your event listener
-    class should implement
-    `org.zkoss.zk.ui.event.SerializableEventListener`.
--   Line 44: Implement the business logic in`onEvent()` method, and this
-    method will be called if the listened event is sent to the server.
-    Here we get current execution by
-    `org.zkoss.zk.ui.Executions` and redirect a client
-    to a new URL.
--   Line 48: Apply the event listener to a *Row* for listening
-    `Events.ON_CLICK` event which is triggered by a mouse clicking
+    class should implement `org.zkoss.zk.ui.event.SerializableEventListener`.
+-   Line 24: Implement the business logic in`onEvent()` method, and ZK will call this method when the listened event is sent to the server. Here we get current execution by
+    `org.zkoss.zk.ui.Executions` and redirect a client to a new URL.
+-   Line 28: Add the event listener to a *Row* for listening
+    `Events.ON_CLICK` event triggered by a mouse clicking
     action.
 
-In Line 28 \~ 36, those codes work equally to writing in a zul as
+In Line 8 \~ 16, those codes work equally to writing a zul as
 follows:
 
 ```xml
@@ -240,6 +205,5 @@ follows:
 ```
 
 After completing above steps, when a user clicks a *Row* on the sidebar,
-ZK will call a corresponding `actionListener ` then the browser will be
-redirected to a specified URL. You can see the result via
-http://localhost:8080/zkessentials/chapter2.
+ZK will call a corresponding `actionListener` then the browser will be
+redirected to a specified URL. You can see the result via /chapter2/index.zul.

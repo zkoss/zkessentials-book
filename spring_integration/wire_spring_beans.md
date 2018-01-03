@@ -26,7 +26,7 @@ public class SidebarChapter4Controller extends SelectorComposer<Component>{
 
     //wire components
     @Wire
-    Grid fnList;
+    Grid sidebar;
 
     //wire service
     @WireVariable("sidebarPageConfigPagebase")

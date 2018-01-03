@@ -85,7 +85,7 @@ public class SidebarPagebasedController extends SelectorComposer<Component>{
         super.doAfterCompose(comp);
 
         //to initial view after view constructed.
-        Rows rows = fnList.getRows();
+        Rows rows = sidebar.getRows();
 
         for(SidebarPage page:pageConfig.getPages()){
             Row row = constructSidebarRow(page.getName(),page.getLabel(),page.getIconUri(),page.getUri());

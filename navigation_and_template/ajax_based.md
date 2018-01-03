@@ -102,7 +102,7 @@ according to the menu item's URL.
 public class SidebarAjaxbasedController extends SelectorComposer<Component>{
 
     @Wire
-    Grid fnList;
+    Grid sidebar;
 
     //wire service
     SidebarPageConfig pageConfig = new SidebarPageConfigAjaxbasedImpl();
@@ -112,7 +112,7 @@ public class SidebarAjaxbasedController extends SelectorComposer<Component>{
         super.doAfterCompose(comp);
 
         //to initial view after view constructed.
-        Rows rows = fnList.getRows();
+        Rows rows = sidebar.getRows();
 
         for(SidebarPage page:pageConfig.getPages()){
             Row row = constructSidebarRow(page.getName(),page.getLabel(),page.getIconUri(),page.getUri());
@@ -144,7 +144,7 @@ public class SidebarAjaxbasedController extends SelectorComposer<Component>{
                     Executions.getCurrent().sendRedirect(locationUri);
                 }else{
                     //use iterable to find the first include only
-                    Include include = (Include)Selectors.iterable(fnList.getPage(), "#mainInclude")
+                    Include include = (Include)Selectors.iterable(sidebar.getPage(), "#mainInclude")
                             .iterator().next();
                     include.setSrc(locationUri);
 

@@ -1,14 +1,12 @@
 # In Zscript
 
-The simplest way to respond to a user's clicking is to write an event
+The simplest way to respond to a user's clicking is to define an event
 listener method and invoke it in the `onClick` attribute. We can define
 an event listener in Java inside a `<zscript>` element and those codes
-will be interpreted when the ZUL is visited. This element also allows
+will be interpreted when a zul file is loaded. This element also allows
 other scripting languages such as JavaScript, Ruby, or Groovy.
-`<zscript>` is *very suitable for fast prototyping* and it's interpreted
-when a zul page is evaluated. You can see the changed result without
-re-deployment. But it has issues in performance and clustering
-environment, *we don't recommend to use it in production environment*.
+`<zscript>` is very suitable for **fast prototyping**, and it's interpreted when a zul page is created. So after you modify the code inside, you can reload your browser to see the changed result without re-deployment. But it has issues in performance and clustering
+environment, **we don't recommend to use it in production environment**.
 
 **Event listener redirect()**
 
@@ -34,12 +32,10 @@ environment, *we don't recommend to use it in production environment*.
 ```
 
 -   Line 2: It's better to enclose your code with `<![CDATA[ ]]>`.
--   Line 11: Define an event listener method like a normal Java method
-    and it redirects a browser according to the passed variable.
+-   Line 11: Define an event listener method like a normal Java method, and it redirects a browser according to the passed variable.
 -   Line 14: The [execution](http://books.zkoss.org/wiki/ZUML%20Reference/EL%20Expressions/Implicit%20Objects%20(Predefined%20Variables)
     is a implicit variable which you can use it directly without
-    declaration. It represents an execution of a client request that
-    holds relevant information.
+    declaration. It's a wrapper object of `HttpServletRequest`.
 
 After defining the event listener, we should specify it in a *Row*'s
 event attribute `onClick` because we want to invoke the event listener
@@ -64,9 +60,9 @@ when clicking a *Row*.
 </grid>
 ```
 
-Now if you click a *Row* of the *Grid* in the sidebar, your browser will
-be redirected to a corresponding site.
+Now if you click the *Grid*'s *Row* in the sidebar, your browser will
+be redirected to the corresponding site.
 
 This approach is very simple and fast, so it is especially suitable for
 building a prototype. However, if you need a better architecture for
-your application, you had better not use ZScript.
+your application, you had better not use `<zscript>`.
