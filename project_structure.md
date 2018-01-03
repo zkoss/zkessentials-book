@@ -1,6 +1,7 @@
 # Source Code
 
 All source codes used in this book are available on [github](https://github.com/zkoss/zkessentials). As our example application has 3 different configurations, our source code is divided into 3 branches:
+
 ![ center](images/ze-ch2-3branches.png)
 * [**zk8**](https://github.com/zkoss/zkessentials/tree/zk8): contains examples from chapter 1 to chapter 7.
 * [**zk8-spring**](https://github.com/zkoss/zkessentials/tree/zk8-spring): has examples integrated with Spring
@@ -59,5 +60,3 @@ Manually](http://books.zkoss.org/wiki/ZK%20Installation%20Guide/Quick%20Start/Cr
 The "zk.xml" is optional configuration descriptor of ZK. Provide this
 file if you need to configure ZK differently from the default behavior.
 Refer to [ZK Configuration Reference/zk.xml](http://books.zkoss.org/wiki/ZK%20Configuration%20Reference/zk.xml) for more detail.
-
-

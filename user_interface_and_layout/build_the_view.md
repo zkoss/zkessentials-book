@@ -1,6 +1,5 @@
-#Build the View
-Building the View in ZK is basically creating components, and there are
-two ways to do it:
+# Build the View
+Building the view in ZK is basically creating components, and there are two ways to do it:
 * **ZUL** (XML-based, declarative) approach.
 * **Java** (programmatic)
 
