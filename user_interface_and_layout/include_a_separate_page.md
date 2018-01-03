@@ -1,43 +1,33 @@
 # Include a Separate Page
 
 To complete the page, we need to put those individual pages into
-corresponding area of the *Border Layout*.
+corresponding area of the *BorderLayout*.
 
-For all areas, we use *Include* component to combine separated pages.
-This component can combine a separated zul for you when the parent zul
-is visited. This usage is presented below:
+For all areas, we use *`<apply>`*, [a shadow component](/shadow_components/README.md), to combine separated pages, and it doesn't consume extra server memory. This component can inject a separated zul for you when the parent zul is loaded. This usage is presented below:
 
 **chapter1/index.zul**
-
 ```xml
-
 <?link rel="stylesheet" type="text/css" href="/style.css"?>
 <zk>
-    <borderlayout hflex="1" vflex="1">
-        <north height="100px" border="none" >
-            <include src="/chapter1/banner.zul"/>
-        </north>
-        <west width="260px" border="none" collapsible="true"
-                splittable="true" minsize="300">
-            <include src="/chapter1/sidebar.zul"/>
-        </west>
-        <center id="mainContent" autoscroll="true">
-            <include src="/chapter1/main.zul"/>
-        </center>
-        <south height="50px" border="none">
-            <include src="/chapter1/footer.zul"/>
-        </south>
-    </borderlayout>
+	<custom-attributes org.zkoss.zul.image.preload="true"/>
+	<borderlayout hflex="1" vflex="1">
+		<north vflex="min" border="none" >
+			<apply templateURI="/chapter1/banner.zul"/>
+		</north>
+		<west width="260px" border="none" collapsible="true" splittable="true" minsize="300">
+			<apply templateURI="/chapter1/sidebar.zul"/>
+		</west>
+		<center id="mainContent" autoscroll="true">
+			<apply templateURI="/chapter1/main.zul"/>
+		</center>
+		<south border="none">
+			<apply templateURI="/chapter1/footer.zul"/>
+		</south>
+	</borderlayout>
 </zk>
 ```
-
 -   Line 1: This directive links a external style sheet under root
     folder.
--   Line 5, 9, 12, 15: Specify a separated zul path at `src` attribute to
-    include a page into current page.
+-   Line 6, 9, 12, 15: Specify a separated zul path at `templateURI` attribute to inject a page into current page.
 
-After including 4 separated zul pages, we complete the example of this
-chapter. You can visit http://localhost:8080/zkessentials/chapter1 to
-see the result. Since we set welcome file to "index.zul" in web.xml,
-http://localhost:8080/zkessentials/chapter1/index.zul will be visited
-by default.
+For CE users, you still can use [`<include>`](https://www.zkoss.org/wiki/ZK%20Component%20Reference/Essential%20Components/Include) as an alternative to `<apply>`.

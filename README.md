@@ -3,8 +3,8 @@
 ZK is a component-based UI framework that enables you to build Rich
 Internet Application (*RIA*) and mobile applications without having to
 learn JavaScript or AJAX. You can build highly-interactive and
-responsive AJAX web applications in pure **Java**. ZK provides hundreds
-of components[^1] which are designed for various purposes, some for
+responsive AJAX web applications in pure **Java**. ZK provides [hundreds
+of components](http://www.zkoss.org/zkdemo/) which are designed for various purposes, some for
 displaying large amount of data and some for user input. We can easily
 create components in an XML-formatted language, **ZUL**.
 
@@ -12,11 +12,9 @@ All user actions on a page such as clicking and typing can be easily
 handled in a Controller. You can manipulate components to respond to
 users action in a Controller and the changes you made will reflect to
 browsers automatically. You don't need to care about communication
-details between browsers and servers, ZK will handle it for you. In
-addition to manipulating components directly i.e. MVC
-(Model-View-Controller) pattern [^2], ZK also supports another design
-pattern, MVVM (Model-View-ViewModel) [^3] which gives the Controller and
-View more separation. These two approaches are mutually interchangeable,
+details between browsers and servers, ZK will handle AJAX details for you. In addition to manipulating components directly i.e. [MVC
+(Model-View-Controller) approach](http://books.zkoss.org/wiki/ZK%20Developer's%20Reference/MVC), ZK also supports [MVVM (Model-View-ViewModel) approach](http://books.zkoss.org/zk-mvvm-book/8.0/index.html) which decouples the Controller and
+View. These two approaches are mutually interchangeable,
 and you can choose one of them upon your architectural consideration.
 
 
@@ -39,11 +37,10 @@ actions at the client side.
 
 # About This Book
 
-This book presents key concepts and suggested usage of ZK from the
+This book presents you ZK key concepts and suggested usage from the
 perspective of building a web application. Each chapter has a main
-topic, and we give one or more example applications to demonstrate each
-chapter's topic. Each chapter's applications are built upon previous
-chapter's application to add more features. In the last chapter, the
+topic, and we introduce each chapter's topic with one or more example applications. Each chapter's applications are built upon previous
+chapter's application and add more features. In the last chapter, the
 example application becomes close to a real application. The source code
 of the example applications can be downloaded through github, please
 refer to [Project Structure](../project_structure.md).
@@ -109,11 +106,3 @@ delete, and update a todo item.
 <div style="text-align:center">
 <strong>Example application - todo list</strong>
 </div>
-
-# References
-
-[^1]: Browse components at [ZK Demo](http://www.zkoss.org/zkdemo/)
-
-[^2]: [ ZK Developer's Reference MVC](http://books.zkoss.org/wiki/ZK%20Developer's%20Reference/MVC)
-
-[^3]: [ ZK Developer's Reference MVVM](http://books.zkoss.org/zk-mvvm-book/8.0/index.html)

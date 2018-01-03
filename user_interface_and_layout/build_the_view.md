@@ -90,8 +90,8 @@ Let's see how to construct these elements with existing ZK components:
 **chapter1/banner.zul**
 
 ```xml
-<div hflex="1" vflex="1" sclass="banner">
-    <hbox hflex="1" vflex="1" align="center">
+<div hflex="1" sclass="banner">
+    <hbox hflex="1" align="center">
         <a href="http://www.zkoss.org/">
             <image src="/imgs/zklogo.png" width="90px" />
         </a>
@@ -169,7 +169,6 @@ aligned to the center.
 **chapter1/footer.zul**
 
 ```xml
-
 <div hflex="1" vflex="1" sclass="footer">
     <vbox hflex="1" vflex="1" align="center">
         ZK Essentials, you are using ZK ${desktop.webApp.version}
@@ -187,12 +186,8 @@ aligned to the center.
     element's body or an attribute. There are also many [ implicit
     objects](http://books.zkoss.org/wiki/ZUML%20Reference/EL%20Expressions/Implicit%20Objects%20(Predefined%20Variables)),
     and `desktop` is one of them. Refer to
-    <javadoc>org.zkoss.zk.ui.Desktop</javadoc>'s Javadoc to find out
+    `org.zkoss.zk.ui.Desktop`'s Javadoc to find out
     available properties.
 
 Next, we will combine these separated zul pages into
 `chapter1/index.zul`.
-
-
-
-[^1]: [ZK Component Reference](http://books.zkoss.org/wiki/ZK_Component_Reference)
