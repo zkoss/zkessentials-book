@@ -1,19 +1,16 @@
 # MVVM Approach
 
 In addition to the MVC approach, ZK also allows you to design your
-application using another architecture: [ *MVVM
+application in another architecture: [ *MVVM
 (Model-View-ViewModel)*](http://books.zkoss.org/zk-mvvm-book/8.0/index.html).
-This architecture also divides an application into 3 parts: View, Model,
-and ViewModel. The View and Model plays the same roles as they do in
-MVC. The ViewModel in MVVM acts like *a special Controller* for the View
+This architecture also divides an application into 3 roles: **View**, **Model**,
+and **ViewModel**. The View and Model plays the same roles as they do in
+MVC. The ViewModel in MVVM acts like a special Controller for the View
 which is responsible for exposing data from the Model to the View and
 for providing required action and logic for user requests from the View.
-The ViewModel is a *View abstraction*, which contains a View's state and
+The ViewModel is a View abstraction, which contains a View's state and
 behavior. The biggest difference from the Controller in the MVC is that
-*ViewModel should not contain any reference to UI components* and knows
-nothing about the View's visual elements. Hence this clear separation
-between View and ViewModel decouples ViewModel from View and makes
-ViewModel more reusable and more abstract.
+**ViewModel should not contain any reference to UI components** and knows nothing about the View's visual elements. Hence this clear separation between View and ViewModel decouples ViewModel from View and makes ViewModel more reusable and more abstract.
 
 Since the ViewModel contains no reference to UI components, you cannot
 control components directly e.g. to get value from them or set value to
@@ -27,13 +24,13 @@ the [
 plays the key role to operate the whole mechanism. The binder is like a
 broker and responsible for communication between View and ViewModel.
 
-![](../images/ze-Mvvm-architecture.png  " center | 600px")
+![](../images/ze-Mvvm-architecture.png)
 
 This section we will demonstrate how to implement the same target
 application under MVVM approach.
 
-## Construct a View as MVC Approach
 
+## Construct a View
 
 Building a user interface using the MVVM approach is not different from
 the MVC approach.
@@ -108,9 +105,8 @@ the MVC approach.
 -   Line 41: You might notice that there is no EL expression `${each}`
     as we will use data binding to access it.
 
+
 ## Create a ViewModel
-
-
 ViewModel is an abstraction of View which contains the View's data,
 state and behavior. It extracts the necessary data to be displayed on
 the View from one or more Model classes. Those data are exposed through
@@ -572,4 +568,3 @@ ViewModel's properties (`currentUser`).
 After completing above steps, visit
 http://localhost:8080/zkessentials/chapter3/index-mvvm.zul to see the
 result.
-
