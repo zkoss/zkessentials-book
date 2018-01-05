@@ -40,7 +40,7 @@ If you prefer [IntelliJ IDEA](https://www.jetbrains.com/idea/?fromMenu) as I do,
 
 
 # Build Application Layout
-First, create a new text file with name `index.zul`, and type the following content:
+Now, let's built our example application's main layout. create a new text file with name `index.zul`, and type the following content:
 
 **Extracted from chapter1/index.zul**
 
