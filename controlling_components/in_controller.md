@@ -3,8 +3,9 @@ In this section, we will demonstrate how to redirect users to an
 external site with **event listeners** in a **Controller** when they
 click an item in the sidebar.
 
-The most commonly used architecture in web applications is *MVC
-(Model-View-Controller)* which separates an application into 3 parts:
+# MVC Pattern
+A well-known design pattern is **MVC
+(Model-View-Controller)** which separates an application into 3 roles:
 
 * **Model** is responsible for exposing data while performing business
 logic which is usually implemented by users.
@@ -13,6 +14,17 @@ logic which is usually implemented by users.
 
 Such architecture follows [SRP (Single Responsibility Principle)](https://en.wikipedia.org/wiki/Single_responsibility_principle), and its benefit is that your application is more modularized. Therefore, modifying one part doesn't have to modify another part.
 
+## ZK MVC Approach
+By following this pattern, ZK traditionally supports MVC approach which controls components by calling their API. Under ZK context, the relationship of 3 roles looks like:
+
+![](../images/zk-mvc.png)
+
+* ZK `SelectorComposer`, that implements `Composer`, plays Controller.
+* ZK UI components plays View.
+* MyServiceClass is not a real class name. It represents any class which is usually implemented by you performs business logic like searching or authentication.
+
+
+# Create a Controller
 In ZK world, a `org.zkoss.zk.ui.util.Composer` plays
 the same role as the **Controller**, and you can apply it to a target
 component. Through the composer, you can handle events of the target
@@ -51,9 +63,9 @@ controller's control.
 ## Wire Components
 To control a component, we must get its object reference. In
 `org.zkoss.zk.ui.select.SelectorComposer`, when you
-specify a `@Wire` annotation on a field or setter method, the
+specify a [`@Wire`](https://www.zkoss.org/wiki/ZK_Developer%27s_Reference/MVC/Controller/Wire_Components) annotation on a field or setter method, the
 `SelectorComposer` will automatically find the component and assign it to the field or pass it into the setter method. By default
-`SelectorComposer` will locate the component whose ID and type both match the variable name and type respectively in the zul.
+`SelectorComposer` locates the component whose ID and type both match the variable name and type respectively in the zul, and `@Wire` also supports [selector syntax](https://www.zkoss.org/wiki/ZK_Developer%27s_Reference/MVC/Controller/Wire_Components) to wire.
 
 ```java
 public class SidebarChapter2Controller extends SelectorComposer<Component>{
@@ -66,7 +78,7 @@ public class SidebarChapter2Controller extends SelectorComposer<Component>{
 }
 ```
 
--   Line 4,5 : SelectorComposer looks for a *Grid* whose id is "sidebar"
+-   Line 4,5 : SelectorComposer looks for a `Grid` whose ID is "sidebar"
     and assign it to the variable `sidebar`.
 
 
