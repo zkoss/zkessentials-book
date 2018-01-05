@@ -1,18 +1,45 @@
 # Build the View
 Building the view in ZK is basically creating components, and there are two ways to do it:
-* **ZUL** (XML-based, declarative) approach.
+* **ZUML** (XML format, declarative) approach.
 * **Java** (programmatic)
 
-We encourage you to build UI with the XML-formatted language called **ZK User Interface Markup Language (ZUML)**. Each XML element instructs ZK to create a component, and each XML attribute controls the component's function and looking. We will demonstrate this approach mainly in our example.
+We encourage you to build UI with the XML-formatted language called **ZK User-Interface Markup Language (ZUML)**. Each XML element instructs ZK to create a component, and each XML attribute controls the component's function and looking. We will demonstrate this way mainly in our example.
 
-You can even mix these two approaches. First, create a simple page with zul, then add components dynamically in Java within a ZK controller.
+You can even mix these two ways. For example, create a simple page with zul, then add components dynamically in Java within a ZK controller. You can see such usage in the subsequent chapters.
 
-ZK also allows you to compose the whole page in Java programmatically which is a feature called [richlet](http://books.zkoss.org/wiki/ZK%20Developer's%20Reference/UI%20Composing/Richlet).
+In addition to above ways,  [richlet](http://books.zkoss.org/wiki/ZK%20Developer's%20Reference/UI%20Composing/Richlet) allows you to compose the whole page in Java programmatically.
 
 
-## Write a ZUL
-To create a component in ZK, we encourage you using a XML-based language named **ZUL**, and all files written in ZUL should have the file extension "**.zul**". In zul files, an XML element(tag) represent one component, and you can configure each component's style, behavior, and function by setting the element's attributes. Please refer to [ZK Component Reference](http://books.zkoss.org/wiki/ZK_Component_Reference) and [Javadoc](http://zkoss.org/javadoc/latest/zk/) for complete component attributes. [ZK Studio](https://www.zkoss.org/product/zkstudio) also supports content assist and word completion to help you write a zul.
+# Write a ZUL File
+To create components in ZUML, you need to create a file with the file extension "**.zul**". In zul files, an XML element(tag) represent one component, and you can configure each component's style, behavior, and function by setting the element's attributes. Please refer to [ZK Component Reference](http://books.zkoss.org/wiki/ZK_Component_Reference) and [Javadoc](http://zkoss.org/javadoc/latest/zk/) for complete component attributes.
 
+A very simple, classic zul example is like:
+```xml
+<zk>
+	<label value="hello &#xA;world"/>
+</zk>
+```
+The tag `<label>` will create a `Label` component at the server and display "hello world" in one line in your browser. It's one line because it ignores special characters like a new line (`&#xA;`) by default.
+
+But we can specify [`pre`](https://www.zkoss.org/wiki/ZK_Component_Reference/Essential_Components/Label#Properties) attribute to preserve new line character, so that it will display "hello world" in 2 lines.
+
+```xml
+<zk>
+	<label pre="true" value="hello &#xA;world"/>
+</zk>
+```
+
+Therefore, one ZK component can provide various functions with different attributes.
+
+## Tools for IDE
+### Eclipse
+If you use [Eclipse](https://www.eclipse.org/), we encourage you to install our Eclipse plugin, [ZK Studio](https://www.zkoss.org/product/zkstudio). Its "content assist" can save you from memorizing component name and attributes. The "word completion" can avoid typos.
+
+### IntelliJ IDEA
+If you prefer [IntelliJ IDEA](https://www.jetbrains.com/idea/?fromMenu) as I do, we also develop a [ZK plugin](https://plugins.jetbrains.com/plugin/7855-zk), it supports content assist, word completion, and data binding syntax assist, too.
+
+
+# Build Application Layout
 First, create a new text file with name `index.zul`, and type the following content:
 
 **Extracted from chapter1/index.zul**
@@ -42,23 +69,22 @@ First, create a new text file with name `index.zul`, and type the following cont
     "vflex"](http://books.zkoss.org/wiki/ZK%20Developer's%20Reference/UI%20Patterns/Hflex%20and%20Vflex)
     controls the horizontal and vertical size flexibility of a
     component. We set them to "1" which means *Fit-the-Rest*
-    flexibility. Hence, the *Border Layout* will stretch itself to fill
+    flexibility. Hence, the `<borderlayout>` will stretch itself to fill
     all available space of whole page in width and height because it is
-    a root component. Only one component is allowed inside *North* in
+    a root component. Only one component is allowed inside `<north>` in
     addition to a [
-    *Caption*](http://books.zkoss.org/wiki/ZK%20Component%20Reference/Containers/Caption).
--   Line 3: *North* is a child component that can only be put inside a
-    *Border Layout*. You can also fix a component's height by specifying
+    `<caption>`](http://books.zkoss.org/wiki/ZK%20Component%20Reference/Containers/Caption).
+-   Line 3: `<north>`* is a child component that can only be put inside a `<borderlayout>`. You can also fix a component's height by specifying
     a pixel value to avoid its height changing due to browser sizes.
 -   Line 6, 7: Setting `collapsible` to true allows you to collapse the
-    *West* area by clicking an arrow button. Setting `splittable` to
-    true allows you to adjust the width of *West* and `minsize` limits
+    `<west>` area by clicking an arrow button. Setting `splittable` to
+    true allows you to adjust the width of `<west>`* and `minsize` limits
     the minimal size of width you can adjust.
--   Line 10: Setting `autoscroll` to true will decorate the *Center*
-    with a scroll bar when *Center* contains lots of information that
+-   Line 10: Setting `autoscroll` to true will decorate the `<center>`*
+    with a scroll bar when `<center>`* contains lots of information that
     exceed the its height.
--   Line 4,8,11,14: These *Label*s are just for identifying
-    *BorderLayout*'s areas and we will remove them in the final result.
+-   Line 4,8,11,14: These `<label>`s are just for identifying
+    `borderlayout`'s areas and we will remove them in the final result.
 
 Then, you can view the result from your browser as below:
 
