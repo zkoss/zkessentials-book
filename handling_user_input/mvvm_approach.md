@@ -30,13 +30,12 @@ This section we will demonstrate how to implement the same target
 application under MVVM approach.
 
 
-## Construct a View
+# Construct a View
 
 Building a user interface using the MVVM approach is not different from
 the MVC approach.
 
 **Extracted from chapter3/profile-mvvm-property.zul**
-
 ``` xml
 <?link rel="stylesheet" type="text/css" href="/style.css"?>
 <window border="normal" hflex="1" vflex="1" contentStyle="overflow:auto">
@@ -105,6 +104,8 @@ the MVC approach.
 -   Line 41: You might notice that there is no EL expression `${each}`
     as we will use data binding to access it.
 
+
+{% include "input_validation.md" %}
 
 ## Create a ViewModel
 ViewModel is an abstraction of View which contains the View's data,
