@@ -17,7 +17,7 @@
   * [MVVM Approach](handling_user_input/mvvm_approach.md)
     * [Construct a Form Style Page](handling_user_input/mvvm_approach/construct-a-form-style-page.md)
     * [Load Data to Components](handling_user_input/mvvm_approach/load-data-to-components.md)
-    * Save & Reload Data
+    * [Save & Reload Data](handling_user_input/mvvm_approach/save-and-reload-data.md)
 * [4. Implementing CRUD](implementing_crud/README.md)
   * [MVC Approach](implementing_crud/mvc_approach.md)
   * [MVVM Approach](implementing_crud/mvvm_approach.md)
