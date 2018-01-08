@@ -44,6 +44,7 @@ We build the frame of this form first:
 -   Line 11:
 [`<hlayout>`](http://books.zkoss.org/wiki/ZK%20Component%20Reference/Layouts/Hlayout), like `<vlayout>`, but arranges its child components horizontally.
 
+
 Then let's put components in a Grid to arrange them as a form style. A `<grid>` is basically composed by `<columns>` and `<rows>`:
 
 ```xml
