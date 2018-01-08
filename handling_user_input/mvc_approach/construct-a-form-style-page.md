@@ -37,6 +37,7 @@ We build the frame of this form first:
 [`<hlayout>`](http://books.zkoss.org/wiki/ZK%20Component%20Reference/Layouts/Hlayout), like `<vlayout>`, but arranges its child components horizontally.
 
 
+##A Grid Makes a Form
 Then let's put components in a Grid to arrange them as a form style. A `<grid>` is basically composed by `<columns>` and `<rows>`:
 
 ```xml
@@ -103,4 +104,4 @@ Then let's put components in a Grid to arrange them as a form style. A `<grid>` 
     used inside `<row>`, `<hbox>`, or `<vbox>` to fully control a column's align, row/column span, and width in an individual row.
 
 
-{% include "input_validation.md" %}
+{% include "../input_validation.md" %}

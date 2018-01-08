@@ -25,7 +25,6 @@ the [MVC approach](../mvc_approach/construct-a-form-style-page.md).
                     <cell sclass="row-title">Full Name :</cell>
                     <cell>
                     <textbox
-                    constraint="no empty: Plean enter your full name"
                              width="200px"/>
                     </cell>
                 </row>
@@ -33,22 +32,18 @@ the [MVC approach](../mvc_approach/construct-a-form-style-page.md).
                     <cell sclass="row-title">Email :</cell>
                     <cell>
                     <textbox
-                    constraint="/.+@.+\.[a-z]+/: Please enter an e-mail address"
                     width="200px"/>
                     </cell>
                 </row>
                 <row>
                     <cell sclass="row-title">Birthday :</cell>
-                    <cell><datebox constraint="no future" width="200px"/>
+                    <cell><datebox  width="200px"/>
                     </cell>
                 </row>
                 <row>
                     <cell sclass="row-title">Country :</cell>
                     <cell>
                         <listbox  mold="select" width="200px">
-                            <template name="model">
-                                <listitem />
-                            </template>
                         </listbox>
                     </cell>
                 </row>
@@ -70,9 +65,6 @@ the [MVC approach](../mvc_approach/construct-a-form-style-page.md).
 </window>
 ```
 
--   Line 41: You might notice that there is no EL expression `${each}`
-    as we will use data binding to access it.
 
 
-{% include "input_validation.md" %}
-
+{% include "../input_validation.md" %}
