@@ -7,7 +7,7 @@
    * [Include a Separate Page](user_interface_and_layout/include_a_separate_page.md)
    * [Apply CSS](user_interface_and_layout/apply_css.md)
 * [2. Controlling Components](controlling_components/README.md)
-   * [In Zscript](controlling_components/in_zscript.md)
+   * [Fast Prototyping](controlling_components/in_zscript.md)
    * [In Controller](controlling_components/in_controller.md)
 * [3. Handling User Input](handling_user_input/README.md)
    * [MVC Approach](handling_user_input/mvc_approach.md)
