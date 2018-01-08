@@ -12,6 +12,7 @@
 * [3. Handling User Input](handling_user_input/README.md)
   * [MVC Approach](handling_user_input/mvc_approach.md)
     * [Populate Components with Data](handling_user_input/mvc_approach/populate-components-with-data.md)
+    * [Save & Reload Data](handling_user_input/mvc_approach/save-and-reload-data.md)
   * [MVVM Approach](handling_user_input/mvvm_approach.md)
 * [4. Implementing CRUD](implementing_crud/README.md)
   * [MVC Approach](implementing_crud/mvc_approach.md)
