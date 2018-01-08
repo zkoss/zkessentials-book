@@ -116,8 +116,6 @@ Then let's put components in a Grid to arrange them as a form style. A `<grid>` 
 
 
 
-
-
 # Save & Reload Data
 
 The example application has 2 functions, save and reload, which are both
