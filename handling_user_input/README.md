@@ -4,7 +4,7 @@
 In this chapter, we will demonstrate a common scenario: collecting user
 input in form style page. The target application looks as follows:
 
-![](/images/ze-ch5-app.png )
+![](/images/ze-ch5-app.png)
 
 It is a personal profile form with 5 different fields. Clicking the
 "Save" button saves the user's data and clicking the "Reload" button

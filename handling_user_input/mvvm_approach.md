@@ -30,143 +30,9 @@ This section we will demonstrate how to implement the same target
 application under MVVM approach.
 
 
-# Construct a View
-
-Building a user interface using the MVVM approach is not different from
-the MVC approach.
-
-**Extracted from chapter3/profile-mvvm-property.zul**
-``` xml
-<?link rel="stylesheet" type="text/css" href="/style.css"?>
-<window border="normal" hflex="1" vflex="1" contentStyle="overflow:auto">
-    <caption src="/imgs/profile.png" sclass="fn-caption"
-             label="Profile (MVVM)"/>
-    <vlayout>
-        <grid width="500px" >
-            <columns>
-                <column align="right" hflex="min"/>
-                <column/>
-            </columns>
-            <rows>
-                <row>
-                    <cell sclass="row-title">Account :</cell>
-                    <cell><label/></cell>
-                </row>
-                <row>
-                    <cell sclass="row-title">Full Name :</cell>
-                    <cell>
-                    <textbox
-                    constraint="no empty: Plean enter your full name"
-                             width="200px"/>
-                    </cell>
-                </row>
-                <row>
-                    <cell sclass="row-title">Email :</cell>
-                    <cell>
-                    <textbox
-                    constraint="/.+@.+\.[a-z]+/: Please enter an e-mail address"
-                    width="200px"/>
-                    </cell>
-                </row>
-                <row>
-                    <cell sclass="row-title">Birthday :</cell>
-                    <cell><datebox constraint="no future" width="200px"/>
-                    </cell>
-                </row>
-                <row>
-                    <cell sclass="row-title">Country :</cell>
-                    <cell>
-                        <listbox  mold="select" width="200px">
-                            <template name="model">
-                                <listitem />
-                            </template>
-                        </listbox>
-                    </cell>
-                </row>
-                <row>
-                    <cell sclass="row-title">Bio :</cell>
-                    <cell>
-                    <textbox
-                    multiline="true" hflex="1" height="200px" />
-                    </cell>
-                </row>
-            </rows>
-        </grid>
-        <div>You are editing <label />'s profile.</div>
-        <hlayout>
-            <button  label="Save"/>
-            <button  label="Reload"/>
-        </hlayout>
-    </vlayout>
-</window>
-```
-
--   Line 41: You might notice that there is no EL expression `${each}`
-    as we will use data binding to access it.
 
 
-{% include "input_validation.md" %}
 
-## Create a ViewModel
-ViewModel is an abstraction of View which contains the View's data,
-state and behavior. It extracts the necessary data to be displayed on
-the View from one or more Model classes. Those data are exposed through
-getter and setter method like JavaBean's property. ViewModel is also a
-"Model of the View". It contains the View's state (e.g. user's
-selection, whether a component is enabled or disabled) that might change
-during user interaction.
-
-In ZK, the ViewModel can simply be a POJO which contains data to display
-on the ZUL and doesn't have any components. The example application
-displays 2 kinds of data: the user's profile and country list in the
-*Listbox*. The ViewModel should look like the following:
-
-**Define properties in a ViewModel**
-
-``` java
-
-public class ProfileViewModel implements Serializable{
-
-    //services
-    AuthenticationService authService = new AuthenticationServiceChapter3Impl();
-    UserInfoService userInfoService = new UserInfoServiceChapter3Impl();
-
-    //data for the view
-    User currentUser;
-
-    public User getCurrentUser(){
-        return currentUser;
-    }
-
-    public List<String> getCountryList(){
-        return CommonInfoService.getCountryList();
-    }
-
-    @Init // @Init annotates a initial method
-    public void init(){
-        UserCredential cre = authService.getUserCredential();
-        currentUser = userInfoService.findUser(cre.getAccount());
-        if(currentUser==null){
-            //TODO handle un-authenticated access
-            return;
-        }
-    }
-    ...
-}
-```
-
--   Line 4,5: The ViewModel usually contains service classes that are
-    used to get data from them or perform business logic.
--   Line 8, 10: We should define current user profile data and its
-    getter method to be displayed in the zul.
--   Line 14: ViewModel exposes its data by getter methods, it doesn't
-    have to define a corresponding member variable. Hence we can expose
-    country list by getting from the service class.
--   Line 18: There is a marker annotation `@Init` for a method which
-    should be at most one in each ViewModel and ZK will invoke this
-    method after instantiating a ViewModel class. We should perform
-    initialization in it, e.g. get user credential to initialize
-    `currentUser`.
 
 ### Define Commands
 
@@ -293,7 +159,7 @@ an attribute and a ViewModel's property is called "property binding".
 Once the binding is established, ZK will synchronize (load and save)
 data between components and the ViewModel for us automatically.
 
-![ ](../images/ze-Mvvm-databinding-role.png  " center | 600px")
+![ ](/images/ze-Mvvm-databinding-role.png)
 
 Let's demonstrate how to make *Listbox* load a list of country name from
 the ViewModel. We have talked about the data model
@@ -454,7 +320,7 @@ the "Save" button. This could be a problem maybe it would mislead users,
 making them think they have changed their profile, so we don't want
 this.
 
-![](../images/ze-ch5-unsaved.png  " center | 300px")
+![](/images/ze-ch5-unsaved.png)
 
 <div style="text-align:center">
 <strong>Unsaved Input Changes Data</strong>
@@ -560,7 +426,7 @@ After applying form binding, any user's input will not actually change
 click the "Save" button, ZK puts the middle object's data back to the
 ViewModel's properties (`currentUser`).
 
-![ ](../images/ze-ch5-form-binding.png  " center | 300px")
+![ ](/images/ze-ch5-form-binding.png)
 
 <div style="text-align:center">
 <strong>Unsaved Input Doesn't Change Data</strong>
