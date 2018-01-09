@@ -10,7 +10,7 @@ We build the frame of this form first:
 **chapter3/profile-mvc.zul**
 ```xml
 <?link rel="stylesheet" type="text/css" href="/style.css"?>
-<window apply="org.zkoss.essentials.chapter3.mvc.ProfileViewController"
+<window 
     border="normal" hflex="1" vflex="1" contentStyle="overflow:auto">
     <caption src="/imgs/profile.png" sclass="fn-caption"
         label="Profile (MVC)"/>

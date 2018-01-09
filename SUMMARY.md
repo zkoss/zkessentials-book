@@ -16,7 +16,7 @@
     * [Save & Reload Data](handling_user_input/mvc_approach/save-and-reload-data.md)
   * [MVVM Approach](handling_user_input/mvvm_approach.md)
     * [Construct a Form Style Page](handling_user_input/mvvm_approach/construct-a-form-style-page.md)
-    * [Load Data to Components](handling_user_input/mvvm_approach/load-data-to-components.md)
+    * [Load Data into Components](handling_user_input/mvvm_approach/load-data-to-components.md)
     * [Save & Reload Data](handling_user_input/mvvm_approach/save-and-reload-data.md)
 * [4. Implementing CRUD](implementing_crud/README.md)
   * [MVC Approach](implementing_crud/mvc_approach.md)
@@ -42,4 +42,3 @@
   * [Configuration](jpa_integration/configuration.md)
   * [DAO Implementation](jpa_integration/dao_implementation.md)
   * [Conclusion](jpa_integration/conclusion.md)
-

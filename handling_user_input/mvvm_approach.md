@@ -24,7 +24,9 @@ the [
 plays the key role to operate the whole mechanism. The binder is like a
 broker and responsible for communication between View and ViewModel.
 
-![](../images/ze-Mvvm-architecture.png)
+![](/images/ze-Mvvm-architecture.png)
 
-This section we will demonstrate how to implement the same target
+In brief, MVVM approach allows you to **control components with data binding** (not by API).
+
+This section we will demonstrate how to implement the same
 application under MVVM approach.
