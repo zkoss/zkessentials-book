@@ -6,7 +6,7 @@ component attributes to apply CSS:
 
 1. `style` attribute. Like the "style" attribute on an HTML element, you can directly write CSS rules as the attribute's value.
 ```xml
-<label value="Chapter 3" style="font-weight: bold;"/>
+<label value="Chapter 1" style="font-weight: bold;"/>
 ```
 2. `sclass` attribute. You should specify a CSS class name as
 the attribute value.

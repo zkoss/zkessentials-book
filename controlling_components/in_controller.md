@@ -17,11 +17,14 @@ Such architecture follows [SRP (Single Responsibility Principle)](https://en.wik
 ## ZK MVC Approach
 By following this pattern, ZK traditionally supports MVC approach which controls components by calling their API. Under ZK context, the relationship of 3 roles looks like:
 
-![](../images/zk-mvc.png)
+![](/images/zk-mvc.png)
 
 * ZK `SelectorComposer`, that implements `Composer`, plays Controller.
 * ZK UI components plays View.
 * MyServiceClass is not a real class name. It represents any class which is usually implemented by you performs business logic like searching or authentication.
+
+
+{% include "sidebar.md" %}
 
 
 # Create a Controller
@@ -40,24 +43,12 @@ Then "associate" the controller with a component in the zul by specifying fully 
 controller's control.
 
 **chapter2/sidebar.zul**
-
 ```xml
-<grid hflex="1" vflex="1" sclass="sidebar"
-    id="sidebar"
-    apply="org.zkoss.essentials.chapter2.SidebarChapter2Controller">
-    <columns>
-        <column width="36px"/>
-        <column/>
-    </columns>
-    <rows/>
+<grid apply="org.zkoss.essentials.chapter2.SidebarChapter2Controller"
+    hflex="1" vflex="1" sclass="sidebar">
+    ...
 </grid>
 ```
-
--   Line 2: You need to specify a component's ID to manipulate it in a controller, please see the next section.
--   Line 3: Apply a controller to a component.
--   Line 8: Here we don't write 3 `<row>`s in the zul because we need to
-    add an event listener programmatically on each `<row>` in the
-    controller.
 
 
 ## Wire Components
@@ -66,6 +57,14 @@ To control a component, we must get its object reference. In
 specify a [`@Wire`](https://www.zkoss.org/wiki/ZK_Developer%27s_Reference/MVC/Controller/Wire_Components) annotation on a field or setter method, the
 `SelectorComposer` will automatically find the component and assign it to the field or pass it into the setter method. By default
 `SelectorComposer` locates the component whose ID and type both match the variable name and type respectively in the zul, and `@Wire` also supports [selector syntax](https://www.zkoss.org/wiki/ZK_Developer%27s_Reference/MVC/Controller/Wire_Components) to wire.
+
+I can specify a component's ID to get wired by default selector in a controller.
+**chapter2/sidebar.zul**
+```xml
+<grid id="sidebar"
+    apply="org.zkoss.essentials.chapter2.SidebarChapter2Controller">
+```
+
 
 ```java
 public class SidebarChapter2Controller extends SelectorComposer<Component>{
@@ -78,8 +77,7 @@ public class SidebarChapter2Controller extends SelectorComposer<Component>{
 }
 ```
 
--   Line 4,5 : SelectorComposer looks for a `Grid` whose ID is "sidebar"
-    and assign it to the variable `sidebar`.
+`SelectorComposer` looks for a `Grid` whose ID is "sidebar" and assign it to the variable `sidebar`.
 
 
 ## Initialize the View
@@ -203,7 +201,7 @@ public class SidebarChapter2Controller extends SelectorComposer<Component>{
     class should implement `org.zkoss.zk.ui.event.SerializableEventListener`.
 -   Line 24: Implement the business logic in`onEvent()` method, and ZK will call this method when the listened event is sent to the server. Here we get current execution by
     `org.zkoss.zk.ui.Executions` and redirect a client to a new URL.
--   Line 28: Add the event listener to a *Row* for listening
+-   Line 28: Add the event listener to a `<row>` for listening
     `Events.ON_CLICK` event triggered by a mouse clicking
     action.
 
@@ -216,6 +214,6 @@ follows:
 </row>
 ```
 
-After completing above steps, when a user clicks a *Row* on the sidebar,
+After completing above steps, when a user clicks a `<row>` on the sidebar,
 ZK will call a corresponding `actionListener` then the browser will be
 redirected to a specified URL. You can see the result via /chapter2/index.zul.

@@ -9,6 +9,7 @@
 * [2. Controlling Components](controlling_components/README.md)
   * [Fast Prototyping](controlling_components/in_zscript.md)
   * [In Controller](controlling_components/in_controller.md)
+  * [By Data Binding](controlling_components/by_data_binding.md)
 * [3. Handling User Input](handling_user_input/README.md)
   * [MVC Approach](handling_user_input/mvc_approach.md)
     * [Construct a Form Style Page](handling_user_input/mvc_approach/construct-a-form-style-page.md)
