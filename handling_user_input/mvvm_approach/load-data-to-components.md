@@ -159,3 +159,10 @@ The last part is to define a template, so that `<listbox>` can know how to rende
     this variable with dot notation at component attributes to reference a data object's property . In our example, we just set it at `<listitem>`'s label.
 
 After above steps, you can see a list of country in the form.
+
+
+### Load User's Country as an Selected Item
+To load a user's country as an selected item of Listbox, you need to bind the property to `selectedItem`:
+```xml
+<listbox model="@load(vm.countryList)" selectedItem="@load(vm.currentUser.country)" mold="select" width="200px">
+```

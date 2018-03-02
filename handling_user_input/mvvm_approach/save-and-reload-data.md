@@ -1,6 +1,5 @@
 # Get User Input
-In MVC approach, we have to call an input component's getter method
-(e.g. `getValue()` ) to collect user input. But in MVVM pattern, after you specify `@save`, ZK
+In MVC pattern, we have to call an input component's getter (e.g. `getValue()` ) to collect user input. But in MVVM pattern, after you specify `@save`, ZK
 can save user input back to a ViewModel automatically. For example in
 the below zul, user input is saved automatically when you move the focus
 out of the *Textbox*.
@@ -63,8 +62,11 @@ Therefore, we can save and load other `currentUser` property with `@bind` like:
 ```
 
 # Save User Selection
--   Line 36: Bind `selectedItem` to `vm.currentUser.country` and the
-    selected country will be saved to `currentUser`.
+Bind `selectedItem` to `vm.currentUser.country` and the selected country will be saved to `currentUser` when users select an item from the drop-down list.
+
+```xml
+<listbox model="@load(vm.countryList)" selectedItem="@bind(vm.currentUser.country)" ...>
+```
 
 
 # Define Commands
@@ -187,26 +189,24 @@ Done with this binding, clicking each button will invoke corresponding
 command methods to save (or reload) the user profile to the ViewModel.
 
 
-## Keep Away Unsaved Input
+## Keep Unsaved Input Away
 Once you create a property binding with `@bind` for an input component,
 ZK will save user input back to a ViewModel automatically. But sometimes
 this automation is not what users want. In our example, most people
-usually expect `currentUser` to change after their confirmation for
-example, clicking a button.
+usually expect `currentUser` to change after their confirmation, e.g. clicking a button.
 
 There is a line of text "You are editing an Anonymous's profile" at the
 bottom of the form. If you change the full name to "Anonymous Somebody"
 and move to next field, the line of text is changed even you don't press
-the "Save" button. This could be a problem maybe it would mislead users,
-making them think they have changed their profile, so we don't want
-this.
+the "Save" button. This could be a problem because it would mislead users,
+making them think they have changed their profile, so we want to remove such behavior.
 
 ![](/images/ze-ch5-unsaved.png)
 
 <div style="text-align:center">
 <strong>Unsaved Input Changes Data</strong>
-
 </div>
+
 We are going to improve this part with **form binding** feature in this
 section.
 
