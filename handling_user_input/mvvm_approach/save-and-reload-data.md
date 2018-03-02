@@ -1,32 +1,33 @@
 # Get User Input
 In MVC approach, we have to call an input component's getter method
-(e.g. `getValue()` ) to collect user input. But in MVVM approach, ZK
-will save user input back to a ViewModel automatically. For example in
+(e.g. `getValue()` ) to collect user input. But in MVVM pattern, after you specify `@save`, ZK
+can save user input back to a ViewModel automatically. For example in
 the below zul, user input is saved automatically when you move the focus
 out of the *Textbox*.
 
 ``` xml
-        <textbox value="@bind(vm.currentUser.fullName)"
-            constraint="no empty: Plean enter your full name" width="200px"/>
+        <textbox value="@save(vm.currentUser.fullName)" .../>
 ```
 
 For the property `currentUser`, we want to both save user input back to
-the ViewModel and load value from the ViewModel, so we should use the
-`@bind` at `value` attribute. Notice that you can bind `selectedItem` to
-a property, then the user's selection can be saved automatically to the
-ViewModel.
+the ViewModel and load value from the ViewModel, so the code becomes:
 
+``` xml
+        <textbox value="@load(vm.currentUser.fullName)@save(vm.currentUser.fullName)" .../>
+```
+
+The syntax is quite long. ZK knows your pain and provides a shortcut syntax: `@bind`:
+``` xml
+        <textbox value="@bind(vm.currentUser.fullName)" .../>
+```
+
+Therefore, we can save and load other `currentUser` property with `@bind` like:
 ``` xml
 ...
     <rows>
+        ...
         <row>
-            <cell sclass="row-title">Account :</cell>
-            <cell>
-                <label value="@load(vm.currentUser.account)"/>
-            </cell>
-        </row>
-        <row>
-            <cell sclass="row-title">Full Name :</cell>
+            ...
             <cell>
                 <textbox value="@bind(vm.currentUser.fullName)"
                     constraint="no empty: Plean enter your full name"
@@ -34,7 +35,7 @@ ViewModel.
             </cell>
         </row>
         <row>
-            <cell sclass="row-title">Email :</cell>
+            ...
             <cell>
                 <textbox value="@bind(vm.currentUser.email)"
                 constraint="/.+@.+\.[a-z]+/: Please enter an e-mail address"
@@ -42,26 +43,15 @@ ViewModel.
             </cell>
         </row>
         <row>
-            <cell sclass="row-title">Birthday :</cell>
+            ...
             <cell>
                 <datebox value="@bind(vm.currentUser.birthday)"
                     constraint="no future" width="200px"/>
             </cell>
         </row>
+...
         <row>
-            <cell sclass="row-title">Country :</cell>
-            <cell>
-                <listbox model="@load(vm.countryList)"
-                    selectedItem="@bind(vm.currentUser.country)"
-                        mold="select" width="200px">
-                    <template name="model">
-                        <listitem label="@load(each)" />
-                    </template>
-                </listbox>
-            </cell>
-        </row>
-        <row>
-            <cell sclass="row-title">Bio :</cell>
+            ...
             <cell>
                 <textbox value="@bind(vm.currentUser.bio)"
                     multiline="true" hflex="1" height="200px" />
@@ -72,8 +62,7 @@ ViewModel.
 ...
 ```
 
--   Line 12, 20, 28, 47: Use `@bind` to save user input back to the
-    ViewModel and load value from the ViewModel.
+# Save User Selection
 -   Line 36: Bind `selectedItem` to `vm.currentUser.country` and the
     selected country will be saved to `currentUser`.
 
