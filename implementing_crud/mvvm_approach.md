@@ -107,7 +107,7 @@ ViewModel with data binding expression.
 
 
 We can create a new todo item by either clicking the button with plus
-icon (![](Tutorial-ch6-plus.png "fig:Tutorial-ch6-plus.png")) or
+icon (![inline](Tutorial-ch6-plus.png "fig:Tutorial-ch6-plus.png")) or
 pressing the "Enter" key, therefore we can bind these two events to the
 same command method that adds a todo item.
 
@@ -448,5 +448,3 @@ expressions.
 After completing above steps, please visit
 http://localhost:8080/zkessentials/chapter4/todolist-mvvm.zul to see the
 result.
-
-

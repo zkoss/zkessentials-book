@@ -1,0 +1,10 @@
+/* gitbook includes this CSS file by default for the whole book.
+*/
+img{
+    display: block;
+    margin: auto;
+}
+
+img[alt="inline"]{
+    display: inline;
+}
