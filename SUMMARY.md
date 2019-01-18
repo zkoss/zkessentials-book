@@ -1,6 +1,7 @@
 # Summary
 
 * [Introduction](README.md)
+  * [Overview](overview.md)
   * [Project Structure](project_structure.md)
 * [1. User Interface and Layout](user_interface_and_layout/README.md)
   * [Build the View](user_interface_and_layout/build_the_view.md)
@@ -43,3 +44,4 @@
   * [Configuration](jpa_integration/configuration.md)
   * [DAO Implementation](jpa_integration/dao_implementation.md)
   * [Conclusion](jpa_integration/conclusion.md)
+
