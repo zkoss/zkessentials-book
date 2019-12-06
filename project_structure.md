@@ -2,10 +2,9 @@
 
 All source codes used in this book are available on [github](https://github.com/zkoss/zkessentials). As our example application has 3 different configurations, our source code is divided into 3 branches:
 
-![ center](images/ze-ch2-3branches.png)
-* [**zk8**](https://github.com/zkoss/zkessentials/tree/zk8): contains examples from chapter 1 to chapter 7.
-* [**zk8-spring**](https://github.com/zkoss/zkessentials/tree/zk8-spring): has examples integrated with Spring
-* [**zk8-jpa**](https://github.com/zkoss/zkessentials/tree/zk8-jpa): contains examples which integrate with Spring and
+* [**master**](https://github.com/zkoss/zkessentials/): contains examples from chapter 1 to chapter 7.
+* [**zk-spring**](https://github.com/zkoss/zkessentials/tree/zk-spring): has examples integrated with Spring
+* [**zk-jpa**](https://github.com/zkoss/zkessentials/tree/zk-jpa): contains examples which integrate with Spring and
 persiste data into a database with JPA.
 
 ![ center](images/ze-ch2-download-zip.png)
