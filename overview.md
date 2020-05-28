@@ -43,7 +43,7 @@ topic, and we introduce each chapter's topic with one or more example applicatio
 chapter's application and add more features. In the last chapter, the
 example application becomes close to a real application. The source code
 of the example applications can be downloaded through github, please
-refer to [Project Structure](./project_structure.html).
+refer to [Project Structure](./project_structure.md).
 
 Chapter 1, we introduce how to build a common layout which contains a
 header, a footer, and a sidebar.
