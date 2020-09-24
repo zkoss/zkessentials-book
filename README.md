@@ -1,1 +1,1 @@
-![](./images/ZK_Essentials_Bookcover.png)
+![](cover.jpg)
